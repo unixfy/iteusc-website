@@ -2,10 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-p>a {
+p > a {
     @apply link
 }
 
 .ct {
     @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 container
+}
+
+.section-heading {
+    @apply md:text-4xl lg:text-5xl text-3xl mb-4 font-semibold
+}
+
+.section-subheading {
+    @apply text-2xl md:text-3xl lg:text-4xl mb-4
+}
+
+.section {
+    @apply py-10 md:py-12
+}
+
+.cta-heading {
+    @apply sm:text-3xl md:text-4xl text-2xl mb-4 font-semibold
+}
+
+/* grid images on the homepage */
+.homepage-grid-image {
+    @apply aspect-video bg-cover bg-center md:grayscale hover:grayscale-0 transition-all flex p-4
+}
+
+/* grid text on the homepage */
+.homepage-grid-text {
+    @apply m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white font-bold text-lg
 }
