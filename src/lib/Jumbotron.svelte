@@ -28,8 +28,8 @@
 <div class="hero min-h-[50vh] bg-[url('/images/s-bahn.jpg')] text-white bg-fixed bg-cover bg-bottom">
     <div class="bg-black w-full h-full flex flex-col bg-opacity-40">
         <div class="hero-content m-auto flex-col text-center w-full">
-            <h1 class="text-4xl">USC Institute of Transportation Engineers</h1>
-            <h1 class="text-5xl font-bold">We are <span class="typed"></span></h1>
+            <h1 class="text-2xl md:text-3xl lg:text-4xl">USC Institute of Transportation Engineers</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold">We are <span class="typed"></span></h1>
             <div class="max-w-md">
                 <p class="pt-8">⬇ Scroll down to learn more</p>
             </div>
