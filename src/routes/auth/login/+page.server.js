@@ -11,13 +11,12 @@ export const actions = {
     default: async (event) => {
         const data = await event.request.formData();
 
-        signInWithEmailAndPassword(event.locals.auth, data.get('username'), data.get('password')).then((userCredential) => {
-            console.log('success')
-            return {
-                success: true
-            }
-        }).catch((error) => {
-            return fail(400, error.message);
-        });
+        try {
+            await signInWithEmailAndPassword(event.locals.auth, data.get('username'), data.get('password'));
+        } catch (error) {
+            return fail(400, {error: true, message: error.message});
+        }
+
+        throw redirect(302, '/admin');
     }
 }
