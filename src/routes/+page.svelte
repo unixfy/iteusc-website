@@ -94,7 +94,7 @@
         <h2 class="section-subheading">Check out what's going on.</h2>
         <!--    Google Calendar embed -->
         <iframe class="w-full min-h-[500px] md:aspect-video"
-                src="https://calendar.google.com/calendar/u/0/embed?src=iteusc@gmail.com&ctz=America/Los_Angeles"
+                src="https://calendar.google.com/calendar/embed?src=iteusc@gmail.com&ctz=America/Los_Angeles"
                 title="Google Calendar embed showing ITE USC events"></iframe>
 
         <a class="btn btn-block btn-primary btn-lg mt-8" href="/calendar/">Full calendar</a>
