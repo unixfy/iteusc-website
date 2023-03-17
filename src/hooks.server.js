@@ -23,7 +23,7 @@ const auth = getAuth(app);
 export async function handle({event, resolve}) {
     // Secure the admin pages on the server side
     if (event.url.pathname.startsWith('/admin') && !auth.currentUser) {
-        throw redirect(301, '/auth/login');
+        throw redirect(302, '/auth/login');
     }
 
     // Grab the current user + db interface, which will be passed to all load() child functions
