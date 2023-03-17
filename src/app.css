@@ -35,3 +35,11 @@ p > a {
 .homepage-grid-text {
     @apply m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white font-bold text-lg
 }
+
+.bg-usc-red {
+    @apply bg-[#990000]
+}
+
+.bg-ite-blue {
+    @apply bg-[#00688f]
+}

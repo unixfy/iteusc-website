@@ -3,7 +3,9 @@
     export let subtitle;
 </script>
 
-<div class="mb-8 py-8 border-b">
-    <h1 class="section-heading">{title}</h1>
-    <h2 class="section-subheading">{subtitle}</h2>
+<div class="mb-8 py-16 border-b bg-usc-red text-white">
+    <div class="ct">
+        <h1 class="section-heading">{title}</h1>
+        <h2 class="section-subheading">{subtitle}</h2>
+    </div>
 </div>

@@ -6,7 +6,7 @@
 <Jumbotron/>
 
 <!-- What is USC ITE? -->
-<div class="section bg-[#00688f] text-white">
+<div class="section bg-ite-blue text-white">
     <div class="ct flex flex-col space-y-4 text-xl">
         <h1 class="section-subheading font-bold">▶ We're shaping the future of transportation, supply chain, and
             technology.</h1>
@@ -58,7 +58,7 @@
 </div>
 
 <!-- Project listing -->
-<div class="section bg-[#990000] text-white">
+<div class="section bg-usc-red text-white">
     <div class="ct">
         <h1 class="section-heading">Projects</h1>
         <h2 class="section-subheading">Take a look at what we're working on.</h2>
