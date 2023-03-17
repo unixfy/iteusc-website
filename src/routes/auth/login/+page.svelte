@@ -26,7 +26,7 @@
                     <span class="label-text">Username</span>
                 </label>
                 <input type="email" placeholder="admin@iteusc.com" class="input input-bordered w-full" id="username"
-                       name="username"/>
+                       name="username" required/>
             </div>
             <!--        Pw input -->
             <div class="form-control">
@@ -34,7 +34,7 @@
                     <span class="label-text">Password</span>
                 </label>
                 <input type="password" placeholder="Password" class="input input-bordered w-full" id="password"
-                       name="password"/>
+                       name="password" required/>
             </div>
 
             <button class="btn btn-primary btn-lg">Submit</button>
