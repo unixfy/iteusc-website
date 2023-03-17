@@ -28,6 +28,7 @@ export async function handle({event, resolve}) {
 
     // Grab the current user + db interface, which will be passed to all load() child functions
     event.locals.user = auth.currentUser;
+    event.locals.auth = auth;
     event.locals.database = database;
 
     return await resolve(event);
