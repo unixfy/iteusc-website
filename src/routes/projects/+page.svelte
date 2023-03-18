@@ -4,7 +4,7 @@
 
 <PageHeader title="Our Projects" subtitle="How we're impacting the world of transportation."></PageHeader>
 <div class="ct">
-    <div class="grid md:grid-cols-3 mb-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 mb-8">
         {#each Array(12) as arr}
             <label for="project-modal">
                 <div class="card card-compact bg-base-100 border hover:shadow-xl my-4 mx-8 hover:scale-[1.05] transition-all hover:bg-gray-100 hover:cursor-pointer">
