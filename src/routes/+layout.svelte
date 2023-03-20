@@ -10,6 +10,7 @@
 
 <svelte:head>
     <!--    Interpolate page title if it's returned in each page's load() function, otherwise just show the value of defaultTitle -->
+    <!--    This pattern of handling it ensures things will work even when JavaScript is not enabled in the client -->
     <title>{$page.data.title || defaultTitle} | USC ITE</title>
     <!--    Interpolate page meta description if it's returned in the page's load() function, otherwise just return defaultMetaDescription. -->
     <meta name="description"
