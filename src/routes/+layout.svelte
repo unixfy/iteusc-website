@@ -15,6 +15,11 @@
     <!--    Interpolate page meta description if it's returned in the page's load() function, otherwise just return defaultMetaDescription. -->
     <meta name="description"
           content="{$page.data.description || defaultDescription}"/>
+
+    <!--    Send the meta tag that blocks robots from indexing, if we specify that this tag should be sent in page load() function -->
+    {#if $page.data.noIndex}
+        <meta name="robots" content="noindex, nofollow"/>
+    {/if}
 </svelte:head>
 
 <!--Insert Navbar component-->
