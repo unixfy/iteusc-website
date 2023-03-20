@@ -10,4 +10,9 @@ export async function load({locals}) {
     });
 
     throw redirect(302, '/auth/login');
+
+    return {
+        // Do not allow search engines to index this page
+        noIndex: true
+    }
 }

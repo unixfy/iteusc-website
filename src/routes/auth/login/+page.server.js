@@ -5,6 +5,10 @@ export async function load({locals}) {
     if (locals.user) {
         throw redirect(302, '/admin');
     }
+    return {
+        // Do not allow search engines to index this page
+        noIndex: true
+    }
 }
 
 export const actions = {

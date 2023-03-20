@@ -4,6 +4,8 @@ export async function load({locals}) {
     console.log(locals.user.toJSON())
     return {
         user: locals.user.toJSON(),
-        title: "Admin Page"
+        title: "Admin Page",
+        // Do not allow search engines to index this page
+        noIndex: true
     }
 }
