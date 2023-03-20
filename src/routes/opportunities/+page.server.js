@@ -18,6 +18,7 @@ export async function load({locals}) {
     );
 
     return {
-        opportunities: opportunitiesList
+        opportunities: opportunitiesList,
+        title: "Opportunities"
     }
 }
