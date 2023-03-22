@@ -10,7 +10,7 @@
 <div class="ct pb-8">
     <div class="flex flex-col space-y-4">
         {#each data.opportunities as opportunity}
-            <div class="card card-side bg-base-100 border">
+            <div class="card card-side bg-base-200 border border-base-300">
                 <div class="card-body">
                     <h2 class="card-title">{opportunity.title}</h2>
                     <div>

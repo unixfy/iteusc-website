@@ -75,7 +75,7 @@
 
         <div class="flex grid md:grid-cols-3">
             {#each teamMembers as teamMember}
-                <div class="card bg-base-100 border max-w-[16rem] justify-self-center m-4 hover:md:scale-[1.05] transition-all">
+                <div class="card bg-base-100 border border-base-content max-w-[16rem] justify-self-center m-4 hover:md:scale-[1.05] transition-all">
                     <figure><img src="/team/{teamMember.image}" class="aspect-square object-cover"
                                  alt="Shoes"/>
                     </figure>

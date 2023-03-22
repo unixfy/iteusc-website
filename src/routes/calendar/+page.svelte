@@ -5,7 +5,7 @@
 <PageHeader title="Events Calendar" subtitle="See what's going on at USC ITE."></PageHeader>
 
 <div class="ct">
-    <div class="alert alert-info">
+    <div class="alert alert-info text-info-content">
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  class="stroke-current flex-shrink-0 w-6 h-6">

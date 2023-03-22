@@ -16,7 +16,7 @@
         </div>
     {/if}
 
-    <div class="border rounded-md p-8 m-auto">
+    <div class="border border-base-200 rounded-md p-8 m-auto">
         <h1 class="text-2xl">👋 Hello! Please sign in</h1>
 
         <form class="flex flex-col space-y-4" method="POST">

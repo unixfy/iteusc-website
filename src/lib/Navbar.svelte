@@ -22,7 +22,7 @@
         },
     ]
 </script>
-<div class="bg-gray-100">
+<div class="bg-base-200">
     <div class="ct navbar">
         <div class="navbar-start">
             <div class="dropdown">
