@@ -57,7 +57,7 @@
                     </li>
                 {/each}
             </ul>
-            <a class="btn" href="/join/">Join Us</a>
+            <a class="btn btn-primary" href="/join/">Join Us</a>
         </div>
     </div>
 
