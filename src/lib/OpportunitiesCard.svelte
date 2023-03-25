@@ -7,7 +7,7 @@
     export let opportunity;
 </script>
 
-<div class="card card-side bg-base-100 border">
+<div class="card card-side bg-base-200 border border-base-300">
     <div class="card-body">
         <h2 class="card-title">{opportunity.title}</h2>
         <div>
