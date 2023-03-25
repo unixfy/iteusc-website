@@ -1,6 +1,35 @@
 <script>
     import Jumbotron from "$lib/Jumbotron.svelte";
     import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
+    import GridImageCard from "$lib/GridImageCard.svelte";
+
+    //     array of objects  with images of events to be displayed in photo grid
+    let gridImages = [
+        {
+            "image": "atsac.jpg",
+            "text": "LA Department of Transportation site tour"
+        },
+        {
+            "image": "esri-redlands.jpg",
+            "text": "Esri headquarters site tour"
+        },
+        {
+            "image": "roberts-speaker-series.jpg",
+            "text": "Speaker series with Caltrans District 7 director"
+        },
+        {
+            "image": "sls23.jpg",
+            "text": "2023 ITE Student Leadership Summit conference"
+        },
+        {
+            "image": "sls23-volunteers.jpg",
+            "text": "2023 ITE Student Leadership Summit conference"
+        },
+        {
+            "image": "trapac.jpg",
+            "text": "Port of Los Angeles site tour"
+        }
+    ]
 </script>
 
 <!-- Page jumbotron -->
@@ -23,40 +52,12 @@
 </div>
 
 <!-- Photos of ITE events -->
-<div class="">
-    <div class="grid md:grid-rows-2 md:grid-cols-3">
-        <div class="bg-[url('/images/atsac.jpg')] homepage-grid-image">
-            <div class="homepage-grid-text">
-                <p>LA Department of Transportation site tour</p>
-            </div>
-        </div>
-        <div class="bg-[url('/images/esri-redlands.jpg')] homepage-grid-image">
-            <div class="homepage-grid-text">
-                <p class="text-white font-bold text-lg">Esri headquarters site tour</p>
-            </div>
-        </div>
-        <div class="bg-[url('/images/roberts-speaker-series.jpg')] homepage-grid-image">
-            <div class="homepage-grid-text">
-                <p class="text-white font-bold text-lg">Speaker series with Caltrans District 7 director</p>
-            </div>
-        </div>
-        <div class="bg-[url('/images/sls23.jpg')] homepage-grid-image">
-            <div class="homepage-grid-text">
-                <p class="text-white font-bold text-lg">2023 ITE Student Leadership Summit conference</p>
-            </div>
-        </div>
-        <div class="bg-[url('/images/sls23-volunteers.jpg')] homepage-grid-image">
-            <div class="homepage-grid-text">
-                <p class="text-white font-bold text-lg">2023 ITE Student Leadership Summit conference</p>
-            </div>
-        </div>
-        <div class="bg-[url('/images/trapac.jpg')] homepage-grid-image">
-            <div class="homepage-grid-text">
-                <p class="text-white font-bold text-lg">Port of Los Angeles site tour</p>
-            </div>
-        </div>
-    </div>
+<div class="grid md:grid-rows-2 md:grid-cols-3">
+    {#each gridImages as image}
+        <GridImageCard image={image.image} text={image.text}/>
+    {/each}
 </div>
+
 
 <!-- Project listing -->
 <div class="section bg-usc-red text-white">
