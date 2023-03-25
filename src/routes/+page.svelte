@@ -1,5 +1,6 @@
 <script>
     import Jumbotron from "$lib/Jumbotron.svelte";
+    import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
 </script>
 
 <!-- Page jumbotron -->
@@ -93,11 +94,9 @@
         <h1 class="section-heading">Events</h1>
         <h2 class="section-subheading">Check out what's going on.</h2>
         <!--    Google Calendar embed -->
-        <iframe class="w-full min-h-[500px] md:aspect-video"
-                src="https://calendar.google.com/calendar/embed?src=iteusc@gmail.com&ctz=America/Los_Angeles"
-                title="Google Calendar embed showing ITE USC events"></iframe>
+        <GoogleCalendarEmbed minheight="500px"/>
 
-        <a class="btn btn-block btn-primary btn-lg mt-8" href="/calendar/">Full calendar</a>
+        <a class="btn btn-block btn-primary btn-lg" href="/calendar/">Full calendar</a>
     </div>
 </div>
 

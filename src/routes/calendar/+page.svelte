@@ -1,5 +1,6 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
+    import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
 </script>
 
 <PageHeader title="Events Calendar" subtitle="See what's going on at USC ITE."></PageHeader>
@@ -16,7 +17,5 @@
         </div>
     </div>
 
-    <iframe class="w-full min-h-[500px] md:aspect-video my-8"
-            src="https://calendar.google.com/calendar/embed?src=iteusc@gmail.com&ctz=America/Los_Angeles"
-            title="Google Calendar embed showing ITE USC events"></iframe>
+    <GoogleCalendarEmbed minheight="500px"/>
 </div>
