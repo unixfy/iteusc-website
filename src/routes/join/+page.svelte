@@ -15,5 +15,8 @@
         <li class="step">We'll reach out with more info</li>
         <li class="step">Success!</li>
     </ul>
-    <iframe class="min-h-[100vh]" src="https://forms.gle/TQKCiMyscURNHgGMA" title="Google Form to subscribe to ITE newsletter"></iframe>
+
+    <!--    Google Form iframe -->
+    <iframe class="min-h-[100vh]" src="https://forms.gle/TQKCiMyscURNHgGMA"
+            title="Google Form to subscribe to ITE newsletter"></iframe>
 </div>
