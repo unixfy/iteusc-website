@@ -25,6 +25,7 @@
 <div class="bg-base-200">
     <div class="ct navbar">
         <div class="navbar-start">
+            <!--            Mobile menu -->
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -42,13 +43,15 @@
                     {/each}
                 </ul>
             </div>
-            <!--        long name on desktop, short name on mobile-->
+            <!--        display long name on desktop, short name on mobile-->
             <a class="btn btn-ghost normal-case text-xl hidden lg:flex" href="/">USC Institute of Transportation
                 Engineers</a>
             <a class="btn btn-ghost normal-case text-xl lg:hidden" href="/">USC ITE</a>
         </div>
+        <!--        Area to put stuff that should be at the middle of the navbar-->
         <div class="navbar-center hidden lg:flex">
         </div>
+        <!--        End of navbar (right side) - we put our navbar links here -->
         <div class="navbar-end">
             <ul class="hidden lg:flex menu menu-horizontal px-1">
                 {#each navbarItems as navbarItem}
@@ -57,6 +60,7 @@
                     </li>
                 {/each}
             </ul>
+            <!--            Special "join us" button -->
             <a class="btn btn-primary" href="/join/">Join Us</a>
         </div>
     </div>
