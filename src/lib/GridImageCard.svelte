@@ -4,7 +4,12 @@
     // text description overlaid on image
     export let text;
 </script>
-<div class="bg-[url('/images/{image}')] homepage-grid-image">
+
+<!-- Note: Must use style tag to specify the background image because treeshaking means custom Tailwind classes won't be included in prod css -->
+<div
+    class="homepage-grid-image"
+    style="background-image: url('/images/{image}');"
+>
     <div class="homepage-grid-text">
         <p>{text}</p>
     </div>
