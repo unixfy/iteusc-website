@@ -1,4 +1,4 @@
-import { getApps, initializeApp } from "firebase-admin/app";
+import { getApps, initializeApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
 import {
@@ -6,7 +6,6 @@ import {
   FIREBASE_ADMIN_CLIENT_EMAIL,
 } from "$env/static/private";
 import { PUBLIC_FIREBASE_PROJECT_ID } from "$env/static/public";
-import {credential} from "firebase-admin";
 
 // Function to initialize Firebase app
 function initApp() {
@@ -21,7 +20,7 @@ function initApp() {
     return initializeApp({
         // allows us to initiailize the admin SDK with our service account, without having to upload the default JSON file
         // with private key that Firebase generates for a service account
-        credential: credential.cert({
+        credential: cert({
             privateKey: FIREBASE_ADMIN_PRIVATE_KEY,
             clientEmail: FIREBASE_ADMIN_CLIENT_EMAIL,
             projectId: PUBLIC_FIREBASE_PROJECT_ID
