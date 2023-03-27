@@ -1,11 +1,11 @@
 import { auth } from './client'
 import { writable } from "svelte/store";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut as firebaseSignOut } from "firebase/auth";
 
 export const user = writable(null);
 
 export async function signOut() {
-    return auth.signOut();
+    await firebaseSignOut(auth);
 }
 
 

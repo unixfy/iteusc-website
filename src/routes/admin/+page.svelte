@@ -1,5 +1,6 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
+    import {signOut} from "$lib/firebase/auth.js";
 
     export let data;
 </script>
@@ -14,7 +15,7 @@
         <!--        Display name change -->
 
 <!--        Sign out button -->
-        <a href="/auth/logout" class="btn btn-primary">Sign out</a>
+        <button class="btn btn-primary" on:click={() => signOut()}>Sign out</button>
 
     </div>
 </div>

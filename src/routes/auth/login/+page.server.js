@@ -10,17 +10,3 @@ export async function load({locals}) {
         noIndex: true
     }
 }
-
-export const actions = {
-    default: async (event) => {
-        const data = await event.request.formData();
-
-        try {
-            await signInWithEmailAndPassword(event.locals.auth, data.get('username'), data.get('password'));
-        } catch (error) {
-            return fail(400, {error: true, message: error.message});
-        }
-
-        throw redirect(302, '/admin');
-    }
-}

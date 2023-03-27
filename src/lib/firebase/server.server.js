@@ -1,4 +1,4 @@
-import { cert, getApps, initializeApp } from "firebase-admin/app";
+import { getApps, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
 import {
@@ -6,6 +6,7 @@ import {
   FIREBASE_ADMIN_CLIENT_EMAIL,
 } from "$env/static/private";
 import { PUBLIC_FIREBASE_PROJECT_ID } from "$env/static/public";
+import {credential} from "firebase-admin";
 
 // Function to initialize Firebase app
 function initApp() {

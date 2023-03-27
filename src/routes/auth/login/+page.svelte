@@ -1,5 +1,10 @@
 <script>
+    import {signIn} from "$lib/firebase/auth.js";
+
     export let form;
+
+    let username;
+    let password;
 </script>
 
 <div class="ct flex flex-col p-8 space-y-8">
@@ -19,14 +24,14 @@
     <div class="border border-base-200 rounded-md p-8 m-auto">
         <h1 class="text-2xl">👋 Hello! Please sign in</h1>
 
-        <form class="flex flex-col space-y-4" method="POST">
+        <form class="flex flex-col space-y-4">
             <!--        Username input-->
             <div class="form-control">
                 <label class="label" for="username">
                     <span class="label-text">Username</span>
                 </label>
                 <input type="email" placeholder="admin@iteusc.com" class="input input-bordered w-full" id="username"
-                       name="username" required/>
+                       name="username" required bind:value={username}/>
             </div>
             <!--        Pw input -->
             <div class="form-control">
@@ -34,10 +39,10 @@
                     <span class="label-text">Password</span>
                 </label>
                 <input type="password" placeholder="Password" class="input input-bordered w-full" id="password"
-                       name="password" required/>
+                       name="password" required bind:value={password}/>
             </div>
 
-            <button class="btn btn-primary btn-lg">Submit</button>
+            <button class="btn btn-primary btn-lg" on:click={signIn(username, password)}>Submit</button>
         </form>
 
     </div>
