@@ -1,21 +1,30 @@
 import {ref, get, query, orderByKey} from "firebase/database";
+import {firestore} from "$lib/firebase/server.server";
 
-export async function load({locals}) {
-    const db = locals.database;
-    const snapshot = ref(db, 'internships');
+export async function load() {
+    // Create reference to 'opportunities' collection in Firestore
+    const opportunitiesRef = firestore.collection('opportunities');
 
     // this array will be filled up with all our opportunities by our Firebase query
     let opportunitiesList = [];
 
-    // firebase realtime DB is really stupid, so we need to iterate over every. single. child. and get details from there :/
-    // why no shallow queries???
-    const data = await get(query(snapshot, orderByKey())).then((snapshot) =>
-        // iterate over each child in the snapshot and grab its data
-        snapshot.forEach((childSnapshot) => {
-            const childData = childSnapshot.val();
-            opportunitiesList.push(childData);
-        })
-    );
+    // Query our PUBLISHED opportunities from the collection
+    let opportunitiesQuery = await opportunitiesRef.where('published', '==', true).get();
+
+    for (const doc of opportunitiesQuery.docs) {
+        console.log(doc)
+        // firebase firestore is a bit stupid, so we need to iterate over every. single. child. and get details from there :/
+        // iterate over each opportunity, grab its data, and append it to opportunitiesList
+        const opportunity = doc.data();
+
+        // must transform timestamp fields in our DB on our own, explicitly
+        opportunity.deadline = opportunity.deadline.toDate().toDateString();
+        opportunity.createdAt = opportunity.createdAt.toDate();
+        opportunity.updatedAt = opportunity.updatedAt.toDate();
+
+        // Force stringify everything with JSON before returning to prevent any non-POJOs that get through and cause 500s
+        opportunitiesList.push(JSON.parse(JSON.stringify(opportunity)));
+    }
 
     return {
         opportunities: opportunitiesList,
