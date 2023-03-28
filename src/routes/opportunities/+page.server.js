@@ -1,4 +1,3 @@
-import {ref, get, query, orderByKey} from "firebase/database";
 import {firestore} from "$lib/firebase/server.server";
 
 export async function load() {
