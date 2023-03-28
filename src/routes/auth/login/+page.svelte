@@ -1,14 +1,25 @@
 <script>
-    import {signIn} from "$lib/firebase/auth.js";
-
-    export let form;
+    import {auth} from "$lib/firebase/client.js";
+    import {signInWithEmailAndPassword} from "firebase/auth";
 
     let username;
     let password;
+
+    // Store any error message, to be shown when an error occurs (i.e., when error is truthy)
+    let error = '';
+
+    async function submitSignIn(username, password) {
+        try {
+            await signInWithEmailAndPassword(auth, username, password)
+            window.location.href = '/admin';
+        } catch (e) {
+            error = e;
+        }
+    }
 </script>
 
 <div class="ct flex flex-col p-8 space-y-8">
-    {#if form?.error === true}
+    {#if error}
         <div class="alert alert-error">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
@@ -16,7 +27,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                <span>Login failed. {form?.message}</span>
+                <span>Login failed. {error}</span>
             </div>
         </div>
     {/if}
@@ -42,7 +53,7 @@
                        name="password" required bind:value={password}/>
             </div>
 
-            <button class="btn btn-primary btn-lg" on:click={signIn(username, password)}>Submit</button>
+            <button class="btn btn-primary btn-lg" on:click={() => submitSignIn(username, password)}>Submit</button>
         </form>
 
     </div>
