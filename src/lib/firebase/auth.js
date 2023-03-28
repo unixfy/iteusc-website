@@ -6,6 +6,9 @@ export const user = writable(null);
 
 export async function signOut() {
     await firebaseSignOut(auth);
+
+    // Force the user to (hard) navigate to login page after sign out is completed
+    window.location.href = '/auth/login';
 }
 
 
