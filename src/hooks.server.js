@@ -38,5 +38,9 @@ export async function handle({event, resolve}) {
         throw redirect(302, '/auth/login');
     }
 
+    if (event.url.pathname === '/auth/login' && event.locals.user) {
+        throw redirect(302, '/admin');
+    }
+
     return await resolve(event);
 }
