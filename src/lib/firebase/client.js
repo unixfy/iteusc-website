@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import {getFirestore} from "firebase/firestore";
 import {
     PUBLIC_FIREBASE_PROJECT_ID,
     PUBLIC_FIREBASE_API_KEY,
