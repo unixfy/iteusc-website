@@ -34,3 +34,4 @@ function initApp() {
 // now return firebase client app instance, and auth for use in other components
 export const firebase = initApp();
 export const auth = getAuth(firebase);
+export const firestore = getFirestore(firebase);
