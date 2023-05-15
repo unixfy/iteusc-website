@@ -11,7 +11,6 @@ export async function load() {
     let opportunitiesQuery = await opportunitiesRef.where('published', '==', true).get();
 
     for (const doc of opportunitiesQuery.docs) {
-        console.log(doc)
         // firebase firestore is a bit stupid, so we need to iterate over every. single. child. and get details from there :/
         // iterate over each opportunity, grab its data, and append it to opportunitiesList
         const opportunity = doc.data();
