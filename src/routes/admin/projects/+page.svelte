@@ -34,7 +34,9 @@
     <input type="checkbox" id="create-modal" class="modal-toggle"/>
     <div class="modal">
         <div class="modal-box space-y-4">
-            <form class="flex flex-col space-y-4" id="create-form" action="?/create" method="post">
+            <!--            MUST be encoded as multipart/form-data for the file upload to actually work  -->
+            <form class="flex flex-col space-y-4" id="create-form" action="?/create" method="post"
+                  enctype="multipart/form-data">
                 <!--                Title -->
                 <div class="form-control w-full">
                     <label class="label">
