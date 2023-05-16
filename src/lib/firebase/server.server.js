@@ -28,12 +28,13 @@ function initApp() {
         }),
         // databse URL for Cloud Firestore
         databaseURL: `https://${PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
+        storageBucket: "iteusc-website.appspot.com",
     })
 }
 
 // now return firebase admin app instance, auth, and firestore for use in other components
 export const firebase = initApp();
-export const auth = getAuth(firebase);
+export const auth = getAuth();
 // see reference for the firestore sdk here: https://googleapis.dev/nodejs/firestore/latest/Firestore.html
 export const firestore = getFirestore();
-export const storage = getStorage();
+export const storage = getStorage().bucket();
