@@ -1,14 +1,15 @@
-import {firestore} from "$lib/firebase/server.server";
+import {firestore} from "$lib/firebase/client";
+import {collection, addDoc, doc, updateDoc, deleteDoc, getDocs} from "firebase/firestore";
 
 export async function load() {
     // Create reference to 'projects' collection in Firestore
-    const ref = firestore.collection('projects');
+    const ref = collection(firestore, 'projects');
 
     // this array will be filled up with all our opportunities by our Firebase query
     let list = [];
 
     // Query all projects from the collection
-    let query = await ref.get();
+    let query = await getDocs(ref);
 
     for (const doc of query.docs) {
         // firebase firestore is a bit stupid, so we need to iterate over every. single. child. and get details from there :/
