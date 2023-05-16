@@ -28,7 +28,7 @@ function initApp() {
         }),
         // databse URL for Cloud Firestore
         databaseURL: `https://${PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
-        storageBucket: "iteusc-website.appspot.com",
+        storageBucket: `${PUBLIC_FIREBASE_PROJECT_ID}.appspot.com`,
     })
 }
 
