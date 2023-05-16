@@ -1,30 +1,9 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
-    import {doc, deleteDoc} from "firebase/firestore";
-    import {firestore} from "$lib/firebase/client";
-    import {invalidateAll} from "$app/navigation";
 
     export let form;
 
     export let data;
-
-    function createProj() {
-
-    }
-
-    function editProj(id) {
-
-    }
-
-    function deleteProj(id) {
-        const ref = doc(firestore, "projects", id);
-        deleteDoc(ref).then(() => {
-            // Forces the load() function to run again, thanks SvelteKit
-            invalidateAll();
-        }).catch((error) => {
-            console.error("Error removing document: ", error);
-        });
-    }
 </script>
 
 <PageHeader title="Manage Projects" subtitle="Create/read/update/delete projects on this site"/>
