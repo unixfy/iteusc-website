@@ -1,4 +1,4 @@
-import {firestore} from "$lib/firebase/server.server.js";
+import {firestore, storage} from "$lib/firebase/server.server.js";
 import {fail} from "@sveltejs/kit";
 
 export const actions = {
@@ -6,6 +6,7 @@ export const actions = {
         const data = await request.formData();
         const ref = firestore.collection('projects')
 
+        const storageRef = storage.ref("images/projects/");
         try {
             await ref.add({
                 name: data.get('title'),
@@ -17,7 +18,7 @@ export const actions = {
                 image: "https://storage.googleapis.com"
             })
         } catch (error) {
-            return fail(400, {error: error})
+            return fail(400, {error: error.toString()})
         }
 
         return {
@@ -32,7 +33,7 @@ export const actions = {
         try {
             await ref.delete()
         } catch (error) {
-            return fail(400, {error: error})
+            return fail(400, {error: error.toString()})
         }
 
         return {success: true}
@@ -50,7 +51,7 @@ export const actions = {
                 updatedAt: new Date(), // i.e., now
             })
         } catch (error) {
-            return fail(400, {error: error})
+            return fail(400, {error: error.toString()})
         }
 
         return {
