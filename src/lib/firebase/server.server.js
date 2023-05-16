@@ -1,11 +1,12 @@
-import { getApps, initializeApp, cert } from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
-import { getAuth } from "firebase-admin/auth";
+import {getApps, initializeApp, cert} from "firebase-admin/app";
+import {getStorage} from "firebase-admin/storage";
+import {getFirestore} from "firebase-admin/firestore";
+import {getAuth} from "firebase-admin/auth";
 import {
-  FIREBASE_ADMIN_PRIVATE_KEY,
-  FIREBASE_ADMIN_CLIENT_EMAIL,
+    FIREBASE_ADMIN_PRIVATE_KEY,
+    FIREBASE_ADMIN_CLIENT_EMAIL,
 } from "$env/static/private";
-import { PUBLIC_FIREBASE_PROJECT_ID } from "$env/static/public";
+import {PUBLIC_FIREBASE_PROJECT_ID} from "$env/static/public";
 
 // Function to initialize Firebase app
 function initApp() {
@@ -35,3 +36,4 @@ export const firebase = initApp();
 export const auth = getAuth(firebase);
 // see reference for the firestore sdk here: https://googleapis.dev/nodejs/firestore/latest/Firestore.html
 export const firestore = getFirestore();
+export const storage = getStorage();
