@@ -11,15 +11,23 @@
 <div class="ct">
     <!--    Success/failure messages -->
     {#if form?.success}
-        Success!
+        <div class="alert alert-success my-8">
+            <div>
+                <span class="font-bold">Success! </span> Your action succeeded.
+            </div>
+        </div>
     {/if}
     {#if form?.error}
-        {form?.error}
+        <div class="alert alert-error my-8">
+            <div>
+                <span class="font-bold">Error! </span> Your action failed: {form?.error}
+            </div>
+        </div>
     {/if}
 
     <!--    "Create new project" button -->
     <div class="flex justify-end">
-        <label for="create-modal" class="btn btn-primary">Create new project</label>
+        <label for="create-modal" class="btn btn-primary mb-4">Create new project</label>
     </div>
 
     <!--    Create new project modal -->
