@@ -1,5 +1,5 @@
 import {firestore} from "$lib/firebase/client";
-import {collection, addDoc, doc, updateDoc, deleteDoc, getDocs} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore";
 
 export async function load() {
     // Create reference to 'projects' collection in Firestore

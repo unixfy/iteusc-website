@@ -1,7 +1,29 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
+    import {doc, deleteDoc} from "firebase/firestore";
+    import {firestore} from "$lib/firebase/client";
+    import {onMount} from "svelte";
+    import {invalidateAll} from "$app/navigation";
 
     export let data;
+
+    function createProj() {
+
+    }
+
+    function editProj(id) {
+
+    }
+
+    function deleteProj(id) {
+        const ref = doc(firestore, "projects", id);
+        deleteDoc(ref).then(() => {
+            console.log("Document successfully deleted!");
+            invalidateAll();
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+    }
 </script>
 
 <PageHeader title="Manage Projects" subtitle="Create/read/update/delete projects on this site"/>
@@ -84,19 +106,12 @@
                     <div class="modal-box space-y-4">
                         <p>Are you sure you want to delete this project "{project.name}"?</p>
                         <div class="modal-buttons">
-                            <label for="delete-confirm-modal-{project.id}">
-                                <button type="submit" form="delete-form-{project.id}" class="btn btn-primary">Yes
-                                </button>
-                            </label>
+                            <label for="delete-confirm-modal-{project.id}" class="btn btn-primary"
+                                   on:click={deleteProj(project.id)}>Yes</label>
                             <label for="delete-confirm-modal-{project.id}" class="btn btn-error">No</label>
                         </div>
                     </div>
                 </div>
-                <!--                Form to store data to be sent when the delete confirm button is clicked -->
-                <form action="" method="post" id="delete-form-{project.id}">
-                    <input type="hidden" name="id" value="{project.id}"/>
-                    <input type="hidden" name="action" value="delete"/>
-                </form>
 
             {/each}
             </tbody>
