@@ -2,8 +2,9 @@
     import PageHeader from "$lib/PageHeader.svelte";
     import {doc, deleteDoc} from "firebase/firestore";
     import {firestore} from "$lib/firebase/client";
-    import {onMount} from "svelte";
     import {invalidateAll} from "$app/navigation";
+
+    export let form;
 
     export let data;
 
@@ -18,7 +19,7 @@
     function deleteProj(id) {
         const ref = doc(firestore, "projects", id);
         deleteDoc(ref).then(() => {
-            console.log("Document successfully deleted!");
+            // Forces the load() function to run again, thanks SvelteKit
             invalidateAll();
         }).catch((error) => {
             console.error("Error removing document: ", error);
@@ -29,6 +30,14 @@
 <PageHeader title="Manage Projects" subtitle="Create/read/update/delete projects on this site"/>
 
 <div class="ct">
+    <!--    Success/failure messages -->
+    {#if form?.success}
+        Success!
+    {/if}
+    {#if form?.error}
+        {form?.error}
+    {/if}
+
     <!--    "Create new project" button -->
     <div class="flex justify-end">
         <label for="create-modal" class="btn btn-primary">Create new project</label>
@@ -38,8 +47,48 @@
     <input type="checkbox" id="create-modal" class="modal-toggle"/>
     <div class="modal">
         <div class="modal-box space-y-4">
+            <form class="flex flex-col space-y-4" id="create-form" action="?/create" method="post">
+                <!--                Title -->
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text">Title</span>
+                        <span class="label-text-alt">A title for this project</span>
+                    </label>
+                    <input type="text" name="title" placeholder="Type here" class="input input-bordered w-full"
+                           required/>
+                </div>
+                <!--                Description -->
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text">Description</span>
+                        <span class="label-text-alt">A description for this project</span>
+                    </label>
+                    <input type="text" name="description" placeholder="Type here" class="input input-bordered w-full"
+                           required/>
+                </div>
+
+                <!--                Upload associated image -->
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text">Pick a header image</span>
+                        <span class="label-text-alt">Ideally 16:9, must be an image</span>
+                    </label>
+                    <input type="file" name="imageFile" class="file-input file-input-bordered w-full" accept="image/*"
+                           required/>
+                </div>
+
+                <!--                Published? -->
+                <div class="form-control">
+                    <label class="label cursor-pointer">
+                        <span class="label-text">Published?</span>
+                        <input type="checkbox" class="toggle" name="published" value="true" checked/>
+                    </label>
+                </div>
+            </form>
+
             <label for="create-modal">
-                <button type="submit" form="create-form" class="btn btn-primary">Create</button>
+                <button type="submit" form="create-form" class="btn btn-primary">Create
+                </button>
             </label>
             <label for="create-modal" class="btn btn-secondary">Cancel</label>
         </div>
@@ -91,8 +140,41 @@
                 <input type="checkbox" id="edit-modal-{project.id}" class="modal-toggle"/>
                 <div class="modal">
                     <div class="modal-box space-y-4">
+                        <form class="flex flex-col space-y-4" id="edit-form-{project.id}" action="?/edit" method="post">
+                            <!--                Title -->
+                            <div class="form-control w-full">
+                                <label class="label">
+                                    <span class="label-text">Title</span>
+                                    <span class="label-text-alt">A title for this project</span>
+                                </label>
+                                <input type="text" name="title" value="{project.name}"
+                                       class="input input-bordered w-full" required/>
+                            </div>
+                            <!--                Description -->
+                            <div class="form-control w-full">
+                                <label class="label">
+                                    <span class="label-text">Description</span>
+                                    <span class="label-text-alt">A description for this project</span>
+                                </label>
+                                <input type="text" name="description" value="{project.description}"
+                                       class="input input-bordered w-full" required/>
+                            </div>
+
+                            <!--                Published? -->
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Published?</span>
+                                    <input type="checkbox" class="toggle" name="published" value="true"
+                                           bind:checked="{project.published}"/>
+                                </label>
+                            </div>
+
+                            <!--                            Hidden input to store the item ID -->
+                            <input type="hidden" name="id" value="{project.id}"/>
+                        </form>
+
                         <label for="edit-modal-{project.id}">
-                            <button type="submit" form="delete-form-{project.id}" class="btn btn-primary">Edit
+                            <button type="submit" form="edit-form-{project.id}" class="btn btn-primary">Edit
                             </button>
                         </label>
                         <label for="edit-modal-{project.id}" class="btn btn-secondary">Cancel</label>
@@ -106,12 +188,18 @@
                     <div class="modal-box space-y-4">
                         <p>Are you sure you want to delete this project "{project.name}"?</p>
                         <div class="modal-buttons">
-                            <label for="delete-confirm-modal-{project.id}" class="btn btn-primary"
-                                   on:click={deleteProj(project.id)}>Yes</label>
+                            <label for="delete-confirm-modal-{project.id}">
+                                <button type="submit" form="delete-form-{project.id}" class="btn btn-primary">Yes
+                                </button>
+                            </label>
                             <label for="delete-confirm-modal-{project.id}" class="btn btn-error">No</label>
                         </div>
                     </div>
                 </div>
+                <!--                Form to store deletion data -->
+                <form action="?/delete" method="post" id="delete-form-{project.id}">
+                    <input type="hidden" name="id" value="{project.id}"/>
+                </form>
 
             {/each}
             </tbody>
