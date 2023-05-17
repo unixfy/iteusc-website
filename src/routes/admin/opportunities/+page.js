@@ -1,14 +1,14 @@
 import {firestore} from "$lib/firebase/client";
-import {collection, getDocs, where, query} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore";
 
 export async function load() {
-    // Create reference to 'projects' collection in Firestore
-    const ref = query(collection(firestore, 'opportunities'), where('published', '==', true));
+    // Create reference to 'opportunities' collection in Firestore
+    const ref = collection(firestore, 'opportunities');
 
     // this array will be filled up with all our data by our Firebase query
     let list = [];
 
-    // Query all projects from the collection
+    // Query all opportunities from the collection
     let documents = await getDocs(ref);
 
     for (const doc of documents.docs) {
@@ -30,6 +30,6 @@ export async function load() {
 
     return {
         opportunities: list,
-        title: "Opportunities"
+        title: "Opportunities Admin"
     }
 }
