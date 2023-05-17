@@ -5,7 +5,7 @@ export async function load() {
     // Create reference to 'projects' collection in Firestore
     const ref = collection(firestore, 'projects');
 
-    // this array will be filled up with all our opportunities by our Firebase query
+    // this array will be filled up with all our data by our Firebase query
     let list = [];
 
     // Query all projects from the collection
@@ -13,7 +13,7 @@ export async function load() {
 
     for (const doc of query.docs) {
         // firebase firestore is a bit stupid, so we need to iterate over every. single. child. and get details from there :/
-        // iterate over each opportunity, grab its data, and append it to opportunitiesList
+        // iterate over each opportunity, grab its data, and append it to list
         const item = doc.data();
 
         // Grab ID from document too
