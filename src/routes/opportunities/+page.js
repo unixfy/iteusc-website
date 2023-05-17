@@ -1,9 +1,9 @@
 import {firestore} from "$lib/firebase/client";
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, where, query} from "firebase/firestore";
 
 export async function load() {
     // Create reference to 'projects' collection in Firestore
-    const ref = collection(firestore, 'projects');
+    const ref = query(collection(firestore, 'opportunities'), where('published', '==', true));
 
     // this array will be filled up with all our data by our Firebase query
     let list = [];
@@ -20,6 +20,7 @@ export async function load() {
         item.id = doc.id;
 
         // must transform timestamp fields in our DB on our own, explicitly
+        item.deadline = item.deadline.toDate().toDateString();
         item.createdAt = item.createdAt.toDate();
         item.updatedAt = item.updatedAt.toDate();
 
@@ -28,7 +29,7 @@ export async function load() {
     }
 
     return {
-        projects: list,
-        title: "Projects Admin"
+        opportunities: list,
+        title: "Opportunities"
     }
 }
