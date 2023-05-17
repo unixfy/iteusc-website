@@ -6,7 +6,7 @@ import {
     FIREBASE_ADMIN_PRIVATE_KEY,
     FIREBASE_ADMIN_CLIENT_EMAIL,
 } from "$env/static/private";
-import {PUBLIC_FIREBASE_PROJECT_ID} from "$env/static/public";
+import {PUBLIC_FIREBASE_PROJECT_ID, PUBLIC_FIREBASE_STORAGE_BUCKET} from "$env/static/public";
 
 // Function to initialize Firebase app
 function initApp() {
@@ -28,7 +28,7 @@ function initApp() {
         }),
         // databse URL for Cloud Firestore
         databaseURL: `https://${PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
-        storageBucket: `${PUBLIC_FIREBASE_PROJECT_ID}.appspot.com`,
+        storageBucket: PUBLIC_FIREBASE_STORAGE_BUCKET,
     })
 }
 
