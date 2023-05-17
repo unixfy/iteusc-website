@@ -25,9 +25,11 @@
         </div>
     {/if}
 
-    <!--    "Create new opportunity" button -->
-    <div class="flex justify-end">
-        <label for="create-modal" class="btn btn-primary mb-4">Create new opportunity</label>
+    <div class="flex justify-between mb-4">
+        <!--            Return to admin page button -->
+        <a href="/admin" class="btn btn-primary">Back to admin</a>
+        <!--    "Create new opportunity" button -->
+        <label for="create-modal" class="btn btn-primary">Create new opportunity</label>
     </div>
 
     <!--    Create new opportunity modal -->
@@ -182,7 +184,7 @@
                                     <span class="label-text">Deadline</span>
                                     <span class="label-text-alt">When this opportunity is due</span>
                                 </label>
-<!--                                The new Date() jankiness formats the date as an ISO 3339 string (required by <input>) -->
+                                <!--                                The new Date() jankiness formats the date as an ISO 3339 string (required by <input>) -->
                                 <input type="date" name="deadline"
                                        class="input input-bordered w-full"
                                        value="{new Date(opportunity.deadline).toISOString().split('T')[0]}"

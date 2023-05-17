@@ -25,9 +25,11 @@
         </div>
     {/if}
 
-    <!--    "Create new project" button -->
-    <div class="flex justify-end">
-        <label for="create-modal" class="btn btn-primary mb-4">Create new project</label>
+    <div class="flex justify-between mb-4">
+        <!--            Return to admin page button -->
+        <a href="/admin" class="btn btn-primary">Back to admin</a>
+        <!--    "Create new project" button -->
+        <label for="create-modal" class="btn btn-primary">Create new project</label>
     </div>
 
     <!--    Create new project modal -->
@@ -188,7 +190,7 @@
                 <!--                Form to store deletion data -->
                 <form action="?/delete" method="post" id="delete-form-{project.id}">
                     <input type="hidden" name="id" value="{project.id}"/>
-<!--                    We need to pass through the image path to the deletion handler, to handle deleting the image -->
+                    <!--                    We need to pass through the image path to the deletion handler, to handle deleting the image -->
                     <input type="hidden" name="image" value="{project.image}"/>
                 </form>
 
