@@ -11,7 +11,7 @@
     <div class="card-body">
         <h2 class="card-title">{opportunity.name}</h2>
         <div>
-            <p>{opportunity.description}</p>
+            <p class="break-all">{opportunity.description}</p>
         </div>
         <p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
