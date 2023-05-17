@@ -37,4 +37,5 @@ export const firebase = initApp();
 export const auth = getAuth();
 // see reference for the firestore sdk here: https://googleapis.dev/nodejs/firestore/latest/Firestore.html
 export const firestore = getFirestore();
+// note that this bucket instance can be interacted with using the methods from the Google Cloud SDK - NOT the Firebase storage SDK (which is for client side)
 export const storage = getStorage().bucket();
