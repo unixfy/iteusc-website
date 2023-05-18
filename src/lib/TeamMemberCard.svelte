@@ -13,7 +13,7 @@
 
 <div class="card bg-base-100 border max-w-[16rem] justify-self-center m-4 hover:md:scale-[1.05] transition-all">
                     <figure><img src="/team/{image}" class="aspect-square object-cover"
-                                 alt="Shoes"/>
+                                 alt="Headshot for {name}"/>
                     </figure>
                     <div class="card-body p-4">
                         <div>
