@@ -2,7 +2,7 @@
 // Team member's full name
     export let name;
     // Team member's position in ITE
-    export let position;
+    export let role;
     // Team member's image - name of file in static/team/
     export let image;
     // Team member's major
@@ -18,7 +18,7 @@
                     <div class="card-body p-4">
                         <div>
                             <h2 class="card-title">{name}</h2>
-                            <p class="italic font-light">{position}</p>
+                            <p class="italic font-light">{role}</p>
                         </div>
                         <div>
                             <p>

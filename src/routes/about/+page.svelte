@@ -1,7 +1,9 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import TeamMemberCard from "$lib/TeamMemberCard.svelte";
+    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
 
+    export let data;
     // Define team members
     // each team member gets a name (obviously), position (obviously),  image (which is the name of their headshot picture within static/team
     // major, and hometown
@@ -77,9 +79,9 @@
 
         <div class="grid md:grid-cols-3">
             <!--            Display a card for each team member -->
-            {#each teamMembers as teamMember}
-                <TeamMemberCard name="{teamMember.name}" position="{teamMember.position}" image="{teamMember.image}"
-                                major="{teamMember.major}" hometown="{teamMember.hometown}"/>
+            {#each data.members as member}
+                <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}"
+                                major="{member.major}" hometown="{member.hometown}"/>
             {/each}
         </div>
     </div>
