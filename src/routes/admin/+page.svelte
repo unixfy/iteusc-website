@@ -47,6 +47,24 @@
             </div>
         </a>
 
+        <!--        Link to /admin/team-members, to manage team members -->
+        <a href="/admin/team-members">
+            <div class="card bg-base-200 hover:bg-base-300">
+                <div class="card-body">
+                    <h2 class="card-title">Update Team Members</h2>
+                </div>
+            </div>
+        </a>
+
+        <!--        Link to /admin/image-grid, to manage homepage image grid -->
+        <a href="/admin/image-grid">
+            <div class="card bg-base-200 hover:bg-base-300">
+                <div class="card-body">
+                    <h2 class="card-title">Update Homepage Image Grid</h2>
+                </div>
+            </div>
+        </a>
+
         <!--        Link to Firebase console -->
         <a href="https://console.firebase.google.com/project/{PUBLIC_FIREBASE_PROJECT_ID}/overview" target="_blank"
            rel="noreferrer">
