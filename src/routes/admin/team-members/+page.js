@@ -1,9 +1,9 @@
 import {firestore} from "$lib/firebase/client";
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, orderBy, query} from "firebase/firestore";
 
 export async function load() {
     // Create reference to 'projects' collection in Firestore
-    const ref = collection(firestore, 'team-members');
+    const ref = query(collection(firestore, 'team-members'), orderBy('order', 'asc'));
 
     // this array will be filled up with all our data by our Firebase query
     let list = [];
