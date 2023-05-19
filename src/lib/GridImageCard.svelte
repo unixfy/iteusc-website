@@ -8,7 +8,7 @@
 <!-- Note: Must use style tag to specify the background image because treeshaking means custom Tailwind classes won't be included in prod css -->
 <div
     class="homepage-grid-image"
-    style="background-image: url('/images/{image}');"
+    style="background-image: url('{image}');"
 >
     <div class="homepage-grid-text">
         <p>{text}</p>

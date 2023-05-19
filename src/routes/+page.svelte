@@ -2,6 +2,9 @@
     import Jumbotron from "$lib/Jumbotron.svelte";
     import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
     import GridImageCard from "$lib/GridImageCard.svelte";
+    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
+
+    export let data;
 
     //     array of objects  with images of events to be displayed in photo grid
     let gridImages = [
@@ -53,8 +56,8 @@
 
 <!-- Photos of ITE events -->
 <div class="grid md:grid-rows-2 md:grid-cols-3">
-    {#each gridImages as image}
-        <GridImageCard image={image.image} text={image.text}/>
+    {#each data.imageGrid as image}
+        <GridImageCard image={getStorageDirectUrl(image.image)} text={image.name}/>
     {/each}
 </div>
 
@@ -65,19 +68,14 @@
         <h1 class="section-heading">Projects</h1>
         <h2 class="section-subheading">Take a look at what we're working on.</h2>
         <div class="mt-8 flex flex-col space-y-8">
-            {#each Array(3) as x }
+            {#each data.projects as project}
                 <!--            Tailwind card with title, subtitle, and image -->
                 <div class="bg-white rounded-md hover:drop-shadow-lg transition-all">
                     <div class="flex flex-col md:flex-row h-full">
-                        <div class="w-full md:w-1/3 rounded-l-md bg-[url('/images/s-bahn.jpg')] bg-cover md:aspect-video">
-                        </div>
+                        <img class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video" src="{getStorageDirectUrl(project.image)}"/>
                         <div class="w-full md:w-2/3 p-4 text-black space-y-4 h-full">
-                            <h3 class="text-xl font-bold">Los Angeles Department of Transportation site tour</h3>
-                            <p class="text-gray-600">We hosted a site tour of the Los Angeles Department of
-                                Transportation
-                                (LADOT) headquarters in downtown Los Angeles. We learned about the history of LADOT, the
-                                current projects they're working on, and the future of transportation in Los
-                                Angeles.</p>
+                            <h3 class="text-xl font-bold">{project.name}</h3>
+                            <p class="text-gray-600">{project.description}</p>
                         </div>
                     </div>
                 </div>
