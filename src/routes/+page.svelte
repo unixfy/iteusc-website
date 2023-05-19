@@ -5,34 +5,6 @@
     import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
 
     export let data;
-
-    //     array of objects  with images of events to be displayed in photo grid
-    let gridImages = [
-        {
-            "image": "atsac.jpg",
-            "text": "LA Department of Transportation site tour"
-        },
-        {
-            "image": "esri-redlands.jpg",
-            "text": "Esri headquarters site tour"
-        },
-        {
-            "image": "roberts-speaker-series.jpg",
-            "text": "Speaker series with Caltrans District 7 director"
-        },
-        {
-            "image": "sls23.jpg",
-            "text": "2023 ITE Student Leadership Summit conference"
-        },
-        {
-            "image": "sls23-volunteers.jpg",
-            "text": "2023 ITE Student Leadership Summit conference"
-        },
-        {
-            "image": "trapac.jpg",
-            "text": "Port of Los Angeles site tour"
-        }
-    ]
 </script>
 
 <!-- Page jumbotron -->
