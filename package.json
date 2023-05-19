@@ -15,7 +15,7 @@
 		"daisyui": "^2.51.6",
 		"eslint": "^8.40.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"firebase": "^9.19.1",
+		"firebase": "^9.22.0",
 		"firebase-admin": "^11.7.0",
 		"postcss": "^8.4.23",
 		"svelte": "^3.59.1",
