@@ -1,5 +1,6 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
+    import {format, parseISO} from "date-fns";
 
     export let form;
 
@@ -141,7 +142,7 @@
             {#each data.members as member}
                 <!--Table entry-->
                 <tr>
-                    <td>{member.id}</td>
+                    <td class="text-xs">{member.id}</td>
                     <td>{member.name}</td>
                     <td>{member.role}</td>
                     <td>{member.major}</td>
@@ -155,7 +156,7 @@
                             ❌
                         {/if}
                     </td>
-                    <td>{member.createdAt}</td>
+                    <td>{format(parseISO(member.createdAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{member.id}" class="btn btn-sm btn-primary">
