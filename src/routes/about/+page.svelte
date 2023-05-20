@@ -1,56 +1,9 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import TeamMemberCard from "$lib/TeamMemberCard.svelte";
+    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
 
-    // Define team members
-    // each team member gets a name (obviously), position (obviously),  image (which is the name of their headshot picture within static/team
-    // major, and hometown
-    // keep in mind that in javascript, arrays are ordered!
-    let teamMembers = [
-        {
-            "name": "James Huang",
-            "position": "President",
-            "image": "james-huang.jpg",
-            "major": "BS Industrial and Systems Engineering",
-            "hometown": "New York, NY"
-        },
-        {
-            "name": "Ryan Zapata",
-            "position": "Vice President",
-            "image": "ryan-zapata.jpg",
-            "major": "BS Urban Studies and Planning",
-            "hometown": "Glendale, CA"
-        },
-        {
-            "name": "David Martinez",
-            "position": "Vice President",
-            "image": "david-martinez.jpg",
-            "major": "BS Public Policy",
-            "hometown": "Long Beach, CA"
-        },
-        {
-            "name": "Tim Labounko",
-            "position": "Project Coordinator",
-            "image": "tim-labounko.jpg",
-            "major": "BS Urban Studies and Planning",
-            "hometown": "Boston, MA"
-        },
-        {
-            "name": "Alex Wang",
-            "position": "Social Media",
-            "image": "alex-wang.jpg",
-            "major": "BS Industrial and Systems Engineering",
-            "hometown": "Detroit, MI"
-        },
-        {
-            "name": "Christine Stavish",
-            "position": "Senior Advisor",
-            "image": "christine-stavish.jpg",
-            "major": "BS Civil Engineering",
-            "hometown": "Philadelphia, PA"
-        }
-
-    ]
+    export let data;
 </script>
 
 <PageHeader title="About USC ITE" subtitle="Learn more about who we are and what we do."></PageHeader>
@@ -77,9 +30,9 @@
 
         <div class="grid md:grid-cols-3">
             <!--            Display a card for each team member -->
-            {#each teamMembers as teamMember}
-                <TeamMemberCard name="{teamMember.name}" position="{teamMember.position}" image="{teamMember.image}"
-                                major="{teamMember.major}" hometown="{teamMember.hometown}"/>
+            {#each data.members as member}
+                <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}"
+                                major="{member.major}" hometown="{member.hometown}"/>
             {/each}
         </div>
     </div>

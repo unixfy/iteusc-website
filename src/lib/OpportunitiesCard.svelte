@@ -1,9 +1,7 @@
 <script>
-    // this should be a JSON object with the following properties:
-    // - name: the name of the opportunity
-    // - description: a short description of the opportunity
-    // - url: the URL of the opportunity's apply page
-    // - deadline: deadline for the opportunity
+    import {parseISO} from "date-fns";
+    import {formatInTimeZone} from "date-fns-tz";
+
     export let opportunity;
 </script>
 
@@ -11,7 +9,7 @@
     <div class="card-body">
         <h2 class="card-title">{opportunity.name}</h2>
         <div>
-            <p>{opportunity.description}</p>
+            <p class="break-all">{opportunity.description}</p>
         </div>
         <p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -19,7 +17,9 @@
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
             </svg>
-            Apply by {opportunity.deadline}</p>
+            <!--            Format our ISO time string into a nice date, -->
+            <!--            Note that the formatting must be handled in UTC because our dates are stored in UTC (even though the stored time doesn't actually matter for us) -->
+            Apply by {formatInTimeZone(parseISO(opportunity.deadline), "UTC", "PPP")}</p>
 
         <div class="card-actions justify-start">
             <a class="btn btn-primary btn-sm" href="{opportunity.url}" target="_blank" rel="noreferrer">Apply

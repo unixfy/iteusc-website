@@ -2,7 +2,7 @@
 // Team member's full name
     export let name;
     // Team member's position in ITE
-    export let position;
+    export let role;
     // Team member's image - name of file in static/team/
     export let image;
     // Team member's major
@@ -12,13 +12,13 @@
 </script>
 
 <div class="card bg-base-100 border max-w-[16rem] justify-self-center m-4 hover:md:scale-[1.05] transition-all">
-                    <figure><img src="/team/{image}" class="aspect-square object-cover"
-                                 alt="Shoes"/>
+                    <figure><img src="{image}" class="aspect-square object-cover"
+                                 alt="Headshot for {name}"/>
                     </figure>
                     <div class="card-body p-4">
                         <div>
                             <h2 class="card-title">{name}</h2>
-                            <p class="italic font-light">{position}</p>
+                            <p class="italic font-light">{role}</p>
                         </div>
                         <div>
                             <p>
