@@ -1,6 +1,7 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import {format, parseISO} from "date-fns";
+    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
 
     export let form;
 
@@ -127,7 +128,6 @@
             <!-- head -->
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Role</th>
                 <th>Major</th>
@@ -135,6 +135,7 @@
                 <th>Order</th>
                 <th>Published</th>
                 <th>Created At</th>
+                <th>Updated At</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -142,7 +143,6 @@
             {#each data.members as member}
                 <!--Table entry-->
                 <tr>
-                    <td class="text-xs">{member.id}</td>
                     <td>{member.name}</td>
                     <td>{member.role}</td>
                     <td>{member.major}</td>
@@ -157,6 +157,7 @@
                         {/if}
                     </td>
                     <td>{format(parseISO(member.createdAt), "Pp")}</td>
+                    <td>{format(parseISO(member.updatedAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{member.id}" class="btn btn-sm btn-primary">
@@ -173,6 +174,10 @@
                 <input type="checkbox" id="edit-modal-{member.id}" class="modal-toggle"/>
                 <div class="modal">
                     <div class="modal-box space-y-4">
+                        <!--                        Image -->
+                        <img src="{getStorageDirectUrl(member.image)}" alt="{member.name}'s headshot"
+                             class="rounded-lg shadow-md w-full"/>
+
                         <form class="flex flex-col space-y-4" id="edit-form-{member.id}" action="?/edit" method="post">
                             <!--                Name -->
                             <div class="form-control w-full">
