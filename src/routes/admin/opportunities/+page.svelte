@@ -1,5 +1,7 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
+    import {formatInTimeZone} from "date-fns-tz";
+    import {format, parseISO} from "date-fns";
 
     export let form;
 
@@ -115,11 +117,11 @@
             {#each data.opportunities as opportunity}
                 <!--Table entry-->
                 <tr>
-                    <td>{opportunity.id}</td>
+                    <td class="text-xs">{opportunity.id}</td>
                     <td>{opportunity.name}</td>
                     <td>{opportunity.description}</td>
                     <td>{opportunity.url}</td>
-                    <td>{opportunity.deadline}</td>
+                    <td>{formatInTimeZone(parseISO(opportunity.deadline), "UTC", "P")}</td>
                     <td>
                         <!--                        Show checkmark if published, x if not-->
                         {#if opportunity.published === true}
@@ -128,7 +130,7 @@
                             ❌
                         {/if}
                     </td>
-                    <td>{opportunity.createdAt}</td>
+                    <td>{format(parseISO(opportunity.createdAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{opportunity.id}" class="btn btn-sm btn-primary">
