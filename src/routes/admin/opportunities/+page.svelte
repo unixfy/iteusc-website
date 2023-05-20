@@ -103,13 +103,13 @@
             <!-- head -->
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>URL</th>
                 <th>Deadline</th>
                 <th>Published</th>
                 <th>Created At</th>
+                <th>Updated At</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -117,7 +117,6 @@
             {#each data.opportunities as opportunity}
                 <!--Table entry-->
                 <tr>
-                    <td class="text-xs">{opportunity.id}</td>
                     <td>{opportunity.name}</td>
                     <td>{opportunity.description}</td>
                     <td>{opportunity.url}</td>
@@ -131,6 +130,7 @@
                         {/if}
                     </td>
                     <td>{format(parseISO(opportunity.createdAt), "Pp")}</td>
+                    <td>{format(parseISO(opportunity.updatedAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{opportunity.id}" class="btn btn-sm btn-primary">
