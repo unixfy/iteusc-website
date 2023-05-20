@@ -105,11 +105,11 @@
             <!-- head -->
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Order</th>
                 <th>Published</th>
                 <th>Created At</th>
+                <th>Updated At</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -117,7 +117,6 @@
             {#each data.items as item}
                 <!--Table entry-->
                 <tr>
-                    <td class="text-xs">{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.order}</td>
                     <td>
@@ -129,6 +128,7 @@
                         {/if}
                     </td>
                     <td>{format(parseISO(item.createdAt), "Pp")}</td>
+                    <td>{format(parseISO(item.updatedAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{item.id}" class="btn btn-sm btn-primary">
