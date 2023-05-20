@@ -1,6 +1,7 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import {format, parseISO} from "date-fns";
+    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
 
     export let form;
 
@@ -92,11 +93,11 @@
             <!-- head -->
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Published</th>
                 <th>Created At</th>
+                <th>Updated At</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -104,7 +105,6 @@
             {#each data.projects as project}
                 <!--Table entry-->
                 <tr>
-                    <td class="text-xs">{project.id}</td>
                     <td>{project.name}</td>
                     <td>{project.description}</td>
                     <td>
@@ -116,6 +116,7 @@
                         {/if}
                     </td>
                     <td>{format(parseISO(project.createdAt), "Pp")}</td>
+                    <td>{format(parseISO(project.updatedAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{project.id}" class="btn btn-sm btn-primary">
@@ -132,6 +133,9 @@
                 <input type="checkbox" id="edit-modal-{project.id}" class="modal-toggle"/>
                 <div class="modal">
                     <div class="modal-box space-y-4">
+                        <!--                        Image -->
+                        <img src="{getStorageDirectUrl(project.image)}" alt="Image for {project.name}" class="rounded-lg shadow-md w-full"/>
+
                         <form class="flex flex-col space-y-4" id="edit-form-{project.id}" action="?/edit" method="post">
                             <!--                Title -->
                             <div class="form-control w-full">
