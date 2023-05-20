@@ -1,6 +1,7 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import {format, parseISO} from "date-fns";
+    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
 
     export let form;
 
@@ -145,6 +146,10 @@
                 <input type="checkbox" id="edit-modal-{item.id}" class="modal-toggle"/>
                 <div class="modal">
                     <div class="modal-box space-y-4">
+                        <!--                        Image -->
+                        <img src="{getStorageDirectUrl(item.image)}" alt="Image for {item.name}"
+                             class="w-full rounded-lg shadow-md"/>
+
                         <form class="flex flex-col space-y-4" id="edit-form-{item.id}" action="?/edit" method="post">
                             <!--                Name -->
                             <div class="form-control w-full">
