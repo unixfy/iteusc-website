@@ -1,5 +1,6 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
+    import {format, parseISO} from "date-fns";
 
     export let form;
 
@@ -45,7 +46,8 @@
                         <span class="label-text">Name</span>
                         <span class="label-text-alt">A description for this image</span>
                     </label>
-                    <input type="text" name="name" placeholder="Esri Redlands campus tour" class="input input-bordered w-full" maxlength="100"
+                    <input type="text" name="name" placeholder="Esri Redlands campus tour"
+                           class="input input-bordered w-full" maxlength="100"
                            required/>
                 </div>
 
@@ -90,6 +92,13 @@
         </div>
     </div>
 
+    <!--    Warning about image grid functionality -->
+    <div class="alert alert-info my-4 text-white">
+        <p>
+            <span class="font-bold">The image grid on the homepage only displays the first 6 items here.</span>
+            You can have other items here, but they won't be displayed on the homepage.
+        </p>
+    </div>
     <!--    Data table -->
     <div class="overflow-x-auto">
         <table class="table w-full">
@@ -108,7 +117,7 @@
             {#each data.items as item}
                 <!--Table entry-->
                 <tr>
-                    <td>{item.id}</td>
+                    <td class="text-xs">{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.order}</td>
                     <td>
@@ -119,7 +128,7 @@
                             ❌
                         {/if}
                     </td>
-                    <td>{item.createdAt}</td>
+                    <td>{format(parseISO(item.createdAt), "Pp")}</td>
                     <td>
                         <!--                        Buttons to trigger the edit/delete modals -->
                         <label for="edit-modal-{item.id}" class="btn btn-sm btn-primary">
