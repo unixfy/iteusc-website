@@ -1,5 +1,5 @@
-import { initializeApp, getApps } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {initializeApp, getApps} from "firebase/app";
+import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 import {getAnalytics} from "firebase/analytics";
 import {
@@ -10,6 +10,7 @@ import {
     PUBLIC_FIREBASE_MESSAGE_SENDER_ID,
     PUBLIC_FIREBASE_APP_ID,
 } from "$env/static/public";
+import {browser} from "$app/environment";
 
 // Function to initialize Firebase client side app
 function initApp() {
@@ -37,4 +38,10 @@ function initApp() {
 export const firebase = initApp();
 export const auth = getAuth(firebase);
 export const firestore = getFirestore(firebase);
-export const analytics = getAnalytics(firebase);
+
+export let analytics;
+// We only want to load Google Analytics if this is running on the client side
+// It will throw errors if we try to load it on the server side
+if (browser) {
+    analytics = getAnalytics(firebase);
+}
