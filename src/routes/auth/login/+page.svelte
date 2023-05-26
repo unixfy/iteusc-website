@@ -11,7 +11,10 @@
     async function submitSignIn(username, password) {
         try {
             await signInWithEmailAndPassword(auth, username, password)
-            window.location.href = '/admin';
+
+            // This is a SUPER janky way to prevent a race condition with the onTokenChanged hook in hooks.client.js
+            // but I guess it works for now
+            setTimeout(() => window.location.href = '/admin', 250);
         } catch (e) {
             error = e;
         }
@@ -35,7 +38,7 @@
     <div class="border border-base-200 rounded-md p-8 m-auto">
         <h1 class="text-2xl">👋 Hello! Please sign in</h1>
 
-        <form class="flex flex-col space-y-4">
+        <form class="flex flex-col space-y-4" onsubmit="return false;">
             <!--        Username input-->
             <div class="form-control">
                 <label class="label" for="username">
