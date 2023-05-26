@@ -214,8 +214,6 @@
                 <!--                Form to store deletion data -->
                 <form action="?/delete" method="post" id="delete-form-{item.id}">
                     <input type="hidden" name="id" value="{item.id}"/>
-                    <!--                    We need to pass through the image path to the deletion handler, to handle deleting the image -->
-                    <input type="hidden" name="image" value="{item.image}"/>
                 </form>
 
             {/each}

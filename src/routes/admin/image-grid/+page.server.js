@@ -70,10 +70,11 @@ export const actions = {
     delete: async ({request}) => {
         const data = await request.formData();
         const ref = firestore.doc(`image-grid/${data.get('id')}`);
+        const doc = await ref.get();
 
         try {
             // delete our image from the firebase storage bucket first
-            await storage.file(data.get("image")).delete()
+            await storage.file(doc.get("image")).delete()
             // then delete the record from Firestore
             await ref.delete()
         } catch (error) {
