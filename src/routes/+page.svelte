@@ -82,7 +82,7 @@
                     for? Join USC ITE now!</h1>
                 <p class="text-2xl">Free polo + great experiences included.</p>
             </div>
-            <a class="btn glass md:ml-auto my-auto btn-lg" href="/join/">Join us now</a>
+            <a class="btn btn-neutral glass md:ml-auto my-auto btn-lg" href="/join/">Join us now</a>
         </div>
     </div>
 </div>
