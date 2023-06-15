@@ -11,8 +11,5 @@ onIdTokenChanged(auth, async user => {
         : fetch('/auth/session', {
             method: 'delete'
         })
-    const res = await req
-
-    // we use this only if we actually need to get the response, which we don't
-    // const data = await res.json()
+    await req
 })

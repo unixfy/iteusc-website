@@ -12,8 +12,7 @@ export async function handle({event, resolve}) {
     // if we're able to get the session cookie, verify the session with firebase
     if (session) {
         try {
-            const user = await auth.verifySessionCookie(session)
-            event.locals.user = user
+            event.locals.user = await auth.verifySessionCookie(session)
         } catch (err) {
             console.log('Could not verify session cookie', err)
         }
