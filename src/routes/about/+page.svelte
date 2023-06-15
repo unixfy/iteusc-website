@@ -30,7 +30,7 @@
 
         <div class="grid md:grid-cols-3">
             <!--            Display a card for each team member -->
-            {#each data.members as member}
+            {#each data.teamMembers as member}
                 <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}"
                                 major="{member.major}" hometown="{member.hometown}"/>
             {/each}
