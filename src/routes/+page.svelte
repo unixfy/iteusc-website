@@ -35,7 +35,7 @@
 
 
 <!-- Project listing -->
-<div class="section bg-usc-red text-white">
+<div class="section bg-usc-cardinal text-white">
     <div class="ct">
         <h1 class="section-heading">Projects</h1>
         <h2 class="section-subheading">Take a look at what we're working on.</h2>
