@@ -68,6 +68,9 @@
                     </label>
                     <input type="file" name="imageFile" class="file-input file-input-bordered w-full" accept="image/*"
                            required/>
+                    <label class="label">
+                        <span class="label-text">Files under 1MB are ideal</span>
+                    </label>
                 </div>
 
                 <!--                Published? -->
@@ -134,7 +137,8 @@
                 <div class="modal">
                     <div class="modal-box space-y-4">
                         <!--                        Image -->
-                        <img src="{getStorageDirectUrl(project.image)}" alt="Image for {project.name}" class="rounded-lg shadow-md w-full"/>
+                        <img src="{getStorageDirectUrl(project.image)}" alt="Image for {project.name}"
+                             class="rounded-lg shadow-md w-full"/>
 
                         <form class="flex flex-col space-y-4" id="edit-form-{project.id}" action="?/edit" method="post">
                             <!--                Title -->

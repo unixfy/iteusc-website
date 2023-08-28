@@ -103,6 +103,9 @@
                     </label>
                     <input type="file" name="imageFile" class="file-input file-input-bordered w-full" accept="image/*"
                            required/>
+                    <label class="label">
+                        <span class="label-text">Files under 1MB are ideal</span>
+                    </label>
                 </div>
 
                 <!--                Published? -->
