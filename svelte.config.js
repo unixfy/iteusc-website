@@ -5,7 +5,7 @@ import {vitePreprocess} from '@sveltejs/kit/vite';
 const config = {
 	kit: {
 		adapter: adapter({
-			edge: true
+			edge: false
 		})
 	},
 	preprocess: vitePreprocess()
