@@ -28,7 +28,7 @@
     <div class="section">
         <h1 class="section-heading text-center">Meet our team</h1>
 
-        <div class="grid md:grid-cols-3">
+        <div class="grid md:grid-cols-3 lg:grid-cols-4">
             <!--            Display a card for each team member -->
             {#each data.teamMembers as member}
                 <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}"
