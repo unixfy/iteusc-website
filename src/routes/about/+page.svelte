@@ -32,7 +32,7 @@
             <!--            Display a card for each team member -->
             {#each data.teamMembers as member}
                 <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}"
-                                major="{member.major}" hometown="{member.hometown}"/>
+                                major="{member.major}"/>
             {/each}
         </div>
     </div>

@@ -60,16 +60,6 @@
                            required/>
                 </div>
 
-                <!--                Hometown -->
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text">Hometown</span>
-                        <span class="label-text-alt">Where team member is from</span>
-                    </label>
-                    <input type="text" name="hometown" placeholder="New York, NY" class="input input-bordered w-full"
-                           required/>
-                </div>
-
                 <!--                Major -->
                 <div class="form-control w-full">
                     <label class="label">
@@ -134,7 +124,6 @@
                 <th>Name</th>
                 <th>Role</th>
                 <th>Major</th>
-                <th>Hometown</th>
                 <th>Order</th>
                 <th>Published</th>
                 <th>Created At</th>
@@ -149,7 +138,6 @@
                     <td>{member.name}</td>
                     <td>{member.role}</td>
                     <td>{member.major}</td>
-                    <td>{member.hometown}</td>
                     <td>{member.order}</td>
                     <td>
                         <!--                        Show checkmark if published, x if not-->
@@ -200,17 +188,6 @@
                                 </label>
                                 <input type="text" name="role" placeholder="President"
                                        class="input input-bordered w-full" value="{member.role}"
-                                       required/>
-                            </div>
-
-                            <!--                Hometown -->
-                            <div class="form-control w-full">
-                                <label class="label">
-                                    <span class="label-text">Hometown</span>
-                                    <span class="label-text-alt">Where team member is from</span>
-                                </label>
-                                <input type="text" name="hometown" placeholder="New York, NY"
-                                       class="input input-bordered w-full" value="{member.hometown}"
                                        required/>
                             </div>
 

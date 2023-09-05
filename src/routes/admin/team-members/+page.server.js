@@ -29,7 +29,6 @@ export const actions = {
             await ref.add({
                 name: data.get('name'),
                 major: data.get('major'),
-                hometown: data.get('hometown'),
                 published: (data.get('published') === "true"), // convert string to boolean
                 createdAt: new Date(), // i.e., now
                 updatedAt: new Date(), // i.e., now
@@ -73,7 +72,6 @@ export const actions = {
             await ref.update({
                 name: data.get('name'),
                 major: data.get('major'),
-                hometown: data.get('hometown'),
                 published: (data.get('published') === "true"), // convert string to boolean
                 updatedAt: new Date(), // i.e., now
                 order: parseInt(data.get('order')),
