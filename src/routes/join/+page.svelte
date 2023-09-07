@@ -1,7 +1,7 @@
 <div class="bg-[url('/images/a-line.jpg')] bg-cover bg-center h-[50vh]">
     <div class="bg-black bg-opacity-50 h-full w-full text-white flex flex-col place-content-center text-center">
         <h1 class="section-heading">Join USC ITE 👋</h1>
-        <h2 class="section-subheading">Free polo + great experiences included.</h2>
+        <h2 class="section-subheading">Free polo + great experiences included. Open to all USC students!</h2>
     </div>
 </div>
 
