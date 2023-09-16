@@ -9,6 +9,10 @@
             "url": "/about/"
         },
         {
+            "name": "Hall of Fame",
+            "url": "/hall-of-fame/"
+        },
+        {
             "name": "Calendar",
             "url": "/calendar/"
         },
@@ -49,10 +53,10 @@
             <a class="btn btn-ghost normal-case text-xl lg:hidden" href="/">USC ITE</a>
         </div>
         <!--        Area to put stuff that should be at the middle of the navbar-->
-        <div class="navbar-center hidden lg:flex">
+        <div class="navbar-center hidden">
         </div>
         <!--        End of navbar (right side) - we put our navbar links here -->
-        <div class="navbar-end">
+        <div class="navbar-end w-full">
             <ul class="hidden lg:flex menu menu-horizontal px-1">
                 {#each navbarItems as navbarItem}
                     <li>
