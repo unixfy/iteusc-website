@@ -66,6 +66,23 @@
                     />
                 </div>
 
+                <!--                Degrees -->
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text">Degrees</span>
+                        <span class="label-text-alt"
+                            >Person's degrees obtained</span
+                        >
+                    </label>
+                    <input
+                        type="text"
+                        name="degrees"
+                        placeholder="BS Industrial and Systems Engineering, MBA"
+                        class="input input-bordered w-full"
+                        required
+                    />
+                </div>
+
                 <!--                Bio -->
                 <div class="form-control w-full">
                     <label class="label">
@@ -157,6 +174,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Degrees</th>
                     <th>Bio</th>
                     <th>Order</th>
                     <th>Published</th>
@@ -170,6 +188,7 @@
                     <!--Table entry-->
                     <tr>
                         <td>{item.name}</td>
+                        <td>{item.degrees}</td>
                         <td>{item.bio}</td>
                         <td>{item.order}</td>
                         <td>
@@ -236,6 +255,24 @@
                                         class="input input-bordered w-full"
                                         value={item.name}
                                         required
+                                    />
+                                </div>
+
+                                <!--                Degrees -->
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">Degrees</span>
+                                        <span class="label-text-alt"
+                                            >Person's degrees obtained</span
+                                        >
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="degrees"
+                                        placeholder="BS Industrial and Systems Engineering, MBA"
+                                        class="input input-bordered w-full"
+                                        required
+                                        value={item.degrees}
                                     />
                                 </div>
 
@@ -332,8 +369,8 @@
                     <div class="modal">
                         <div class="modal-box space-y-4">
                             <p>
-                                Are you sure you want to delete this hall of fame person
-                                "{item.name}"?
+                                Are you sure you want to delete this hall of
+                                fame person "{item.name}"?
                             </p>
                             <div class="modal-buttons">
                                 <label for="delete-confirm-modal-{item.id}">
