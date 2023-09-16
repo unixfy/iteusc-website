@@ -1,5 +1,5 @@
-import {firestore, storage} from "$lib/firebase/server.server.js";
-import {fail} from "@sveltejs/kit";
+import { firestore, storage } from "$lib/firebase/server.server.js";
+import { fail } from "@sveltejs/kit";
 import getFirestoreDataServer from "$lib/firebase/getFirestoreDataServer.js";
 
 export async function load() {
@@ -12,7 +12,7 @@ export async function load() {
 }
 
 export const actions = {
-    create: async ({request, locals}) => {
+    create: async ({ request, locals }) => {
         const data = await request.formData();
         const ref = firestore.collection('hall-of-fame')
         // the path in our firebase storage bucket where we want to store the image
@@ -30,6 +30,7 @@ export const actions = {
                 name: data.get('name'),
                 bio: data.get('bio'),
                 degrees: data.get('degrees'),
+                linkedin: data.get('linkedin'),
                 published: (data.get('published') === "true"), // convert string to boolean
                 createdAt: new Date(), // i.e., now
                 updatedAt: new Date(), // i.e., now
@@ -39,7 +40,7 @@ export const actions = {
                 image: imagePath
             })
         } catch (error) {
-            return fail(400, {error: error.toString()})
+            return fail(400, { error: error.toString() })
         }
 
         return {
@@ -47,7 +48,7 @@ export const actions = {
         }
     },
 
-    delete: async ({request}) => {
+    delete: async ({ request }) => {
         const data = await request.formData();
         const ref = firestore.doc(`hall-of-fame/${data.get('id')}`);
         const doc = await ref.get();
@@ -58,12 +59,12 @@ export const actions = {
             // then delete the record from Firestore
             await ref.delete()
         } catch (error) {
-            return fail(400, {error: error.toString()})
+            return fail(400, { error: error.toString() })
         }
 
-        return {success: true}
+        return { success: true }
     },
-    edit: async ({request}) => {
+    edit: async ({ request }) => {
         const data = await request.formData();
 
         const ref = firestore.doc(`hall-of-fame/${data.get('id')}`);
@@ -73,12 +74,13 @@ export const actions = {
                 name: data.get('name'),
                 bio: data.get('bio'),
                 degrees: data.get('degrees'),
+                linkedin: data.get('linkedin'),
                 published: (data.get('published') === "true"), // convert string to boolean
                 updatedAt: new Date(), // i.e., now
                 order: parseInt(data.get('order')),
             })
         } catch (error) {
-            return fail(400, {error: error.toString()})
+            return fail(400, { error: error.toString() })
         }
 
         return {

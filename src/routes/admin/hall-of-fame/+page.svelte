@@ -66,6 +66,23 @@
                     />
                 </div>
 
+                <!--                LinkedIn -->
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text">LinkedIn</span>
+                        <span class="label-text-alt"
+                            >The link to this person's LinkedIn</span
+                        >
+                    </label>
+                    <input
+                        type="url"
+                        name="linkedin"
+                        placeholder="https://linkedin.com/in/..."
+                        class="input input-bordered w-full"
+                        required
+                    />
+                </div>
+
                 <!--                Degrees -->
                 <div class="form-control w-full">
                     <label class="label">
@@ -174,6 +191,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>LinkedIn</th>
                     <th>Degrees</th>
                     <th>Bio</th>
                     <th>Order</th>
@@ -188,6 +206,34 @@
                     <!--Table entry-->
                     <tr>
                         <td>{item.name}</td>
+                        <td>
+                            <div class="tooltip" data-tip={item.linkedin}>
+                                <a
+                                    class="btn btn-circle btn-sm"
+                                    href={item.linkedin}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        class="bi bi-box-arrow-up-right"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+                                        />
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        </td>
                         <td>{item.degrees}</td>
                         <td>{item.bio}</td>
                         <td>{item.order}</td>
@@ -255,6 +301,24 @@
                                         class="input input-bordered w-full"
                                         value={item.name}
                                         required
+                                    />
+                                </div>
+
+                                <!--                LinkedIn -->
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">LinkedIn</span>
+                                        <span class="label-text-alt"
+                                            >The link to this person's LinkedIn</span
+                                        >
+                                    </label>
+                                    <input
+                                        type="url"
+                                        name="linkedin"
+                                        placeholder="https://linkedin.com/in/..."
+                                        class="input input-bordered w-full"
+                                        required
+                                        value={item.linkedin}
                                     />
                                 </div>
 

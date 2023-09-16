@@ -16,6 +16,7 @@
                 name={item.name}
                 bio={item.bio}
                 degrees={item.degrees}
+                linkedin={item.linkedin}
                 image={getStorageDirectUrl(item.image)}
             />
         {:else}
