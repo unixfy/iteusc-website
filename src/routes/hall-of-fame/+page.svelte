@@ -10,13 +10,15 @@
 <PageHeader title="Hall of Fame" subtitle="Meet our past USC ITE members." />
 
 <div class="ct pb-8">
-    {#each data.items as item}
-        <HallofFameCard
-            name={item.name}
-            bio={item.bio}
-            image={getStorageDirectUrl(item.image)}
-        />
-    {:else}
-        <QueryEmptyAlert />
-    {/each}
+    <div class="flex flex-col gap-12">
+        {#each data.items as item}
+            <HallofFameCard
+                name={item.name}
+                bio={item.bio}
+                image={getStorageDirectUrl(item.image)}
+            />
+        {:else}
+            <QueryEmptyAlert />
+        {/each}
+    </div>
 </div>
