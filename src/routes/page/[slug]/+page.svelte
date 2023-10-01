@@ -10,7 +10,7 @@
             subtitle="Posted on {format(parseISO(data.page.date_created), "PPP")}">
 </PageHeader>
 
-<div class="ct pb-8 page-content">
+<div class="ct pb-8 directus-html">
     {#if data.page.image}
         <img src="{getStorageDirectUrl(data.page.image)}" alt="Image for {data.page.title}">
         <div class="my-4 border border-base-300"></div>

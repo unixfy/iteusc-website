@@ -37,15 +37,15 @@ p > a {
 }
 
 /* styles for page content */
-.page-content > p {
+.directus-html > p {
     @apply mb-4
 }
 
-.page-content > blockquote {
+.directus-html > blockquote {
     @apply mb-4 pl-2 border-l-2 border-base-300
 }
 
-.page-content img {
+.directus-html img {
     @apply rounded-lg drop-shadow-lg mx-auto my-8
 }
 
