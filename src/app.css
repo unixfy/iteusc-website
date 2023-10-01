@@ -35,3 +35,20 @@ p > a {
 .homepage-grid-text {
     @apply m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white font-bold text-lg
 }
+
+/* styles for page content */
+.page-content > p {
+    @apply mb-4
+}
+
+.page-content > blockquote {
+    @apply mb-4 pl-2 border-l-2 border-base-300
+}
+
+.page-content img {
+    @apply rounded-lg drop-shadow-lg mx-auto my-8
+}
+
+.page-img {
+    @apply rounded-lg drop-shadow-lg mx-auto my-8
+}
