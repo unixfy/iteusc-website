@@ -1,13 +1,16 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
-    import {signOut} from "$lib/firebase/auth.js";
-    import {PUBLIC_FIREBASE_PROJECT_ID} from "$env/static/public";
+    import { signOut } from "$lib/firebase/auth.js";
+    import { PUBLIC_FIREBASE_PROJECT_ID } from "$env/static/public";
 
     export let data;
     export let form;
 </script>
 
-<PageHeader title="Admin Area" subtitle="Hello there, {data.user.displayName || data.user.email}!"></PageHeader>
+<PageHeader
+    title="Admin Area"
+    subtitle="Hello there, {data.user.displayName || data.user.email}!"
+/>
 
 <div class="ct">
     <!--    Success/failure messages -->
@@ -65,12 +68,26 @@
             </div>
         </a>
 
-        <!--        Link to Firebase console -->
-        <a href="https://console.firebase.google.com/project/{PUBLIC_FIREBASE_PROJECT_ID}/overview" target="_blank"
-           rel="noreferrer">
+        <!-- Link to /admin/hall-of-fame, to manage hall of fame page -->
+        <a href="/admin/hall-of-fame">
             <div class="card bg-base-200 hover:bg-base-300">
                 <div class="card-body">
-                    <h2 class="card-title">Firebase Console (for {PUBLIC_FIREBASE_PROJECT_ID})</h2>
+                    <h2 class="card-title">Manage Hall of Fame</h2>
+                </div>
+            </div>
+        </a>
+
+        <!--        Link to Firebase console -->
+        <a
+            href="https://console.firebase.google.com/project/{PUBLIC_FIREBASE_PROJECT_ID}/overview"
+            target="_blank"
+            rel="noreferrer"
+        >
+            <div class="card bg-base-200 hover:bg-base-300">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Firebase Console (for {PUBLIC_FIREBASE_PROJECT_ID})
+                    </h2>
                 </div>
             </div>
         </a>
@@ -78,7 +95,11 @@
     <div class="section">
         <h1 class="section-heading">Update your profile</h1>
 
-        <form action="?/updateUser" method="post" class="flex flex-col space-y-4 max-w-xl bg-base-200 p-6 rounded-xl">
+        <form
+            action="?/updateUser"
+            method="post"
+            class="flex flex-col space-y-4 max-w-xl bg-base-200 p-6 rounded-xl"
+        >
             <!--            Display user UID -->
             <p class="text-sm text-gray-500">User ID: {data.user.uid}</p>
 
@@ -87,10 +108,17 @@
                 <label class="label">
                     <span class="label-text">Email</span>
                 </label>
-                <input type="email" name="email" class="input input-bordered w-full"
-                       value="{data.user.email}" required/>
+                <input
+                    type="email"
+                    name="email"
+                    class="input input-bordered w-full"
+                    value={data.user.email}
+                    required
+                />
                 <label class="label">
-                    <span class="label-text font-bold text-red-800">Changing email will log you out</span>
+                    <span class="label-text font-bold text-red-800"
+                        >Changing email will log you out</span
+                    >
                 </label>
             </div>
 
@@ -99,9 +127,16 @@
                 <label class="label">
                     <span class="label-text">Password</span>
                 </label>
-                <input type="password" name="password" class="input input-bordered w-full"/>
+                <input
+                    type="password"
+                    name="password"
+                    class="input input-bordered w-full"
+                />
                 <label class="label">
-                    <span class="label-text font-bold text-red-800">Blank to leave unchanged - changing password will log you out</span>
+                    <span class="label-text font-bold text-red-800"
+                        >Blank to leave unchanged - changing password will log
+                        you out</span
+                    >
                 </label>
             </div>
 
@@ -109,7 +144,8 @@
         </form>
 
         <!--        Sign out button -->
-        <button class="btn btn-primary btn-lg mt-8" on:click={() => signOut()}>Sign out</button>
-
+        <button class="btn btn-primary btn-lg mt-8" on:click={() => signOut()}
+            >Sign out</button
+        >
     </div>
 </div>
