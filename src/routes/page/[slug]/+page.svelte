@@ -11,7 +11,7 @@
 
 <div class="ct pb-8 page-content">
     {#if data.page.image}
-        <img src="//iteusc-backend.unixfy.net/assets/{data.page.image}" alt="Image for {data.page.title}">
+        <img src="//iteusc-backend.unixfy.net/assets/{data.page.image}?width=800" alt="Image for {data.page.title}">
         <div class="my-4 border border-base-300"></div>
     {/if}
 
