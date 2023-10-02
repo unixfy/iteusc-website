@@ -3,7 +3,7 @@
     import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
     import GridImageCard from "$lib/GridImageCard.svelte";
     import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
-    import { getStorageDirectUrl } from "$lib/firebase/getStorageDirectUrl.js";
+    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
 
     export let data;
 </script>
