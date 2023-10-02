@@ -5,7 +5,17 @@ import {directus} from "$lib/directus/client.js";
 import {readItems} from "@directus/sdk";
 
 export async function load() {
-    const projectsList = getFirestoreData(query(collection(firestore, 'projects'), where('published', '==', true), limit(3)))
+    const projectsList = directus.request(
+        readItems('projects', {
+            filter: {
+                'status': {
+                    "_eq": "published"
+                }
+            },
+            sort: ['sort'],
+            limit: 3
+        }
+    ))
 
     const imageGridList = directus.request(
         readItems('image_grid_items', {

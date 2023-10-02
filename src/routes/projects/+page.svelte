@@ -1,7 +1,7 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
-    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
+    import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
 
     export let data;
 </script>

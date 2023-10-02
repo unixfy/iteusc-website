@@ -1,9 +1,17 @@
-import {collection, query, where} from "firebase/firestore";
-import {firestore} from "$lib/firebase/client.js";
-import getFirestoreData from "$lib/firebase/getFirestoreData.js";
+import {directus} from "$lib/directus/client.js";
+import {readItems} from "@directus/sdk";
 
 export async function load() {
-    const list = await getFirestoreData(query(collection(firestore, 'projects'), where('published', '==', true)));
+    const list = directus.request(
+        readItems('projects', {
+            filter: {
+                'status': {
+                    "_eq": "published"
+                }
+            },
+            sort: ['sort'],
+        }
+    ))
 
     return {
         projects: list,
