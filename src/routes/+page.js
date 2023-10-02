@@ -1,6 +1,3 @@
-import {collection, orderBy, query, where, limit} from "firebase/firestore";
-import {firestore} from "$lib/firebase/client.js";
-import getFirestoreData from "$lib/firebase/getFirestoreData.js";
 import {directus} from "$lib/directus/client.js";
 import {readItems} from "@directus/sdk";
 
