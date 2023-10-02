@@ -3,13 +3,13 @@
     import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
     import GridImageCard from "$lib/GridImageCard.svelte";
     import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
 
     export let data;
 </script>
 
 <!-- Page jumbotron -->
-<Jumbotron />
+<Jumbotron/>
 
 <!-- What is USC ITE? -->
 <div class="section bg-ite-blue text-white">
@@ -29,8 +29,8 @@
             networking opportunities and bring awareness to the transportation
             industry. We aren't just for transportation engineers - we're really
             the <span class="font-bold"
-                >Institute of Transportation Enthusiasts</span
-            >.
+        >Institute of Transportation Enthusiasts</span
+        >.
         </p>
         <p class="font-bold">
             Most of all, we're changing the world of transportation, one student
@@ -43,8 +43,10 @@
 <div class="grid md:grid-rows-2 md:grid-cols-3">
     {#each data.imageGrid as image}
         <GridImageCard
-            image={getStorageDirectUrl(image.image)}
-            text={image.name}
+                id="{image.id}"
+                image={getStorageDirectUrl(image.image)}
+                text={image.name}
+                description="{image.description}"
         />
     {/each}
 </div>
@@ -60,16 +62,16 @@
             {#each data.projects as project}
                 <!--            Tailwind card with title, subtitle, and image -->
                 <div
-                    class="bg-white rounded-md hover:drop-shadow-lg transition-all"
+                        class="bg-white rounded-md hover:drop-shadow-lg transition-all"
                 >
                     <div class="flex flex-col md:flex-row h-full">
                         <img
-                            class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video"
-                            src={getStorageDirectUrl(project.image)}
-                            alt="Image for {project.name}"
+                                class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video"
+                                src={getStorageDirectUrl(project.image)}
+                                alt="Image for {project.name}"
                         />
                         <div
-                            class="w-full md:w-2/3 p-4 text-black space-y-4 h-full"
+                                class="w-full md:w-2/3 p-4 text-black space-y-4 h-full"
                         >
                             <h3 class="text-xl font-bold">{project.name}</h3>
                             <p class="text-gray-600">{project.description}</p>
@@ -77,11 +79,11 @@
                     </div>
                 </div>
             {:else}
-                <QueryEmptyAlert />
+                <QueryEmptyAlert/>
             {/each}
             <!--    Button that links to a page listing all projects -->
             <a class="btn btn-block btn-primary btn-lg" href="/projects/"
-                >View all projects</a
+            >View all projects</a
             >
         </div>
     </div>
@@ -93,10 +95,10 @@
         <h1 class="section-heading">Events</h1>
         <h2 class="section-subheading">Check out what's going on.</h2>
         <!--    Google Calendar embed -->
-        <GoogleCalendarEmbed minheight="500px" />
+        <GoogleCalendarEmbed minheight="500px"/>
 
         <a class="btn btn-block btn-primary btn-lg" href="/calendar/"
-            >Full calendar</a
+        >Full calendar</a
         >
     </div>
 </div>
@@ -108,15 +110,16 @@
         <div class="flex flex-col md:flex-row ct">
             <div class="text-white text-center md:text-left pb-8 md:pb-0">
                 <h1
-                    class="my-auto text-3xl md:text-4xl font-bold text-white pb-4"
+                        class="my-auto text-3xl md:text-4xl font-bold text-white pb-4"
                 >
                     What are you waiting for? Join USC ITE now!
                 </h1>
-                <p class="text-2xl">Free polo + great experiences included. <span class="font-bold">Open to all USC students!</span></p>
+                <p class="text-2xl">Free polo + great experiences included. <span class="font-bold">Open to all USC students!</span>
+                </p>
             </div>
             <a
-                class="btn btn-neutral glass md:ml-auto my-auto btn-lg"
-                href="/join/">Join us now</a
+                    class="btn btn-neutral glass md:ml-auto my-auto btn-lg"
+                    href="/join/">Join us now</a
             >
         </div>
     </div>
