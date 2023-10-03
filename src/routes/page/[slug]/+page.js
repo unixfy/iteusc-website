@@ -1,6 +1,7 @@
 import {error} from "@sveltejs/kit";
 import {directus} from "$lib/directus/client.js";
 import {readItems} from "@directus/sdk";
+import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
 
 export async function load({params}) {
     // check if page with slug exists in Directus
@@ -27,6 +28,7 @@ export async function load({params}) {
     // If the query returns exactly one result, we return it
     return {
         page: list[0],
-        title: list[0].title
+        title: list[0].title,
+        socialImage: list[0].image ? getStorageDirectUrl(list[0].image) : null
     }
 }
