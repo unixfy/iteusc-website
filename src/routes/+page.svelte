@@ -44,7 +44,7 @@
     {#each data.imageGrid as image}
         <GridImageCard
                 id="{image.id}"
-                image={getStorageDirectUrl(image.image)}
+                image="{getStorageDirectUrl(image.image)}?width=600"
                 text={image.name}
                 description="{image.description}"
         />
