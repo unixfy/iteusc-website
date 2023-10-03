@@ -48,9 +48,9 @@
                 </ul>
             </div>
             <!--        display long name on desktop, short name on mobile-->
-            <a class="btn btn-ghost normal-case text-xl hidden lg:flex" href="/">USC Institute of Transportation
+            <a class="btn btn-ghost normal-case text-xl hidden lg:flex font-display" href="/">USC Institute of Transportation
                 Engineers</a>
-            <a class="btn btn-ghost normal-case text-xl lg:hidden" href="/">USC ITE</a>
+            <a class="btn btn-ghost normal-case text-xl lg:hidden font-display" href="/">USC ITE</a>
         </div>
         <!--        Area to put stuff that should be at the middle of the navbar-->
         <div class="navbar-center hidden">
