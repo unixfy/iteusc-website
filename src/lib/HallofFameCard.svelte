@@ -24,7 +24,7 @@
     />
 
     <div class="bg-base-100 p-0">
-        <h2 class="text-center sm:text-left text-3xl font-medium pb-4">
+        <h2 class="text-center sm:text-left text-3xl font-bold font-display pb-4">
             {name} <span class="font-normal">({role}, {participation_start} - {participation_end})</span>
         </h2>
 

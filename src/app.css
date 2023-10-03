@@ -11,11 +11,11 @@ p > a {
 }
 
 .section-heading {
-    @apply md:text-4xl lg:text-5xl text-3xl mb-4 font-semibold
+    @apply md:text-4xl lg:text-5xl text-3xl mb-4 font-bold font-display
 }
 
 .section-subheading {
-    @apply text-2xl md:text-3xl lg:text-4xl mb-4
+    @apply text-2xl md:text-3xl lg:text-4xl mb-4 font-display
 }
 
 .section {
@@ -23,7 +23,7 @@ p > a {
 }
 
 .cta-heading {
-    @apply sm:text-3xl md:text-4xl text-2xl mb-4 font-semibold
+    @apply sm:text-3xl md:text-4xl text-2xl mb-4 font-bold font-display
 }
 
 /* grid images on the homepage */
