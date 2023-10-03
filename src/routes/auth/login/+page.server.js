@@ -1,6 +1,5 @@
+import {redirect} from "@sveltejs/kit";
+
 export async function load() {
-    return {
-        // Do not allow search engines to index this page
-        noIndex: true
-    }
+    throw redirect(307, 'https://iteusc-backend.unixfy.net/admin')
 }
