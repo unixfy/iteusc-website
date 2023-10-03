@@ -21,7 +21,7 @@
 
     <!-- OpenGraph meta tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://iteusc.com{$page.path}" />
+    <meta property="og:url" content="https://iteusc.com{$page.url.pathname}" />
     <meta
         property="og:title"
         content="{$page.data.title || defaultTitle} | USC ITE"
@@ -34,7 +34,7 @@
 
     <!-- Twitter meta tags -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://iteusc.com{$page.path}" />
+    <meta property="twitter:url" content="https://iteusc.com{$page.url.pathname}" />
     <meta
         property="twitter:title"
         content="{$page.data.title || defaultTitle} | USC ITE"
