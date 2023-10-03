@@ -4,7 +4,7 @@ A new website for ITE at USC.
 
 ## What is this project?
 
-This project is a new website for ITE at USC. It is built with Svelte, and promotes our club. It pulls data on transportation opportunities, etc. from our Firebase Cloud Firestore database.
+This project is a new website for ITE at USC. It is built with Svelte, and promotes our club. It pulls data on transportation opportunities, etc. from our Directus database.
 
 Functionality in scope:
 
