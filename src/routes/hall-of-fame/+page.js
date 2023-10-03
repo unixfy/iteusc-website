@@ -1,9 +1,18 @@
-import {firestore} from "$lib/firebase/client";
-import {collection, where, query, orderBy} from "firebase/firestore";
-import getFirestoreData from "$lib/firebase/getFirestoreData.js";
+import {directus} from "$lib/directus/client.js";
+import {readItems} from "@directus/sdk";
 
 export async function load() {
-    const list = getFirestoreData(query(collection(firestore, 'hall-of-fame'), where('published', '==', true), orderBy('order', 'asc')))
+    const list = directus.request(
+        readItems('hall_of_fame', {
+            filter: {
+                'status': {
+                    "_eq": "published"
+                }
+            },
+            sort: ['sort'],
+            fields: ['*,degrees.degrees_id.name']
+        }
+    ))
 
     return {
         items: list,
