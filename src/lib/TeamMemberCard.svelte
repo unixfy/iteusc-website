@@ -15,7 +15,7 @@
                     </figure>
                     <div class="card-body p-4">
                         <div>
-                            <h2 class="card-title">{name}</h2>
+                            <h2 class="card-title font-display">{name}</h2>
                             <p class="italic font-light">{role}</p>
                         </div>
                         <div>

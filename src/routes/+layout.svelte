@@ -4,6 +4,13 @@
     import Footer from "$lib/Footer.svelte";
     import { page } from "$app/stores";
 
+    // Import fonts
+    import "@fontsource/overpass/400.css";
+    import "@fontsource/overpass/700.css";
+    import "@fontsource/rubik/400.css";
+    import "@fontsource/rubik/700.css";
+    import "@fontsource/rubik/300.css";
+
     let defaultTitle = "Welcome";
     let defaultDescription =
         "The Institute of Transportation Engineers (ITE) at the University of Southern California is a chapter of the national ITE. We're devoted to hosting site tours, holding speaker sessions, sharing our passion for transportation, and changing the world of mobility - one Trojan at a time.";

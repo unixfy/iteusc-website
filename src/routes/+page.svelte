@@ -14,7 +14,7 @@
 <!-- What is USC ITE? -->
 <div class="section bg-ite-blue text-white">
     <div class="ct flex flex-col space-y-4 text-xl">
-        <h1 class="section-subheading font-bold">
+        <h1 class="font-display section-subheading font-bold">
             ▶ We're shaping the future of transportation, supply chain, and
             technology.
         </h1>
@@ -110,11 +110,11 @@
         <div class="flex flex-col md:flex-row ct">
             <div class="text-white text-center md:text-left pb-8 md:pb-0">
                 <h1
-                        class="my-auto text-3xl md:text-4xl font-bold text-white pb-4"
+                        class="my-auto text-3xl md:text-4xl font-bold text-white pb-4 font-display"
                 >
                     What are you waiting for? Join USC ITE now!
                 </h1>
-                <p class="text-2xl">Free polo + great experiences included. <span class="font-bold">Open to all USC students!</span>
+                <p class="text-2xl font-display">Free polo + great experiences included. <span class="font-bold">Open to all USC students!</span>
                 </p>
             </div>
             <a
