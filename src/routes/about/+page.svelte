@@ -1,7 +1,7 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import TeamMemberCard from "$lib/TeamMemberCard.svelte";
-    import {getStorageDirectUrl} from "$lib/firebase/getStorageDirectUrl.js";
+    import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
 
     export let data;
 </script>
@@ -31,8 +31,8 @@
         <div class="grid md:grid-cols-3 lg:grid-cols-4">
             <!--            Display a card for each team member -->
             {#each data.teamMembers as member}
-                <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}"
-                                major="{member.major}"/>
+                <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}?width=400"
+                                major="{member.major.map((degree) => degree.degrees_id.name).join(', ')}"/>
             {/each}
         </div>
     </div>
