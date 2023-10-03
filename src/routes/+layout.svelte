@@ -30,7 +30,7 @@
         property="og:description"
         content={$page.data.description || defaultDescription}
     />
-    <meta property="og:image" content="/images/ite-portland.jpg" />
+    <meta property="og:image" content="{$page.data.socialImage || '/images/ite-portland.jpg'}" />
 
     <!-- Twitter meta tags -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -43,7 +43,7 @@
         property="twitter:description"
         content={$page.data.description || defaultDescription}
     />
-    <meta property="twitter:image" content="/images/ite-portland.jpg" />
+    <meta property="twitter:image" content="{$page.data.socialImage || '/images/ite-portland.jpg'}" />
 
     <!--    Send the meta tag that blocks robots from indexing, if we specify that this tag should be sent in page load() function -->
     {#if $page.data.noIndex}

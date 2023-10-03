@@ -8,6 +8,12 @@
     export let degrees;
     // Person's LinkedIn url
     export let linkedin;
+    // Person's former role
+    export let role;
+    // Person's start of participation
+    export let participation_start;
+    // Person's end of participation
+    export let participation_end;
 </script>
 
 <div class="flex flex-col sm:flex-row gap-8">
@@ -19,7 +25,7 @@
 
     <div class="bg-base-100 p-0">
         <h2 class="text-center sm:text-left text-3xl font-medium pb-4">
-            {name}
+            {name} <span class="font-normal">({role}, {participation_start} - {participation_end})</span>
         </h2>
 
         <p class="pb-2 font-light">
@@ -41,8 +47,8 @@
             Degrees earned: {degrees}
         </p>
 
-        <p class="pb-2">{bio}</p>
+        <p class="directus-html">{@html bio}</p>
 
-        <a href="{linkedin}" class="link link-primary" target="_blank" rel="noreferrer">View on LinkedIn</a>
+        <a href="{linkedin}" class="btn btn-primary btn-sm" target="_blank" rel="noreferrer">View on LinkedIn</a>
     </div>
 </div>

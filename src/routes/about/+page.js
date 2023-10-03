@@ -1,9 +1,19 @@
-import {collection, query, where, orderBy} from "firebase/firestore";
-import {firestore} from "$lib/firebase/client.js";
-import getFirestoreData from "$lib/firebase/getFirestoreData.js";
+import {directus} from "$lib/directus/client.js";
+import {readItems} from "@directus/sdk";
 
 export async function load() {
-    const list = await getFirestoreData(query(collection(firestore, 'team-members'), where('published', '==', true), orderBy('order', 'asc')));
+    const list = directus.request(
+        readItems('team_members', {
+            filter: {
+                'status': {
+                    "_eq": "published"
+                }
+            },
+            sort: ['sort'],
+            fields: ['*,major.degrees_id.name']
+        }
+    ));
+
 
     return {
         teamMembers: list,

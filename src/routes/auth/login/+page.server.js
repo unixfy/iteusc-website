@@ -1,6 +1,6 @@
+import {redirect} from "@sveltejs/kit";
+import {PUBLIC_DIRECTUS_URL} from "$env/static/public";
+
 export async function load() {
-    return {
-        // Do not allow search engines to index this page
-        noIndex: true
-    }
+    throw redirect(307, `${PUBLIC_DIRECTUS_URL}/admin`)
 }
