@@ -3,8 +3,8 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     fontFamily: {
-      'sans': ['Rubik', 'sans-serif'],
-      'display': ['Overpass', 'display']
+      'sans': ['Rubik', ...defaultTheme.fontFamily.sans],
+      'display': ['Overpass', ...defaultTheme.fontFamily.display]
     },
     extend: {
       colors: {
