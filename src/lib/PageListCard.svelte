@@ -13,7 +13,7 @@
         </figure>
         <div class="col-span-4 my-auto flex flex-col gap-2 p-8">
             <h2 class="card-title font-display text-xl lg:text-2xl">{title}</h2>
-            <p class="font-display text-sm">Published on {date}</p>
+            <p class="font-display text-sm">Published {date}</p>
             <p>{excerpt}</p>
         </div>
     </div>

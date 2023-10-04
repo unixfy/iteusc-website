@@ -7,7 +7,7 @@
 </script>
 
 <PageHeader title="{data.page.title}"
-            subtitle="Posted on {format(parseISO(data.page.date_created), "PPP")}">
+            subtitle="Posted {format(parseISO(data.page.date_created), "LLLL d, y")}">
 </PageHeader>
 
 <div class="ct pb-8 directus-html">

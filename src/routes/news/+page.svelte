@@ -16,7 +16,7 @@
             <PageListCard title="{item.title}"
                           url="/page/{item.slug}"
                           excerpt="{item.excerpt}"
-                          date='{format(parseISO(item.date_created), "PPP")}'
+                          date='{format(parseISO(item.date_created), "LLLL d, y")}'
                           image="{getStorageDirectUrl(item.image)}"
             >
             </PageListCard>
