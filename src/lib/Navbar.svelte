@@ -9,6 +9,10 @@
             "url": "/about/"
         },
         {
+            "name": "News",
+            "url": "/news/"
+        },
+        {
             "name": "Hall of Fame",
             "url": "/hall-of-fame/"
         },
@@ -48,7 +52,8 @@
                 </ul>
             </div>
             <!--        display long name on desktop, short name on mobile-->
-            <a class="btn btn-ghost normal-case text-xl hidden lg:flex font-display" href="/">USC Institute of Transportation
+            <a class="btn btn-ghost normal-case text-xl hidden lg:flex font-display" href="/">USC Institute of
+                Transportation
                 Engineers</a>
             <a class="btn btn-ghost normal-case text-xl lg:hidden font-display" href="/">USC ITE</a>
         </div>
