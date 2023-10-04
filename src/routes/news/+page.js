@@ -27,8 +27,6 @@ export async function load() {
         return item;
     })
 
-    console.log(parsed_list)
-
     return {
         items: parsed_list,
         title: "News"
