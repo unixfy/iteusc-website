@@ -10,6 +10,10 @@ p > a {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container
 }
 
+.narrow-ct {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 container
+}
+
 .section-heading {
     @apply md:text-4xl lg:text-5xl text-3xl mb-4 font-bold font-display
 }
@@ -38,7 +42,7 @@ p > a {
 
 /* styles for page content */
 .directus-html > p {
-    @apply mb-4
+    @apply mb-4 text-sm md:text-base lg:text-lg
 }
 
 .directus-html > blockquote {

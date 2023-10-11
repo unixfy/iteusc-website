@@ -6,11 +6,26 @@
     export let data;
 </script>
 
-<PageHeader title="{data.page.title}"
-            subtitle="Posted {format(parseISO(data.page.date_created), "LLLL d, y")}">
-</PageHeader>
 
-<div class="ct pb-8 directus-html">
+<div class="bg-usc-cardinal text-white py-6">
+    <div class="narrow-ct">
+        <div class="breadcrumbs mb-4 overflow-hidden font-display">
+            <ul>
+                <li><a href="/">USC ITE</a></li>
+                <li><a href="/news">News</a></li>
+                <li>{data.page.title}</li>
+            </ul>
+        </div>
+
+        <div>
+            <h1 class="section-heading">{data.page.title}</h1>
+            <p class="section-subheading">Posted {format(parseISO(data.page.date_created), "LLLL d, y")}</p>
+        </div>
+    </div>
+</div>
+
+<div class="narrow-ct directus-html">
+
     {#if data.page.image}
         <img src="{getStorageDirectUrl(data.page.image)}" alt="Image for {data.page.title}">
         <div class="my-4 border border-base-300"></div>
