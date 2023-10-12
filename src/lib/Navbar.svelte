@@ -13,6 +13,10 @@
             "url": "/news/"
         },
         {
+            "name": "Photos",
+            "url": "/photos/"
+        },
+        {
             "name": "Hall of Fame",
             "url": "/hall-of-fame/"
         },
