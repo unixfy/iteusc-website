@@ -26,7 +26,7 @@
     </div>
     <!--    Team section -->
     <div class="section">
-        <h1 class="section-heading text-center">Meet our team</h1>
+        <h1 class="section-heading text-center">Meet our 2023-2024 leadership team</h1>
 
         <div class="grid md:grid-cols-3 lg:grid-cols-4">
             <!--            Display a card for each team member -->
