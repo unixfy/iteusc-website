@@ -6,12 +6,16 @@ p > a {
     @apply link
 }
 
+.p-readable {
+    @apply text-sm md:text-base lg:text-lg
+}
+
 .ct {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container
 }
 
 .narrow-ct {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 container
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 container
 }
 
 .section-heading {
@@ -42,7 +46,7 @@ p > a {
 
 /* styles for page content */
 .directus-html > p {
-    @apply mb-4 text-sm md:text-base lg:text-lg
+    @apply mb-4 p-readable
 }
 
 .directus-html > blockquote {
