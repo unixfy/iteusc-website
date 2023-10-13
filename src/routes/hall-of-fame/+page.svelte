@@ -17,7 +17,7 @@
                 bio={item.bio}
                 degrees={item.degrees.map((degree) => degree.degrees_id.name).join(", ")}
                 linkedin={item.linkedin}
-                image={getStorageDirectUrl(item.image)}
+                image="{getStorageDirectUrl(item.image)}?format=webp&width=300"
                 participation_start="{item.participation_start}"
                 participation_end="{item.participation_end}"
                 role="{item.role}"

@@ -27,7 +27,7 @@
 <div class="narrow-ct directus-html">
 
     {#if data.page.image}
-        <img src="{getStorageDirectUrl(data.page.image)}" alt="Image for {data.page.title}">
+        <img src="{getStorageDirectUrl(data.page.image)}?format=webp" alt="Image for {data.page.title}">
         <div class="my-4 border border-base-300"></div>
     {/if}
 

@@ -20,7 +20,7 @@
                 >
                     <figure>
                         <img
-                                src={getStorageDirectUrl(project.image)}
+                                src="{getStorageDirectUrl(project.image)}?quality=50&width=400&format=webp"
                                 alt={project.name}
                         />
                     </figure>

@@ -17,7 +17,7 @@
                           url="/page/{item.slug}"
                           excerpt="{item.excerpt}"
                           date='{format(parseISO(item.date_created), "LLLL d, y")}'
-                          image="{getStorageDirectUrl(item.image)}"
+                          image="{getStorageDirectUrl(item.image)}?format=webp&quality=50&width=400"
             >
             </PageListCard>
         {:else}

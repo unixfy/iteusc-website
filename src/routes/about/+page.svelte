@@ -31,7 +31,7 @@
         <div class="grid md:grid-cols-3 lg:grid-cols-4">
             <!--            Display a card for each team member -->
             {#each data.teamMembers as member}
-                <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}?width=400"
+                <TeamMemberCard name="{member.name}" role="{member.role}" image="{getStorageDirectUrl(member.image)}?width=400&format=webp"
                                 major="{member.major.map((degree) => degree.degrees_id.name).join(', ')}"/>
             {/each}
         </div>
