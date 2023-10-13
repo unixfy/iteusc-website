@@ -62,7 +62,7 @@
 <Navbar />
 
 <!--Ensure the page container is at least 100vh high (that way the footer will always be below-the-fold)-->
-<div class="min-h-screen">
+<div class="min-h-screen pb-8">
     <slot />
 </div>
 
