@@ -13,7 +13,7 @@
 		"@fontsource/overpass": "^5.0.13",
 		"@fontsource/rubik": "^5.0.15",
 		"@sveltejs/adapter-netlify": "^2.0.8",
-		"@sveltejs/kit": "^1.25.1",
+		"@sveltejs/kit": "^1.25.2",
 		"autoprefixer": "^10.4.16",
 		"daisyui": "^3.9.2",
 		"date-fns": "^2.30.0",
