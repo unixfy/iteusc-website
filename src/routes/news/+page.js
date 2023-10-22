@@ -1,5 +1,6 @@
 import {directus} from "$lib/directus/client.js";
 import {readItems} from "@directus/sdk";
+import {decodeHTML} from "entities";
 
 export async function load() {
     // grab all pages that are published and not hidden from this page
@@ -23,7 +24,7 @@ export async function load() {
     let parsed_list = list.map((item) => {
         let content = item.content;
         // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
-        item.excerpt = content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "").replace("&nbsp;", " ") + '...';
+        item.excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
         return item;
     })
 

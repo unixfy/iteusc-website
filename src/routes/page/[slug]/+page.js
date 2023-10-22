@@ -2,6 +2,7 @@ import {error} from "@sveltejs/kit";
 import {directus} from "$lib/directus/client.js";
 import {readItems} from "@directus/sdk";
 import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
+import {decodeHTML} from "entities";
 
 export async function load({params}) {
     // check if page with slug exists in Directus
@@ -14,6 +15,10 @@ export async function load({params}) {
             }
         })
     )
+
+    let content = list[0].content;
+    // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
+    list[0].excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
 
     // If the query returns nothing, we throw 404 error
     if (list.length === 0) {
@@ -29,6 +34,7 @@ export async function load({params}) {
     return {
         page: list[0],
         title: list[0].title,
+        description: list[0].excerpt,
         socialImage: list[0].image ? getStorageDirectUrl(list[0].image) : null
     }
 }
