@@ -19,7 +19,7 @@
 
         <div>
             <h1 class="section-heading">{data.page.title}</h1>
-            <p class="section-subheading">Posted {format(parseISO(data.page.date_created), "LLLL d, y")}</p>
+            <p class="section-subheading">Posted {format(parseISO(data.page.date_posted), "LLLL d, y")}</p>
         </div>
     </div>
 </div>
