@@ -13,7 +13,7 @@ export async function load() {
                         "_eq": false
                     }
                 },
-                sort: ['-date_created'],
+                sort: ['-date_created', 'title'],
             }
         ))
 
