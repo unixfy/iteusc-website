@@ -19,7 +19,7 @@
 
         <div>
             <h1 class="section-heading">{data.page.title}</h1>
-            <p class="section-subheading">Posted {format(parseISO(data.page.date_posted), "LLLL d, y")}</p>
+            <p class="section-subheading">Posted {format(parseISO(data.page.date_posted), "LLLL d, y")} by {data.page.author.name}</p>
         </div>
     </div>
 </div>
@@ -33,6 +33,13 @@
 
     {@html data.page.content}
 </div>
+
+<div class="narrow-ct p-8 bg-base-300 rounded-xl">
+    <h2 class="section-subheading">About the author</h2>
+    <p class="p-readable">{@html data.page.author.bio}</p>
+</div>
+
+
 
 
 

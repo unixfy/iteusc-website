@@ -12,7 +12,8 @@ export async function load({params}) {
                 'slug': {
                     "_eq": params.slug
                 }
-            }
+            },
+            fields: ['*','author.name','author.bio']
         })
     )
 
