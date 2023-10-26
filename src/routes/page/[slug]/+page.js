@@ -36,6 +36,6 @@ export async function load({params}) {
         page: list[0],
         title: list[0].title,
         description: list[0].excerpt,
-        socialImage: list[0].image ? getStorageDirectUrl(list[0].image) : null
+        socialImage: list[0].image ? getStorageDirectUrl(list[0].image) + '?format=webp&quality=50&width=800' : null
     }
 }
