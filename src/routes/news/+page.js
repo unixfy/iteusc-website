@@ -31,6 +31,7 @@ export async function load() {
 
     return {
         items: parsed_list,
-        title: "News"
+        title: "News",
+        socialImage: "/images/portland-train.jpg"
     }
 }
