@@ -3,6 +3,8 @@
     import Navbar from "$lib/Navbar.svelte";
     import Footer from "$lib/Footer.svelte";
     import { page } from "$app/stores";
+    import { fade } from 'svelte/transition';
+    import { sineIn, sineOut } from "svelte/easing";
 
     // Import fonts
     import "@fontsource/overpass/400.css";
@@ -10,6 +12,8 @@
     import "@fontsource/rubik/400.css";
     import "@fontsource/rubik/700.css";
     import "@fontsource/rubik/300.css";
+
+    export let data;
 
     let defaultTitle = "Welcome";
     let defaultDescription =
@@ -63,7 +67,14 @@
 
 <!--Ensure the page container is at least 100vh high (that way the footer will always be below-the-fold)-->
 <div class="min-h-screen pb-8">
-    <slot />
+    {#key data.url}
+        <div
+        in:fade={{ duration: 200, delay: 200, easing: sineOut }}
+        out:fade={{ duration: 200, easing: sineIn }}
+        >
+            <slot />
+        </div>
+    {/key}
 </div>
 
 <!--Insert footer component-->
