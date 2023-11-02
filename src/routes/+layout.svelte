@@ -61,6 +61,12 @@
     {#if $page.data.noIndex}
         <meta name="robots" content="noindex, nofollow" />
     {/if}
+
+    <!-- Favicon -->
+    <!-- Note that we provide support in both PNG and SVG (since Safari doesn't support SVG favicons) -->
+    <link rel="icon" href="/images/favicon-128x128.png"/>
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml"/>
+
 </svelte:head>
 
 <!-- Insert automatic progress bar component -->
