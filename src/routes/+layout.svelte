@@ -5,6 +5,7 @@
     import { page } from "$app/stores";
     import { fade } from 'svelte/transition';
     import { sineIn, sineOut } from "svelte/easing";
+    import { ProgressBar } from "@prgm/sveltekit-progress-bar";
 
     // Import fonts
     import "@fontsource/overpass/400.css";
@@ -61,6 +62,9 @@
         <meta name="robots" content="noindex, nofollow" />
     {/if}
 </svelte:head>
+
+<!-- Insert automatic progress bar component -->
+<ProgressBar class="text-primary"></ProgressBar>
 
 <!--Insert Navbar component-->
 <Navbar />
