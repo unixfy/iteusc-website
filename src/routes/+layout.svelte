@@ -4,7 +4,7 @@
     import Footer from "$lib/Footer.svelte";
     import { page } from "$app/stores";
     import { fade } from 'svelte/transition';
-    import { sineIn, sineOut } from "svelte/easing";
+    import { sineOut } from "svelte/easing";
     import { ProgressBar } from "@prgm/sveltekit-progress-bar";
 
     // Import fonts
@@ -78,9 +78,9 @@
 <!--Ensure the page container is at least 100vh high (that way the footer will always be below-the-fold)-->
 <div class="min-h-screen pb-8">
     {#key data.url}
+    <!-- Note we don't animate out because it causes a jarring jump to the top of the page (sveltekit behavior) -->
         <div
         in:fade={{ duration: 200, delay: 200, easing: sineOut }}
-        out:fade={{ duration: 200, easing: sineIn }}
         >
             <slot />
         </div>
