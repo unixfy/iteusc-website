@@ -14,7 +14,7 @@
 		"@fontsource/rubik": "^5.0.15",
 		"@prgm/sveltekit-progress-bar": "^1.0.0",
 		"@sveltejs/adapter-netlify": "^2.0.8",
-		"@sveltejs/kit": "^1.25.2",
+		"@sveltejs/kit": "^1.27.2",
 		"autoprefixer": "^10.4.16",
 		"daisyui": "^3.9.2",
 		"date-fns": "^2.30.0",
