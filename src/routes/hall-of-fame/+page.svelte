@@ -7,20 +7,28 @@
     export let data;
 </script>
 
-<PageHeader title="Hall of Fame" subtitle="Meet our past USC ITE members." />
+<PageHeader title="Hall of Fame" subtitle="Meet our past USC ITE leaders." />
 
 <div class="ct pb-8">
+    <p class="font-display p-readable mb-8">
+        This Hall of Fame honors those who led USC ITE during their college career and have continued to
+        make an impact in their profession, or in other ways brought
+        distinction to their alma mater.
+    </p>
+
     <div class="flex flex-col gap-12">
         {#each data.items as item}
             <HallofFameCard
                 name={item.name}
                 bio={item.bio}
-                degrees={item.degrees.map((degree) => degree.degrees_id.name).join(", ")}
+                degrees={item.degrees
+                    .map((degree) => degree.degrees_id.name)
+                    .join(", ")}
                 linkedin={item.linkedin}
                 image="{getStorageDirectUrl(item.image)}?format=webp&width=300"
-                participation_start="{item.participation_start}"
-                participation_end="{item.participation_end}"
-                role="{item.role}"
+                participation_start={item.participation_start}
+                participation_end={item.participation_end}
+                role={item.role}
             />
         {:else}
             <QueryEmptyAlert />
