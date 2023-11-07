@@ -17,14 +17,14 @@ export async function load({params}) {
         })
     )
 
-    let content = list[0].content;
-    // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
-    list[0].excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
-
     // If the query returns nothing, we throw 404 error
     if (list.length === 0) {
         throw error(404, 'Page not found')
     }
+
+    let content = list[0].content;
+    // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
+    list[0].excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
 
     // If the query returns more than one result, we throw 500 error
     if (list.length > 1) {
