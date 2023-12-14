@@ -19,7 +19,7 @@
 
         <div>
             <h1 class="section-heading">{data.page.title}</h1>
-            <p class="section-subheading">Posted {format(parseISO(data.page.date_posted), "LLLL d, y")} by {data.page.author.name}</p>
+            <p class="section-subheading">Posted {format(parseISO(data.page.date_posted), "LLLL d, y")} by {data.page.author.first_name} {data.page.author.last_name}</p>
         </div>
     </div>
 </div>

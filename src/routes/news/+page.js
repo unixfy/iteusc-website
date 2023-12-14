@@ -15,7 +15,7 @@ export async function load() {
                     }
                 },
                 sort: ['-date_posted', 'title'],
-                fields: ['*','author.name']
+                fields: ['*','author.first_name', 'author.last_name']
             }
         ))
 

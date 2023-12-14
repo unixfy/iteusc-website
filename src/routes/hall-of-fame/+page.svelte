@@ -19,7 +19,7 @@
     <div class="flex flex-col gap-12">
         {#each data.items as item}
             <HallofFameCard
-                name={item.name}
+                name="{item.first_name} {item.last_name}"
                 bio={item.bio}
                 degrees={item.degrees
                     .map((degree) => degree.degrees_id.name)
