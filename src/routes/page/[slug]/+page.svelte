@@ -36,7 +36,7 @@
 
 <div class="narrow-ct p-8 bg-base-300 rounded-xl">
     <h2 class="section-subheading">About the author</h2>
-    <p class="p-readable">{@html data.page.author.bio}</p>
+    <p class="p-readable">{data.page.author.bio}</p>
 </div>
 
 
