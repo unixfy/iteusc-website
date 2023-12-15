@@ -24,8 +24,13 @@
     />
 
     <div class="bg-base-100 p-0">
-        <h2 class="text-center sm:text-left text-2xl sm:text-3xl font-bold font-display pb-4">
-            {name} <span class="font-normal">({role}, {participation_start} - {participation_end})</span>
+        <h2
+            class="text-center sm:text-left text-2xl sm:text-3xl font-bold font-display pb-4"
+        >
+            {name}
+            <span class="font-normal"
+                >({role}, {participation_start} - {participation_end})</span
+            >
         </h2>
 
         <p class="pb-2 font-light">
@@ -49,6 +54,11 @@
 
         <p class="directus-html">{@html bio}</p>
 
-        <a href="{linkedin}" class="btn btn-primary btn-sm" target="_blank" rel="noreferrer">View on LinkedIn</a>
+        <a
+            href={linkedin}
+            class="btn btn-primary btn-sm"
+            target="_blank"
+            rel="noreferrer">View on LinkedIn</a
+        >
     </div>
 </div>
