@@ -9,7 +9,7 @@ export async function load() {
                     "_eq": "published"
                 }
             },
-            sort: ['sort'],
+            sort: ['year_inducted', 'last_name', 'first_name'],
             fields: ['*,degrees.degrees_id.name']
         }
         ))
