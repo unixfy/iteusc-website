@@ -41,7 +41,7 @@
                             )}?format=webp&width={Math.ceil(
                                 screenSize / 2
                             )}&quality=50"
-                            alt={item.image.title}
+                            alt={item.name}
                         />
                     </label>
 
@@ -60,9 +60,9 @@
                             <img
                                 class="w-full h-full py-6"
                                 src={getStorageDirectUrl(item.image.id)}
-                                alt={item.image.title}
+                                alt={item.name}
                             />
-                            <p class="p-readable">{item.image.title}</p>
+                            <p class="p-readable">{item.name}</p>
                         </div>
                         <label class="modal-backdrop" for="modal{item.image.id}"
                             >Close</label
