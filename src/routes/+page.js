@@ -18,7 +18,12 @@ export async function load() {
     const imageGridList = directus.request(
         readItems('site_config', {
             sort: ['image_grid_items.site_config_image_grid_items_sort'],
-            limit: 6,
+            // note that we need to use deep to limit the number of related items (from image_grid_items field) returned
+            deep: {
+                "image_grid_items": {
+                    "_limit": 6
+                }
+            },
             fields: ['image_grid_items.*, image_grid_items.image.*']
         }
         ))
