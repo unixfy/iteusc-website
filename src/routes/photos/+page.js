@@ -9,6 +9,7 @@ export async function load() {
                     "_eq": "published"
                 }
             },
+            sort: ["date"],
             fields: ['*,image.*']
         }
     ))
