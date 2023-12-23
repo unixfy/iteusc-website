@@ -27,48 +27,22 @@
             {/each}
         {:then items}
             {#each items as item}
-                <div>
-                    <label
-                        for="modal{item.image.id}"
-                        class="hover:cursor-pointer"
-                        aria-label="Click to open large version of {item.image
-                            .title}"
+                <a href={item.url} target="_blank" rel="noreferrer">
+                    <div
+                        class="bg-cover bg-center flex rounded-lg aspect-square p-4 md:hover:scale-105 transition-all"
+                        style="background-image: url('{getStorageDirectUrl(
+                            item.image.id
+                        )}?format=webp&width={Math.ceil(
+                            screenSize / 2
+                        )}&quality=50');"
                     >
-                        <img
-                            class="h-auto max-w-full rounded-lg aspect-square object-cover"
-                            src="{getStorageDirectUrl(
-                                item.image.id
-                            )}?format=webp&width={Math.ceil(
-                                screenSize / 2
-                            )}&quality=50"
-                            alt={item.name}
-                        />
-                    </label>
-
-                    <input
-                        type="checkbox"
-                        id="modal{item.image.id}"
-                        class="modal-toggle"
-                    />
-                    <div class="modal">
-                        <div class="modal-box">
-                            <label
-                                for="modal{item.image.id}"
-                                class="btn btn-sm btn-circle absolute right-2 top-2"
-                                >✕</label
-                            >
-                            <img
-                                class="w-full h-full py-6"
-                                src={getStorageDirectUrl(item.image.id)}
-                                alt={item.name}
-                            />
-                            <p class="p-readable">{item.name}</p>
-                        </div>
-                        <label class="modal-backdrop" for="modal{item.image.id}"
-                            >Close</label
+                        <div
+                            class="m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white font-bold text-lg"
                         >
+                            <p>{item.name}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             {/each}
         {/await}
     </div>
