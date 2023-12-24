@@ -33,7 +33,7 @@
                         style="background-image: url('{getStorageDirectUrl(
                             item.image.id
                         )}?format=webp&width={Math.ceil(
-                            screenSize / 2
+                            screenSize / 1.5
                         )}&quality=50');"
                     >
                         <div
