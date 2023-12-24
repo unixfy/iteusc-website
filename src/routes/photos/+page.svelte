@@ -2,6 +2,7 @@
     export let data;
     import PageHeader from "$lib/PageHeader.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import { format, parseISO } from "date-fns";
 
     let screenSize;
 </script>
@@ -37,9 +38,12 @@
                         )}&quality=50');"
                     >
                         <div
-                            class="m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white font-bold text-lg"
+                            class="m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white"
                         >
-                            <p>{item.name}</p>
+                            <p class="font-bold text-lg">{item.name}</p>
+                            <p class="text-sm">
+                                {format(parseISO(item.date), "LLLL d, y")}
+                            </p>
                         </div>
                     </div>
                 </a>
