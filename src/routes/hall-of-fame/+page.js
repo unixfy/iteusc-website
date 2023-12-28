@@ -20,7 +20,7 @@ export async function load() {
     let hall_of_fame_items_raw = await hall_of_fame_items_req
 
     // Init a Map to store the hall of fame items after processing (note that we use Map to preserve order)
-    const hall_of_fame_items = new Map([])
+    let hall_of_fame_items = new Map([])
 
     // Loop over each hall of fame item from the Directus response
     hall_of_fame_items_raw.forEach(item => {
