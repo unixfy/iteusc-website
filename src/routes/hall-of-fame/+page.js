@@ -1,40 +1,24 @@
 import { directus } from "$lib/directus/client.js";
 import { readItems } from "@directus/sdk";
+import { groupDataByProperty } from "$lib/directus/groupDataByProperty";
 
 export async function load() {
-    // Pull hall of fame items from Directus
-    const hall_of_fame_items_req = directus.request(
+    // Pull hall of fame items from Directus, then group them by their year_inducted attribute
+    const hall_of_fame_items = directus.request(
         readItems('hall_of_fame', {
             filter: {
                 'status': {
                     "_eq": "published"
                 }
             },
-            // note that we sort by year_inducted first, such that most recently inducted people show up first
-            sort: ['-year_inducted', 'last_name', 'first_name'],
-            fields: ['*,degrees.degrees_id.name']
+            sort: ["-year_inducted", "last_name", "first_name"],
+            fields: ["*,degrees.degrees_id.name"]
         }
-        ))
-
-    // Begin processing the items
-    let hall_of_fame_items_raw = await hall_of_fame_items_req
-
-    // Init a Map to store the hall of fame items after processing (note that we use Map to preserve order)
-    let hall_of_fame_items = new Map([])
-
-    // Loop over each hall of fame item from the Directus response
-    hall_of_fame_items_raw.forEach(item => {
-        // Grab the induction year for the item
-        const year = item.year_inducted;
-
-        // Check if the induction year is already in the Map, if not, add it
-        if (!hall_of_fame_items.get(year)) {
-            hall_of_fame_items.set(year, [])
-        }
-
-        // Add the item to the Map item with the same year as the item in question
-        hall_of_fame_items.get(year).push(item);
-    });
+        )).then((items) => {
+            // group the hall of fame items by year_inducted using the groupDataByProperty function
+            const hall_of_fame_items = groupDataByProperty(items, 'year_inducted')
+            return hall_of_fame_items
+        })
 
     return {
         items: hall_of_fame_items,
