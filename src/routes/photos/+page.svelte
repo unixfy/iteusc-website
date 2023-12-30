@@ -31,11 +31,11 @@
         {#each items as [year, items]}
             <div class="my-8">
                 <h2 class="section-heading">{year}</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {#each items as item}
                         <a href={item.url} target="_blank" rel="noreferrer">
                             <div
-                                class="bg-cover bg-center flex rounded-lg aspect-square p-4 md:hover:scale-105 transition-all"
+                                class="h-full bg-cover bg-center flex rounded-lg sm:aspect-square py-8 sm:py-4 px-4 md:hover:scale-105 transition-all"
                                 style="background-image: url('{getStorageDirectUrl(
                                     item.image.id,
                                 )}?format=webp&width={Math.ceil(
