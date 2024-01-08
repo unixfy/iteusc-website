@@ -85,7 +85,7 @@
             {/each}
             <!--    Button that links to a page listing all projects -->
             <a class="btn btn-block btn-primary btn-lg" href="/projects/"
-                >View all projects</a
+                >View All Projects</a
             >
         </div>
     </div>
@@ -100,7 +100,7 @@
         <GoogleCalendarEmbed minheight="500px" />
 
         <a class="btn btn-block btn-primary btn-lg" href="/calendar/"
-            >Full calendar</a
+            >Full Calendar</a
         >
     </div>
 </div>
@@ -124,7 +124,7 @@
             </div>
             <a
                 class="btn btn-neutral glass md:ml-auto my-auto btn-lg"
-                href="/join/">Join us now</a
+                href="/join/">Join Us Now!</a
             >
         </div>
     </div>
