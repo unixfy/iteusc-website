@@ -1,7 +1,5 @@
 <script>
-    // uuid of image
-    export let id;
-    // file name of image in static/images
+    // background image url
     export let image;
     // text description overlaid on image
     export let text;
