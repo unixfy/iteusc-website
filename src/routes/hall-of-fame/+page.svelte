@@ -33,7 +33,7 @@
                                 .join(", ")}
                             linkedin={item.linkedin}
                             image="{getStorageDirectUrl(
-                                item.image
+                                item.image,
                             )}?format=webp&width=300"
                             participation_start={item.participation_start}
                             participation_end={item.participation_end}
@@ -42,6 +42,8 @@
                     {/each}
                 </div>
             </div>
+        {:else}
+            <QueryEmptyAlert />
         {/each}
     </div>
 </div>
