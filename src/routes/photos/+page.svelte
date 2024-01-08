@@ -3,6 +3,7 @@
     import PageHeader from "$lib/PageHeader.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
     import { format, parseISO } from "date-fns";
+    import PhotosCard from "$lib/PhotosCard.svelte";
 
     let screenSize;
 </script>
@@ -33,28 +34,16 @@
                 <h2 class="section-heading">{year}</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {#each items as item}
-                        <a href={item.url} target="_blank" rel="noreferrer">
-                            <div
-                                class="h-full bg-cover bg-center flex rounded-lg sm:aspect-square py-8 sm:py-4 px-4 md:hover:scale-105 transition-all"
-                                style="background-image: url('{getStorageDirectUrl(
-                                    item.image.id,
-                                )}?format=webp&width={Math.ceil(
-                                    screenSize / 1.5,
-                                )}&quality=50');"
-                            >
-                                <div
-                                    class="m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white"
-                                >
-                                    <p class="font-bold text-lg">{item.name}</p>
-                                    <p class="text-sm">
-                                        {format(
-                                            parseISO(item.date),
-                                            "LLLL d, y",
-                                        )}
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
+                        <PhotosCard
+                            url={item.url}
+                            image="{getStorageDirectUrl(
+                                item.image.id,
+                            )}?format=webp&width={Math.ceil(
+                                screenSize / 1.5,
+                            )}&quality=50"
+                            name={item.name}
+                            date={format(parseISO(item.date), "LLLL d, y")}
+                        />
                     {/each}
                 </div>
             </div>
