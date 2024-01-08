@@ -14,7 +14,7 @@ export async function load() {
         ))
 
     return {
-        opportunities: list,
+        opportunities: await list,
         title: "Opportunities"
     }
 }

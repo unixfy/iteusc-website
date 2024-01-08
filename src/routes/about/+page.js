@@ -16,7 +16,7 @@ export async function load() {
 
 
     return {
-        teamMembers: list,
+        teamMembers: await list,
         // Return the title for this page, which will be handled in the layout svelte file for SEO
         title: "About"
     }

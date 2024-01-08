@@ -14,7 +14,7 @@ export async function load() {
     ))
 
     return {
-        projects: list,
+        projects: await list,
         // Return the title for this page, which will be handled in the layout svelte file for SEO
         title: "Projects"
     }

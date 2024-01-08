@@ -21,7 +21,7 @@ export async function load() {
         })
 
     return {
-        items: hall_of_fame_items,
+        items: await hall_of_fame_items,
         title: "Hall of Fame",
         description: "This Hall of Fame honors those who led USC ITE during their college career and have continued to make an impact in their profession, or in other ways brought distinction to their alma mater."
     }
