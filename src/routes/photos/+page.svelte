@@ -23,7 +23,7 @@
     </p>
 
     {#await data.streamed.items}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {#each new Array(16) as item}
                 <div class="w-full h-64 rounded-lg bg-base-300 animate-pulse" />
             {/each}
