@@ -44,7 +44,6 @@
     <!-- Note that we need to iterate over the image_grid_items sub-array, as the Directus API is set to just return that single field -->
     {#each data.imageGrid.image_grid_items as grid_item}
         <GridImageCard
-            id={grid_item.id}
             image="{getStorageDirectUrl(
                 grid_item.image.id
             )}?width=600&format=webp&quality=50"
