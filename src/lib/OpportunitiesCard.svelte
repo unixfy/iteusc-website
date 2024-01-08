@@ -1,15 +1,15 @@
 <script>
-    import {parseISO} from "date-fns";
-    import {formatInTimeZone} from "date-fns-tz";
-
-    export let opportunity;
+    export let name;
+    export let description;
+    export let deadline;
+    export let url;
 </script>
 
 <div class="card card-side bg-base-200 border border-base-300">
     <div class="card-body">
-        <h2 class="card-title">{opportunity.name}</h2>
+        <h2 class="card-title">{name}</h2>
         <div>
-            <p class="break-all">{opportunity.description}</p>
+            <p class="break-all">{description}</p>
         </div>
         <p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -19,10 +19,10 @@
             </svg>
             <!--            Format our ISO time string into a nice date, -->
             <!--            Note that the formatting must be handled in UTC because our dates are stored in UTC (even though the stored time doesn't actually matter for us) -->
-            Apply by {formatInTimeZone(parseISO(opportunity.deadline), "UTC", "PPP")}</p>
+            Apply by {deadline}</p>
 
         <div class="card-actions justify-start">
-            <a class="btn btn-primary btn-sm" href="{opportunity.url}" target="_blank" rel="noreferrer">Apply
+            <a class="btn btn-primary btn-sm" href="{url}" target="_blank" rel="noreferrer">Apply
                 Now</a>
         </div>
     </div>
