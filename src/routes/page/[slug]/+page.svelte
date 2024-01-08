@@ -1,5 +1,4 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
     import {format, parseISO} from "date-fns";
     import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
 
