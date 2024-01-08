@@ -19,7 +19,7 @@ export async function load({params}) {
 
     // If the query returns nothing, we throw 404 error
     if (list.length === 0) {
-        throw error(404, 'Page not found')
+        error(404, 'Page not found');
     }
 
     let content = list[0].content;
@@ -28,7 +28,7 @@ export async function load({params}) {
 
     // If the query returns more than one result, we throw 500 error
     if (list.length > 1) {
-        throw error(500, 'Multiple pages with same slug found!!')
+        error(500, 'Multiple pages with same slug found!!');
     }
 
     // If the query returns exactly one result, we return it
