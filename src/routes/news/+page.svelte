@@ -4,6 +4,7 @@
     import {format, parseISO} from "date-fns";
     import PageListCard from "$lib/PageListCard.svelte";
     import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
+    import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
 
     export let data;
 </script>
@@ -17,7 +18,7 @@
                           url="/page/{item.slug}"
                           excerpt="{item.excerpt}"
                           date='{format(parseISO(item.date_posted), "LLLL d, y")}'
-                          author_name="{item.author.first_name} {item.author.last_name}"
+                          author_name="{makeAuthorsNameString(item.authors)}"
                           image="{getStorageDirectUrl(item.image)}?format=webp&quality=50&width=400"
             >
             </PageListCard>
