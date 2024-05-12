@@ -1,9 +1,10 @@
 <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
     <div class="grid grid-flow-col gap-4">
         <!--        Footer links -->
-        <a class="link link-hover" href="/about/">About us</a>
+        <a class="link link-hover" href="/about/">About Us</a>
         <a class="link link-hover" href="/join/">Join USC ITE</a>
-        <a class="link link-hover" href="/auth/login/">Sign in</a>
+        <a class="link link-hover" href="/contact/">Contact Us</a>
+        <a class="link link-hover" href="/auth/login/">Sign In</a>
     </div>
     <div>
         <!--        Social link buttons - note that external links should be "noreferrer" and target="_blank" -->
