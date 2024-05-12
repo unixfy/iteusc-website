@@ -2,9 +2,7 @@
     <div class="grid grid-flow-col gap-4">
         <!--        Footer links -->
         <a class="link link-hover" href="/about/">About us</a>
-        <a class="link link-hover" href="/join/">Join</a>
-        <a class="link link-hover" href="https://forms.gle/TQKCiMyscURNHgGMA" rel="noreferrer" target="_blank">Subscribe
-            to emails</a>
+        <a class="link link-hover" href="/join/">Join USC ITE</a>
         <a class="link link-hover" href="/auth/login/">Sign in</a>
     </div>
     <div>
