@@ -6,5 +6,5 @@
 ></PageHeader>
 
 <div class="ct">
-    <p>We can be reached via email: iteusc [at] gmail.com.</p>
+    <p>We can be reached via email: <b>iteusc [at] gmail.com</b>.</p>
 </div>
