@@ -9,7 +9,7 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@directus/sdk": "^15.1.0",
+		"@directus/sdk": "^16.0.0",
 		"@fontsource/overpass": "^5.0.18",
 		"@fontsource/rubik": "^5.0.20",
 		"@prgm/sveltekit-progress-bar": "^2.0.0",
