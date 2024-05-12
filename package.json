@@ -10,8 +10,8 @@
 	},
 	"devDependencies": {
 		"@directus/sdk": "^15.1.0",
-		"@fontsource/overpass": "^5.0.16",
-		"@fontsource/rubik": "^5.0.18",
+		"@fontsource/overpass": "^5.0.18",
+		"@fontsource/rubik": "^5.0.20",
 		"@prgm/sveltekit-progress-bar": "^2.0.0",
 		"@sveltejs/adapter-netlify": "^3.0.1",
 		"@sveltejs/kit": "^2.4.3",
