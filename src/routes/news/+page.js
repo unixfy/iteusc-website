@@ -17,14 +17,21 @@ export async function load() {
                 }
             },
             sort: ['-date_posted', 'title'],
-            fields: ['*', 'authors.authors_id.*', 'authors.authors_id.*']
+            fields: ['*', 'authors.authors_id.*']
         }
         )).then((items) => {
             items.map((item) => {
-                let content = item.content;
-                // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
-                item.excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
-                return item;
+                if (item.content) {
+                    let content = item.content;
+                    // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
+                    item.excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
+                    return item;
+                }
+
+                if (item.content_blocks) {
+                    // for the excerpt, get the first 50 words from the text of the first paragraph
+                    item.excerpt = item.content_blocks.content.find(content => content.type === "paragraph").content[0].text.split(" ").slice(0, 50).join(" ") + '...';
+                }
             })
             return items
         })
