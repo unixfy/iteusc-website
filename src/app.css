@@ -22,6 +22,10 @@ p > a {
     @apply md:text-4xl lg:text-5xl text-3xl mb-4 font-bold font-display
 }
 
+.section-heading-skeleton {
+    @apply skeleton md:h-9 lg:h-12 w-1/2 h-8 mb-4
+}
+
 .section-subheading {
     @apply text-2xl md:text-3xl lg:text-4xl mb-4 font-display
 }
@@ -58,5 +62,5 @@ p > a {
 }
 
 .page-img {
-    @apply rounded-lg drop-shadow-lg mx-auto my-8
+    @apply rounded-lg drop-shadow-lg mx-auto my-8 w-[1024px] h-auto aspect-video
 }
