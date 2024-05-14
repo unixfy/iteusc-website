@@ -64,3 +64,9 @@ p > a {
 .page-img {
     @apply rounded-lg drop-shadow-lg mx-auto my-8 w-[1024px] h-auto aspect-video
 }
+
+.image-gallery-blocks-grid {
+    /* this magical CSS makes an automatic number of columns show up */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    @apply my-8 grid gap-4
+}
