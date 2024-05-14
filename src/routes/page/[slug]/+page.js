@@ -1,10 +1,11 @@
-import {error} from "@sveltejs/kit";
-import {directus} from "$lib/directus/client.js";
-import {readItems} from "@directus/sdk";
-import {getStorageDirectUrl} from "$lib/directus/getStorageDirectUrl.js";
-import {decodeHTML} from "entities";
+import { error } from "@sveltejs/kit";
+import { directus } from "$lib/directus/client.js";
+import { readItems } from "@directus/sdk";
+import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+import { decodeHTML } from "entities";
+import { Node } from "@tiptap/core";
 
-export async function load({params}) {
+export async function load({ params }) {
     // check if page with slug exists in Directus
     const list = await directus.request(
         readItems('pages', {
@@ -13,8 +14,8 @@ export async function load({params}) {
                     "_eq": params.slug
                 }
             },
-            // pull all related authors' details
-            fields: ['*', 'authors.authors_id.*']
+            // pull all related authors' details and blocks
+            fields: ['*', 'authors.authors_id.*', 'blocks.*.*.*']
         })
     )
 
@@ -31,6 +32,25 @@ export async function load({params}) {
     if (list.length > 1) {
         error(500, 'Multiple pages with same slug found!!');
     }
+
+    if (list[0].content_blocks) {
+        // Inject data into content_blocks (from blocks)
+        list[0].content_blocks.content = list[0].content_blocks.content.map(content => {
+            // only runs on relation-block items
+            if (content.type == "relation-block" && content.attrs?.id) {
+                // finds the block with an ID matching the relation listed in content_blocks
+                // then injects its related "item" into the content_blocks object
+                const relatedNode = list[0].blocks.find(
+                    (node) => node.id === content.attrs.id
+                )
+
+                content.attrs.data = relatedNode.item
+            }
+            return content;
+        });
+    }
+
+
 
     // If the query returns exactly one result, we return it
     return {
