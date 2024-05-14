@@ -1,4 +1,6 @@
 <script>
+    import { Image } from "@unpic/svelte";
+
     export let image;
     // Hall of Fame person's name
     export let name;
@@ -17,10 +19,14 @@
 </script>
 
 <div class="flex flex-col sm:flex-row gap-8">
-    <img
+    <Image
         src={image}
         alt="Headshot for {name}"
-        class="aspect-square w-48 h-48 rounded-lg shadow-md mx-auto"
+        class="rounded-lg shadow-md mx-auto"
+        background="auto"
+        cdn="directus"
+        width="192"
+        height="192"
     />
 
     <div class="bg-base-100 p-0">
