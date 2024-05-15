@@ -4,6 +4,8 @@
     // image caption
     export let caption;
 
+    import { Image } from "@unpic/svelte";
+
     let modalOpen = false;
 </script>
 
@@ -11,11 +13,14 @@
 <div class="flex flex-col gap-4">
     <!-- Allows the user to click on the image to open the lightbox -->
     <button on:click={() => (modalOpen = !modalOpen)} class="cursor-zoom-in">
-        <img
+        <!-- TODO: Automatically calculate the aspect ratio / height to suppress the unpic warning about that -->
+        <Image
             src={image}
             alt={caption}
+            width={1920}
+            height="100%"
             class="drop-shadow-xl rounded-lg"
-            loading="lazy"
+            cdn="directus"
         />
     </button>
     <p class="text-center italic">{caption}</p>
@@ -28,7 +33,7 @@
     class:modal-open={modalOpen}
     id="lightbox"
 >
-    <div class="modal-box">
+    <div class="modal-box !max-w-[50vw]">
         <!-- "x" button to close lightbox -->
         <form method="dialog">
             <button
@@ -45,11 +50,13 @@
                 on:click={() => (modalOpen = !modalOpen)}
                 class="cursor-zoom-out"
             >
-                <img
+                <Image
                     src={image}
                     alt={caption}
+                    width={1920}
+                    height="100%"
                     class="drop-shadow-xl rounded-lg"
-                    loading="lazy"
+                    cdn="directus"
                 />
             </button>
         </div>

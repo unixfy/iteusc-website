@@ -6,6 +6,7 @@
     import StarterKit from "@tiptap/starter-kit";
     import Video from "$lib/blocks/Video.svelte";
     import ImageGalleryImage from "$lib/blocks/ImageGalleryImage.svelte";
+    import { Image } from "@unpic/svelte";
 
     export let data;
 </script>
@@ -33,10 +34,14 @@
 
 <div class="narrow-ct">
     {#if data.page.image}
-        <img
-            src="{getStorageDirectUrl(data.page.image)}?key=article-image"
+        <Image
+            src="{getStorageDirectUrl(data.page.image)}?format=webp"
             class="page-img"
             alt="Image for {data.page.title}"
+            width={1920}
+            aspectRatio="16/9"
+            cdn="directus"
+            priority=true
         />
         <div class="my-4 border border-base-300"></div>
     {/if}
@@ -55,7 +60,7 @@
                                 <ImageGalleryImage
                                     image="{getStorageDirectUrl(
                                         image_item.image,
-                                    )}?format=webp&quality=50"
+                                    )}?format=webp"
                                     caption={image_item.image_caption}
                                 ></ImageGalleryImage>
                             </div>
