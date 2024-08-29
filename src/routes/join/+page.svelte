@@ -17,6 +17,6 @@
     </ul>
 
     <!--    Google Form iframe -->
-    <iframe class="min-h-[100vh]" src="https://docs.google.com/forms/d/e/1FAIpQLScHezAe-FYefKdUIgb09Zatsx6eenzXqVMyJhqCHVl6hyXEgA/viewform"
+    <iframe class="min-h-[100vh]" src="https://docs.google.com/forms/d/e/1FAIpQLSc_TJE9iB81HTQS__jRvGGYYLCx7VhvHgNFr_t51DbFA6tfZA/viewform"
             title="Google Form to subscribe to ITE newsletter"></iframe>
 </div>
