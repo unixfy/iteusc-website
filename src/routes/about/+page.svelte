@@ -15,13 +15,7 @@
             Our mission statement
         </h1>
         <p>
-            The mission of the USC Institute of Transportation Engineers chapter is to promote the development of
-            innovative and sustainable transportation solutions that meet the needs of the community. We aim to foster
-            discussion and collaboration among students, faculty, and professionals in the transportation industry to
-            advance the field of transportation engineering and planning. Our chapter is committed to exploring and
-            addressing the most pressing transportation issues of our time, including smart systems, micromobility, and
-            equity in transportation access. We strive to create a welcoming and inclusive environment that encourages
-            diversity of thought and promotes the exchange of ideas.
+            Our mission is to empower USC students to develop innovative and sustainable transportation solutions for our future. We help our students explore the opportunities available in the transportation industry, through collaboration with agencies and firms, field trips to facilities and construction sites, professional conferences, social events, and community engagement. Most importantly, we value diversity, and we're proud to build an inclusive and exciting community of Trojans passionate about transportation.
         </p>
     </div>
     <!--    Team section -->
