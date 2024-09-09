@@ -18,7 +18,7 @@
                           url="/page/{item.slug}"
                           excerpt="{item.excerpt}"
                           date='{format(parseISO(item.date_posted), "LLLL d, y")}'
-                          author_name="{makeAuthorsNameString(item.authors)}"
+                          author_name="{makeAuthorsNameString(item.people)}"
                           image="{getStorageDirectUrl(item.image)}?format=webp&quality=50&width=400"
             >
             </PageListCard>

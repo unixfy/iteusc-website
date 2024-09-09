@@ -14,7 +14,7 @@ export async function load({ params }) {
                 }
             },
             // pull all related authors' details and blocks
-            fields: ['*', 'authors.authors_id.*', 'blocks.*.*.*']
+            fields: ['title', 'date_posted', 'slug', 'image', 'content_blocks', 'content', 'people.people_id.first_name', 'people.people_id.last_name', 'people.people_id.bio']
         })
     )
 

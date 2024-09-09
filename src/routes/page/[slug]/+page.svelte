@@ -26,7 +26,7 @@
             <p class="section-subheading">
                 Posted {format(parseISO(data.page.date_posted), "LLLL d, y")} by
                 <!-- generates a list of names of all authors, including "and" for the last author -->
-                {makeAuthorsNameString(data.page.authors)}
+                {makeAuthorsNameString(data.page.people)}
             </p>
         </div>
     </div>
@@ -92,11 +92,19 @@
 <div class="narrow-ct p-8 bg-base-300 rounded-xl">
     <!-- display "authors" plural if there are more than 1 authors -->
     <h2 class="section-subheading">
-        About the author{#if data.page.authors.length > 1}s{/if}
+        About the author{#if data.page.people.length > 1}s{/if}
     </h2>
     <div class="flex flex-col gap-4">
-        {#each data.page.authors as author}
-            <p class="p-readable">{author.authors_id.bio}</p>
+        {#each data.page.people as person}
+        
+            <p class="p-readable">
+                {#if person.people_id.bio}
+                {person.people_id.bio}
+                {:else}
+                No information provided.
+                {/if}
+            </p>
+
         {/each}
     </div>
 </div>

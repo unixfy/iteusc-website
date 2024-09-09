@@ -17,7 +17,7 @@ export async function load() {
                 }
             },
             sort: ['-date_posted', 'title'],
-            fields: ['*', 'authors.authors_id.*']
+            fields: ['title', 'date_posted', 'slug', 'image', 'content_blocks', 'content', 'people.people_id.first_name', 'people.people_id.last_name']
         }
         )).then((items) => {
             items.map((item) => {
