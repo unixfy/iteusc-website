@@ -5,62 +5,57 @@ import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
 import { decodeHTML } from "entities";
 
 export async function load({ params }) {
-    // check if page with slug exists in Directus
+    // Check if page with slug exists in Directus
     const list = await directus.request(
         readItems('pages', {
-            filter: {
-                'slug': {
-                    "_eq": params.slug
-                }
-            },
-            // pull all related authors' details and blocks
-            fields: ['title', 'date_posted', 'slug', 'image', 'content_blocks', 'content', 'people.people_id.first_name', 'people.people_id.last_name', 'people.people_id.bio']
+            filter: { 'slug': { "_eq": params.slug } },
+            fields: [
+                'title', 'date_posted', 'slug', 'image', 'content_blocks', 'content',
+                'people.people_id.first_name', 'people.people_id.last_name', 'people.people_id.bio'
+            ]
         })
-    )
+    );
 
-    // If the query returns nothing, we throw 404 error
+    // Handle errors based on the length of the list
     if (list.length === 0) {
         error(404, 'Page not found');
-    }
-
-    // If the query returns more than one result, we throw 500 error
-    if (list.length > 1) {
+    } else if (list.length > 1) {
         error(500, 'Multiple pages with same slug found!!');
     }
 
-    if (list[0].content) {
-        let content = list[0].content;
-        // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
-        list[0].excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
+    const page = list[0];
+
+    // Generate excerpt from content if available
+    if (page.content) {
+        const content = page.content;
+        page.excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
     }
 
-    if (list[0].content_blocks) {
-        // Inject data into content_blocks (from blocks)
-        list[0].content_blocks.content = list[0].content_blocks.content.map(content => {
-            // only runs on relation-block items
-            if (content.type == "relation-block" && content.attrs?.id) {
-                // finds the block with an ID matching the relation listed in content_blocks
-                // then injects its related "item" into the content_blocks object
-                const relatedNode = list[0].blocks.find(
-                    (node) => node.id === content.attrs.id
-                )
-
-                content.attrs.data = relatedNode.item
+    // Process content blocks if available
+    if (page.content_blocks) {
+        const contentBlocks = page.content_blocks.content;
+        page.content_blocks.content = contentBlocks.map(content => {
+            if (content.type === "relation-block" && content.attrs?.id) {
+                const relatedNode = page.blocks.find(node => node.id === content.attrs.id);
+                if (relatedNode) {
+                    content.attrs.data = relatedNode.item;
+                }
             }
             return content;
         });
 
-        // for the excerpt, get the first 50 words from the text of the first paragraph
-        list[0].excerpt = list[0].content_blocks.content.find(content => content.type === "paragraph").content[0].text.split(" ").slice(0, 50).join(" ") + '...';
+        // Generate excerpt from the first paragraph if available
+        const firstParagraph = contentBlocks.find(content => content.type === "paragraph");
+        if (firstParagraph && firstParagraph.content[0]?.text) {
+            page.excerpt = firstParagraph.content[0].text.split(" ").slice(0, 50).join(" ") + '...';
+        }
     }
 
-
-
-    // If the query returns exactly one result, we return it
+    // Return the result
     return {
-        page: list[0],
-        title: list[0].title,
-        description: list[0].excerpt,
-        socialImage: list[0].image ? getStorageDirectUrl(list[0].image) + '?format=webp&quality=50&width=800' : null
-    }
+        page,
+        title: page.title,
+        description: page.excerpt,
+        socialImage: page.image ? getStorageDirectUrl(page.image) + '?format=webp&quality=50&width=800' : null
+    };
 }
