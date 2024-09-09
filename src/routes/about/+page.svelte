@@ -18,7 +18,7 @@
             {data.missionStatement}
         </p>
     </div>
-    <!--    Team section -->
+    <!--   Current team section -->
     <div class="section">
         <h1 class="section-heading text-center">
             Meet our {data.currentLeadershipTeamYearString} leadership team
@@ -39,6 +39,23 @@
                         .join(", ")}
                 />
             {/each}
+        </div>
+    </div>
+
+    <!-- Past leadership teams section  -->
+    <div class="section">
+        <div class="narrow-ct">
+            <h1 class="section-heading text-center">Past leadership teams</h1>
+
+            <div class="join join-vertical w-full">
+                {#each data.otherLeadershipTeams as team}
+                    <a
+                        class="btn btn-block btn-lg join-item"
+                        href="/about/leadership-team/{team.id}"
+                        >{team.start_year} Leadership Team</a
+                    >
+                {/each}
+            </div>
         </div>
     </div>
 </div>
