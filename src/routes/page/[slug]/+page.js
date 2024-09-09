@@ -11,7 +11,7 @@ export async function load({ params }) {
             filter: { 'slug': { "_eq": params.slug } },
             fields: [
                 'title', 'date_posted', 'slug', 'image', 'content_blocks', 'content',
-                'people.people_id.first_name', 'people.people_id.last_name', 'people.people_id.bio'
+                'people.people_id.first_name', 'people.people_id.last_name', 'people.people_id.bio', 'blocks.*.*.*'
             ]
         })
     );
