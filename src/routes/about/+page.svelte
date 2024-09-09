@@ -32,7 +32,7 @@
                         .people_id.last_name}"
                     role={teamMember.position}
                     image="{getStorageDirectUrl(
-                        teamMember.people_id.picture.id,
+                        teamMember.people_id.picture,
                     )}?width=400&format=webp"
                     major={teamMember.people_id.degrees
                         .map((degree) => degree.degrees_id.name)

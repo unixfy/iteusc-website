@@ -13,7 +13,7 @@ export async function load({ params }) {
             'people.people_id.first_name',
             'people.people_id.last_name',
             'people.people_id.degrees.degrees_id.name',
-            'people.people_id.picture.id'
+            'people.people_id.picture'
         ]
     }))
 
