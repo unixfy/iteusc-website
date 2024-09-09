@@ -15,14 +15,7 @@
     <div class="bg-ite-blue p-4 md:p-8 flex flex-col text-center text-white">
         <h1 class="text-2xl md:text-3xl mt-auto pb-4">Our mission statement</h1>
         <p>
-            Our mission is to empower USC students to develop innovative and
-            sustainable transportation solutions for our future. We help our
-            students explore the opportunities available in the transportation
-            industry, through collaboration with agencies and firms, field trips
-            to facilities and construction sites, professional conferences,
-            social events, and community engagement. Most importantly, we value
-            diversity, and we're proud to build an inclusive and exciting
-            community of Trojans passionate about transportation.
+            {data.missionStatement}
         </p>
     </div>
     <!--    Team section -->

@@ -17,11 +17,12 @@ export async function load() {
             ]
         })),
         directus.request(readItems('site_config', {
-            fields: ['current_leadership_team']
+            fields: ['current_leadership_team','mission_statement']
         }))
     ]);
 
     const currentLeadershipTeamId = siteConfig.current_leadership_team;
+    const missionStatement = siteConfig.mission_statement;
 
     let currentLeadershipTeam = null;
     const otherLeadershipTeams = [];
@@ -40,6 +41,7 @@ export async function load() {
         currentLeadershipTeam: currentLeadershipTeam,
         otherLeadershipTeams: otherLeadershipTeams,
         currentLeadershipTeamYearString: currentLeadershipTeamYearString,
+        missionStatement: missionStatement,
         // Return the title for this page, which will be handled in the layout svelte file for SEO
         title: "About"
     }
