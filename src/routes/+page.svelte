@@ -69,7 +69,7 @@
                     <div class="flex flex-col md:flex-row h-full">
                         <img
                             class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video"
-                            src="{getStorageDirectUrl(project.image)}?width=700"
+                            src="{getStorageDirectUrl(project.image)}?width=700&format=webp"
                             alt="Image for {project.name}"
                         />
                         <div
