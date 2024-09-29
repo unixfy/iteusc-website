@@ -69,11 +69,11 @@
                     <div class="flex flex-col md:flex-row h-full">
                         <img
                             class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video"
-                            src={getStorageDirectUrl(project.image)}
+                            src="{getStorageDirectUrl(project.image)}?width=700"
                             alt="Image for {project.name}"
                         />
                         <div
-                            class="w-full md:w-2/3 p-4 text-black space-y-4 h-full"
+                            class="w-full md:w-2/3 p-8 text-black space-y-4 h-full"
                         >
                             <h3 class="text-xl font-bold">{project.name}</h3>
                             <p class="text-gray-600">{project.description}</p>

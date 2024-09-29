@@ -10,7 +10,8 @@ export async function load() {
                 }
             },
             sort: ['sort'],
-            limit: 3
+            limit: 3,
+            fields: ['name', 'description', 'image']
         }
         ))
 
@@ -27,6 +28,8 @@ export async function load() {
             fields: ['image_grid_items.*, image_grid_items.image.*']
         }
         ))
+
+    console.log(await projectsList)
 
     return {
         // Return the title for this page, which will be handled in the layout svelte file for SEO
