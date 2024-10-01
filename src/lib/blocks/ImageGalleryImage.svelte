@@ -23,7 +23,9 @@
             cdn="directus"
         />
     </button>
+    {#if caption}
     <p class="text-center italic">{caption}</p>
+    {/if}
 </div>
 
 <!-- Lightbox -->
@@ -42,7 +44,9 @@
             >
         </form>
 
+        {#if caption}
         <h3 class="text-lg font-bold mb-2">{caption}</h3>
+        {/if}
 
         <!-- User can click on image to close the lightbox -->
         <div class="flex flex-col gap-4">
