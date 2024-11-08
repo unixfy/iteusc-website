@@ -19,11 +19,13 @@
             <OpportunitiesCard
                 name={opportunity.name}
                 description={opportunity.description}
-                deadline={formatInTimeZone(
-                    parseISO(opportunity.deadline),
-                    "UTC",
-                    "PPP",
-                )}
+                deadline={opportunity.deadline
+                    ? formatInTimeZone(
+                          parseISO(opportunity.deadline),
+                          "UTC",
+                          "PPP",
+                      )
+                    : null}
                 url={opportunity.url}
             />
         {:else}
