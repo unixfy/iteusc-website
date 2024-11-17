@@ -61,6 +61,22 @@ p > a {
     @apply rounded-lg drop-shadow-lg mx-auto my-8
 }
 
+.directus-html ol {
+    @apply list-decimal mb-4 p-readable list-inside ml-2
+}
+
+.directus-html ul {
+    @apply list-disc mb-4 p-readable list-inside ml-2
+}
+
+.directus-html li {
+    @apply my-1
+}
+
+.directus-html li > p {
+    @apply p-readable inline
+}
+
 .page-img {
     @apply rounded-lg drop-shadow-lg mx-auto my-8 w-[1024px] h-auto aspect-video
 }
