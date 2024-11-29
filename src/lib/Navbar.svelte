@@ -29,6 +29,10 @@
             url: "/opportunities/",
         },
         {
+            name: "Resources",
+            url: "/resources/",
+        },
+        {
             name: "Hall of Fame",
             url: "/hall-of-fame/",
         },
@@ -67,15 +71,8 @@
                     {/each}
                 </ul>
             </div>
-            <!--        display long name on desktop, short name on mobile-->
-            <a
-                class="btn btn-ghost normal-case text-xl hidden xl:flex font-display"
-                href="/">USC Institute of Transportation Engineers</a
-            >
-            <a
-                class="btn btn-ghost normal-case text-xl xl:hidden font-display"
-                href="/">USC ITE</a
-            >
+            <a class="btn btn-ghost normal-case text-xl font-display" href="/"
+                >USC ITE</a>
         </div>
         <!--        Area to put stuff that should be at the middle of the navbar-->
         <div class="navbar-center hidden" />
