@@ -5,9 +5,9 @@
     export let url;
 </script>
 
-<div class="card card-side bg-base-200 border border-base-300">
+<div class="card bg-base-200 drop-shadow-lg">
     <div class="card-body">
-        <h2 class="card-title">{name}</h2>
+        <h2 class="card-title font-display">{name}</h2>
         <div>
             <p class="break-all">{description}</p>
         </div>
