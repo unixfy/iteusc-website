@@ -15,7 +15,7 @@
         {#each data.projects as project}
             <label for="project-modal" class="flex">
                 <div
-                    class="card card-compact bg-base-200 border border-base-200 hover:shadow-xl my-4 mx-8 hover:scale-[1.05] transition-all hover:bg-base-300 hover:cursor-pointer"
+                    class="card card-compact bg-base-200 border border-base-200 hover:shadow-xl my-4 mx-8 hover:scale-105 transition-all hover:cursor-pointer"
                 >
                     <figure class="aspect-video">
                         <img
