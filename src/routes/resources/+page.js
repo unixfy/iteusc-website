@@ -11,6 +11,7 @@ export async function load() {
 
     return {
         resources_tags: await list,
-        title: "Resources"
+        title: "Resources",
+        description: "Useful links and references from the transportation world, curated by USC ITE."
     }
 }
