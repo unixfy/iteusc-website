@@ -54,7 +54,9 @@
                 )}?format=webp&quality=50&width=400"
             ></PageListCard>
         {:else}
-            <QueryEmptyAlert />
+            <div class="alert">
+                <span>No results found!</span>
+            </div>
         {/each}
     </div>
 </div>
