@@ -53,6 +53,14 @@ p > a {
     @apply mb-4 p-readable
 }
 
+.directus-html > h1 {
+    @apply md:text-3xl lg:text-4xl text-2xl mb-4 mt-8 font-bold font-display
+}
+
+.directus-html > h2 {
+    @apply text-xl md:text-2xl lg:text-3xl mb-4 mt-8 font-display
+}
+
 .directus-html > blockquote {
     @apply mb-4 pl-2 border-l-2 border-base-300
 }
