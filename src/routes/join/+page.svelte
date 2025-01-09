@@ -1,7 +1,15 @@
+<script>
+    export let data;
+</script>
+
 <div class="bg-[url('/images/a-line.jpg')] bg-cover bg-center h-[50vh]">
-    <div class="bg-black bg-opacity-50 h-full w-full text-white flex flex-col place-content-center text-center">
+    <div
+        class="bg-black bg-opacity-50 h-full w-full text-white flex flex-col place-content-center text-center"
+    >
         <h1 class="section-heading">Join USC ITE 👋</h1>
-        <h2 class="section-subheading">Free polo + great experiences included. Open to all USC students!</h2>
+        <h2 class="section-subheading">
+            Free polo + great experiences included. Open to all USC students!
+        </h2>
     </div>
 </div>
 
@@ -17,6 +25,13 @@
     </ul>
 
     <!--    Google Form iframe -->
-    <iframe class="min-h-[100vh]" src="https://docs.google.com/forms/d/e/1FAIpQLSfHgCUQ7SJIzyaojPBSCb3QBPIWJbecZuSH8bRNi6YvKKbIgw/viewform"
-            title="Google Form to express interest in ITE"></iframe>
+    {#if data.config.join_form_url}
+        <iframe
+            class="min-h-[100vh]"
+            src={data.config.join_form_url}
+            title="Google Form to subscribe to ITE newsletter"
+        ></iframe>
+    {:else}
+        <p>No form URL defined in API!</p>
+    {/if}
 </div>
