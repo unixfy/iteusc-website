@@ -129,3 +129,24 @@
         </div>
     </div>
 </div>
+
+<!-- sponsors section -->
+<div class="section">
+    <div class="ct">
+        <h1 class="section-heading">Sponsors</h1>
+        <h2 class="section-subheading">
+            We're grateful to be sponsored by these organizations!
+        </h2>
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {#each data.sponsors as sponsor}
+                <img
+                    class="w-full"
+                    src="{getStorageDirectUrl(sponsor.logo)}?height=150&format=webp"
+                    alt="Logo for {sponsor.name}"
+                />
+                {:else}
+                <QueryEmptyAlert />
+            {/each}
+        </div>
+    </div>
+</div>

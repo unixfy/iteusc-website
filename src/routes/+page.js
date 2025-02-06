@@ -15,6 +15,13 @@ export async function load() {
         }
         ))
 
+    const sponsorsList = directus.request(
+        readItems('sponsors', {
+            sort: ['sort'],
+            fields: ['name', 'logo']
+        }
+        ))
+
     // Pulls the first six image grid items set in the site_config collection in Directus
     const imageGridList = directus.request(
         readItems('site_config', {
@@ -35,6 +42,7 @@ export async function load() {
         // Return the title for this page, which will be handled in the layout svelte file for SEO
         title: "Home",
         projects: await projectsList,
+        sponsors: await sponsorsList,
         imageGrid: await imageGridList
     }
 }
