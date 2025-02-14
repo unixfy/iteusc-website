@@ -63,6 +63,7 @@
                                         image_item.image,
                                     )}?format=webp"
                                     caption={image_item.image_caption}
+                                    size={image_item.image_size}
                                 ></ImageGalleryImage>
                             </div>
                         {/each}

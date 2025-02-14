@@ -3,10 +3,21 @@
     export let image;
     // image caption
     export let caption;
+    // image size - sm, md, lg
+    export let size;
 
     import { Image } from "@unpic/svelte";
 
     let modalOpen = false;
+
+    // map size values to numeric
+    const sizeMap = {
+        sm: 384,
+        md: 448,
+        lg: 512,
+        xl: 1024,
+        default: 672,
+    };
 </script>
 
 <!-- Image shown on page before lightbox is opened -->
@@ -17,9 +28,9 @@
         <Image
             src={image}
             alt={caption}
-            width={1920}
+            width={size ? sizeMap[size] : sizeMap.default}
             height="100%"
-            class="drop-shadow-xl rounded-lg"
+            class="drop-shadow-xl rounded-lg mx-auto"
             cdn="directus"
         />
     </button>
