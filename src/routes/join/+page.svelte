@@ -8,7 +8,7 @@
     >
         <h1 class="section-heading">Join USC ITE 👋</h1>
         <h2 class="section-subheading">
-            Free polo + great experiences included. Open to all USC students!
+        Great experiences included. Open to all USC students!
         </h2>
     </div>
 </div>
