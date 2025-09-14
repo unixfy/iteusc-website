@@ -117,7 +117,7 @@
                     What are you waiting for? Join USC ITE now!
                 </h1>
                 <p class="text-2xl font-display">
-                    Free polo + great experiences included. <span
+                    Great experiences included. <span
                         class="font-bold">Open to all USC students!</span
                     >
                 </p>
