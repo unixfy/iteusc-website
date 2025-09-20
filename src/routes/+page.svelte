@@ -117,9 +117,7 @@
                     What are you waiting for? Join USC ITE now!
                 </h1>
                 <p class="text-2xl font-display">
-                    Great experiences included. <span
-                        class="font-bold">Open to all USC students!</span
-                    >
+                    {data.siteConfig.join_statement}
                 </p>
             </div>
             <a

@@ -8,7 +8,7 @@
     >
         <h1 class="section-heading">Join USC ITE 👋</h1>
         <h2 class="section-subheading">
-        Great experiences included. Open to all USC students!
+        {data.siteConfig.join_statement}
         </h2>
     </div>
 </div>
@@ -25,10 +25,10 @@
     </ul>
 
     <!--    Google Form iframe -->
-    {#if data.config.join_form_url}
+    {#if data.siteConfig.join_form_url}
         <iframe
             class="min-h-[100vh]"
-            src={data.config.join_form_url}
+            src={data.siteConfig.join_form_url}
             title="Google Form to subscribe to ITE newsletter"
         ></iframe>
     {:else}

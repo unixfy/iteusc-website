@@ -36,13 +36,18 @@ export async function load() {
         }
         ))
 
-    console.log(await projectsList)
+    const siteConfig = directus.request(
+        readItems('site_config', {
+            fields: ['join_statement']
+        })
+    )
 
     return {
         // Return the title for this page, which will be handled in the layout svelte file for SEO
         title: "Home",
         projects: await projectsList,
         sponsors: await sponsorsList,
-        imageGrid: await imageGridList
+        imageGrid: await imageGridList,
+        siteConfig: await siteConfig
     }
 }
