@@ -38,7 +38,7 @@ export async function load() {
 
     const siteConfig = directus.request(
         readItems('site_config', {
-            fields: ['join_statement']
+            fields: ['join_statement', 'calendar_embed_url']
         })
     )
 
