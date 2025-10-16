@@ -97,7 +97,7 @@
         <h1 class="section-heading">Events</h1>
         <h2 class="section-subheading">Check out what's going on.</h2>
         <!--    Google Calendar embed -->
-        <GoogleCalendarEmbed minheight="500px" />
+        <GoogleCalendarEmbed minheight="500px" src={data.siteConfig.calendar_embed_url} />
 
         <a class="btn btn-block btn-primary btn-lg" href="/calendar/"
             >Full Calendar</a
