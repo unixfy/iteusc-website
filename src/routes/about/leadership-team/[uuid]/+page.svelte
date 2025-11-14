@@ -20,6 +20,12 @@
             <h1 class="section-heading">{data.title}</h1>
             <p class="section-subheading">Meet our past leadership team.</p>
         </div>
+        
+        <div class="mt-4">
+            <a href="/about" class="btn btn-outline text-white hover:bg-white hover:text-usc-cardinal">
+                ← Back to About
+            </a>
+        </div>
     </div>
 </div>
 

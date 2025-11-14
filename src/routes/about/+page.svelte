@@ -47,10 +47,10 @@
         <div class="narrow-ct">
             <h1 class="section-heading text-center">Past leadership teams</h1>
 
-            <div class="join join-vertical w-full">
+            <div class="flex flex-col gap-2 w-full">
                 {#each data.otherLeadershipTeams as team}
                     <a
-                        class="btn btn-block btn-lg join-item"
+                        class="btn btn-block btn-lg"
                         href="/about/leadership-team/{team.id}"
                         >{team.start_year} Leadership Team</a
                     >
