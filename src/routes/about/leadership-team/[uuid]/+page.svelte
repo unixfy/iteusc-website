@@ -23,7 +23,7 @@
         
         <div class="mt-4">
             <a href="/about" class="btn btn-outline text-white hover:bg-white hover:text-usc-cardinal">
-                ← Back to About
+                ← About USC ITE
             </a>
         </div>
     </div>
