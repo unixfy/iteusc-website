@@ -15,27 +15,9 @@
 <div class="section bg-ite-blue text-white">
     <div class="ct flex flex-col space-y-4 text-xl">
         <h1 class="font-display section-subheading font-bold">
-            ▶ We're shaping the future of transportation, supply chain, and
-            technology.
+            ▶ {data.siteConfig.homepage_organization_tagline}
         </h1>
-        <p>
-            ITE at USC is a student chapter of the global Institute of
-            Transportation Engineers.
-        </p>
-        <p>
-            We host site tours, speaker series, career, events, professional
-            projects, and more. We help students broaden their view of and
-            interest in the transportation field. We provide outstanding
-            networking opportunities and bring awareness to the transportation
-            industry. We aren't just for transportation engineers - we're really
-            the <span class="font-bold"
-                >Institute of Transportation Enthusiasts</span
-            >.
-        </p>
-        <p class="font-bold">
-            Most of all, we're changing the world of transportation, one student
-            at a time.
-        </p>
+        {@html data.siteConfig.homepage_organization_description}
     </div>
 </div>
 
