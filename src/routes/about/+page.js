@@ -35,6 +35,9 @@ export async function load() {
         }
     }
 
+    // Sort past leadership teams by year, newest to oldest
+    otherLeadershipTeams.sort((a, b) => b.start_year - a.start_year);
+
     const currentLeadershipTeamYearString = `${currentLeadershipTeam.start_year}-${parseInt(currentLeadershipTeam.start_year) + 1}`;
 
     return {
