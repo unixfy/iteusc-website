@@ -13,7 +13,7 @@
 		"@fontsource/overpass": "^5.1.0",
 		"@fontsource/rubik": "^5.1.0",
 		"@prgm/sveltekit-progress-bar": "^2.0.0",
-		"@sveltejs/adapter-cloudflare": "^4.7.2",
+		"@sveltejs/adapter-cloudflare": "^7.2.8",
 		"@sveltejs/kit": "^2.8.3",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@tiptap/extension-link": "^2.10.4",
