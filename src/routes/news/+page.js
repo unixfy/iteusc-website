@@ -10,9 +10,6 @@ export async function load({ url }) {
     const list = directus.request(
         readItems('pages', {
             filter: {
-                'status': {
-                    "_eq": "published"
-                },
                 'hidden_from_news': {
                     "_eq": false
                 }
