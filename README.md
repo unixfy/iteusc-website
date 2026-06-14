@@ -12,7 +12,7 @@ Functionality in scope:
 - Offer a fast experience, even on slow internet connections: target 90+ on Google Lighthouse
 - All end-user facing interactions should work 100% without JavaScript (leverage SvelteKit SSR for this!)
 - Provide a simple and intuitive UI for non-technical users to view, edit, and update (i.e., perform create-read-update-delete operations) on the website's content
-- Maintain data integrity when writing data to and reading data from the Cloud Firestore database
+- Maintain data integrity when writing data to and reading data from the Directus instance
 
 ## Credits
 
