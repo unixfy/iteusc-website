@@ -90,7 +90,7 @@
 <!-- Join us Call to Action -->
 <div class="bg-[url('/images/a-line.jpg')] bg-cover bg-center">
     <!--    Really janky way to get a black overlay over the background image -->
-    <div class="w-full h-full py-[10vh] bg-black bg-opacity-30">
+    <div class="w-full h-full py-[10vh] bg-black/30">
         <div class="flex flex-col md:flex-row ct">
             <div class="text-white text-center md:text-left pb-8 md:pb-0">
                 <h1

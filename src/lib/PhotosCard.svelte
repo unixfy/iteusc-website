@@ -16,7 +16,7 @@
             height="100%"
         />
         <div
-            class="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 rounded-b-lg text-white backdrop-blur-sm backdrop-brightness-90"
+            class="absolute bottom-0 left-0 right-0 p-4 bg-black/50 rounded-b-lg text-white backdrop-blur-sm backdrop-brightness-90"
         >
             <p class="font-bold text-lg">{name}</p>
             <p class="text-sm">
