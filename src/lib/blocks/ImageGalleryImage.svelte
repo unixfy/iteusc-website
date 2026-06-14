@@ -46,7 +46,7 @@
     class:modal-open={modalOpen}
     id="lightbox"
 >
-    <div class="modal-box !max-w-[50vw]">
+    <div class="modal-box max-w-[50vw]!">
         <!-- "x" button to close lightbox -->
         <form method="dialog">
             <button

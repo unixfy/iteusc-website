@@ -1,96 +1,115 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+@import "@fontsource/rubik/300.css";
+@import "@fontsource/rubik/400.css";
+@import "@fontsource/rubik/700.css";
+@import "@fontsource/overpass/300.css";
+@import "@fontsource/overpass/400.css";
+@import "@fontsource/overpass/700.css";
+@custom-variant hover (&:hover);
 
-p > a {
-    @apply link
+@theme {
+    --color-usc-cardinal: #990000;
+    --color-usc-yellow: #FFCC00;
+    --color-ite-blue: #00688F;
+    --font-sans: "Rubik", sans-serif;
+    --font-display: "Overpass", sans-serif;
 }
 
-.p-readable {
-    @apply text-sm md:text-base lg:text-lg
+@utility p-readable {
+    @apply text-sm md:text-base lg:text-lg;
+}
+
+body {
+    @apply bg-base-100 text-base-content;
+}
+
+p>a {
+    @apply link;
 }
 
 .ct {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container
+    @apply container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
 .narrow-ct {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 container
+    @apply container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-8;
 }
 
 .section-heading {
-    @apply md:text-4xl lg:text-5xl text-3xl mb-4 font-bold font-display
+    @apply text-3xl md:text-4xl lg:text-5xl mb-4 font-bold font-display;
 }
 
 .section-heading-skeleton {
-    @apply skeleton md:h-9 lg:h-12 w-1/2 h-8 mb-4
+    @apply skeleton h-8 w-1/2 mb-4 md:h-9 lg:h-12;
 }
 
 .section-subheading {
-    @apply text-2xl md:text-3xl lg:text-4xl mb-4 font-display
+    @apply text-2xl md:text-3xl lg:text-4xl mb-4 font-display;
 }
 
 .section {
-    @apply py-10 md:py-12
+    @apply py-10 md:py-12;
 }
 
 .cta-heading {
-    @apply sm:text-3xl md:text-4xl text-2xl mb-4 font-bold font-display
+    @apply text-2xl sm:text-3xl md:text-4xl mb-4 font-bold font-display;
 }
 
 /* grid images on the homepage */
 .homepage-grid-image {
-    @apply aspect-video bg-cover bg-center md:grayscale hover:grayscale-0 transition-all flex p-4
+    @apply aspect-video flex bg-cover bg-center p-4 transition-all hover:grayscale-0 md:grayscale;
 }
 
 /* grid text on the homepage */
 .homepage-grid-text {
-    @apply m-auto p-4 bg-black bg-opacity-50 rounded-md text-center text-white font-bold text-lg
+    @apply m-auto rounded-md bg-black/50 p-4 text-center text-lg font-bold text-white;
 }
 
 /* styles for page content */
-.directus-html > p {
-    @apply mb-4 p-readable
+.directus-html>p {
+    @apply mb-4 p-readable;
 }
 
-.directus-html > h1 {
-    @apply md:text-3xl lg:text-4xl text-2xl mb-4 mt-8 font-bold font-display
+.directus-html>h1 {
+    @apply text-2xl md:text-3xl lg:text-4xl mb-4 mt-8 font-bold font-display;
 }
 
-.directus-html > h2 {
-    @apply text-xl md:text-2xl lg:text-3xl mb-4 mt-8 font-display
+.directus-html>h2 {
+    @apply text-xl md:text-2xl lg:text-3xl mb-4 mt-8 font-display;
 }
 
-.directus-html > blockquote {
-    @apply mb-4 pl-2 border-l-2 border-base-300
+.directus-html>blockquote {
+    @apply mb-4 border-l-2 border-base-300 pl-2;
 }
 
 .directus-html img {
-    @apply rounded-lg drop-shadow-lg mx-auto my-8
+    @apply mx-auto my-8 rounded-lg drop-shadow-lg;
 }
 
 .directus-html ol {
-    @apply list-decimal mb-4 p-readable list-inside ml-2
+    @apply mb-4 ml-2 list-inside list-decimal p-readable;
 }
 
 .directus-html ul {
-    @apply list-disc mb-4 p-readable list-inside ml-2
+    @apply mb-4 ml-2 list-inside list-disc p-readable;
 }
 
 .directus-html li {
-    @apply my-1
+    @apply my-1;
 }
 
-.directus-html li > p {
-    @apply p-readable inline
+.directus-html li>p {
+    @apply inline p-readable;
 }
 
 .page-img {
-    @apply rounded-lg drop-shadow-lg mx-auto my-8 w-[1024px] h-auto aspect-video
+    @apply mx-auto my-8 aspect-video w-[1024px] rounded-lg drop-shadow-lg;
 }
 
 .image-gallery-blocks-grid {
     /* this magical CSS makes an automatic number of columns show up */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    @apply my-8 grid gap-4
+    @apply my-8 gap-4;
 }

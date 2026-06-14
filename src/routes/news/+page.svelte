@@ -16,7 +16,7 @@
 
 <div class="ct">
     <!-- daisyui text input -->
-    <label class="input input-bordered flex items-center gap-2 mb-4">
+    <label class="input input-lg flex items-center gap-2 mb-4 w-full">
         <!-- note that we get the value from searchParams rather than $search to prevent the value from changing as the page is navigating (leads to rubberbanding in the search bar) -->
         <input
             class="grow"
