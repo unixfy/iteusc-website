@@ -2,6 +2,9 @@
     import { format, parseISO } from "date-fns";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
     import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
+    import { generateHTML } from "@tiptap/html";
+    import StarterKit from "@tiptap/starter-kit";
+    import Link from "@tiptap/extension-link";
     import Video from "$lib/blocks/Video.svelte";
     import ImageGalleryImage from "$lib/blocks/ImageGalleryImage.svelte";
     import { Image } from "@unpic/svelte";
@@ -75,7 +78,10 @@
                 {/if}
             {:else}
                 <div class="directus-html">
-                     {@html content.html}
+                    {@html generateHTML({ type: "doc", content: [content] }, [
+                        StarterKit,
+                        Link
+                    ])}
                 </div>
             {/if}
         {/each}
