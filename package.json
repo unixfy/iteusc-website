@@ -14,7 +14,7 @@
 		"@fontsource/rubik": "^5.2.8",
 		"@prgm/sveltekit-progress-bar": "^3.0.2",
 		"@sveltejs/adapter-cloudflare": "^7.2.8",
-		"@sveltejs/kit": "^2.65.0",
+		"@sveltejs/kit": "^2.67.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
 		"@tailwindcss/vite": "^4.3.1",
 		"@tiptap/extension-link": "^2.7.2",
