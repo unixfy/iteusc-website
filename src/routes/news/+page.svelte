@@ -5,10 +5,10 @@
     import PageListCard from "$lib/PageListCard.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
     import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
-    import { queryParam } from "sveltekit-search-params";
+    import { queryParameters } from "sveltekit-search-params";
     import { page } from "$app/stores";
 
-    const search = queryParam("search", { debounceHistory: 5000 });
+    const searchParams = queryParameters({ search: true }, { debounceHistory: 5000 });
     export let data;
 </script>
 
@@ -25,7 +25,7 @@
             autocomplete="off"
             type="search"
             spellcheck="true"
-            on:input={(e) => search.set(e.target.value)}
+            on:input={(e) => (searchParams.search = e.target.value)}
         />
         <svg
             xmlns="http://www.w3.org/2000/svg"
