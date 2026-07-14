@@ -7,34 +7,47 @@ export async function load({ url }) {
     // then for each page we do some janky parsing to generate an excerpt from the "content" html
     // by grabbing the first 50 words from the first p tag
 
+    // generate a search query from the url params, if it exists
+    const q = url.searchParams.get('search')?.trim() || '';
+
+    // build base filter (published, not hidden)
+    const filter = {
+        hidden_from_news: { _eq: false }
+    };
+
+    // if a search query exists, add an OR clause checking several fields case insensitive for the query
+    if (q) {
+        filter._or = [
+            { title: { _icontains: q } },
+            { content: { _icontains: q } },
+            { content_blocks: { _json: { content: { _icontains: q } } } },
+            { people: { people_id: { first_name: { _icontains: q } } } },
+            { people: { people_id: { last_name: { _icontains: q } } } },
+        ];
+    }
+
     const list = directus.request(
         readItems('pages', {
-            filter: {
-                'hidden_from_news': {
-                    "_eq": false
-                }
-            },
+            filter,
             sort: ['-date_posted', 'title'],
-            fields: ['title', 'date_posted', 'slug', 'image', 'content_blocks', 'content', 'people.people_id.first_name', 'people.people_id.last_name'],
-            // if there is "search" in the query, we will filter the pages by the search query using directus built in search
-            search: url.searchParams.get('search') ? url.searchParams.get('search') : ''
-        }
-        )).then((items) => {
-            items.map((item) => {
-                if (item.content) {
-                    let content = item.content;
-                    // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
-                    item.excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
-                    return item;
-                }
-
-                if (item.content_blocks) {
-                    // for the excerpt, get the first 50 words from the text of the first paragraph
-                    item.excerpt = item.content_blocks.content.find(content => content.type === "paragraph").content[0].text.split(" ").slice(0, 50).join(" ") + '...';
-                }
-            })
-            return items
+            fields: ['title', 'date_posted', 'slug', 'image', 'content_blocks', 'content', 'people.people_id.first_name', 'people.people_id.last_name']
         })
+    ).then((items) => {
+        items.map((item) => {
+            if (item.content) {
+                let content = item.content;
+                // This grabs the first ~50 words from the content, strips HTML tags & nbsp, and adds ...
+                item.excerpt = decodeHTML(content.split(" ").slice(0, 50).join(" ").replace(/<\/?[^>]+(>|$)/g, "")) + '...';
+                return item;
+            }
+
+            if (item.content_blocks) {
+                // for the excerpt, get the first 50 words from the text of the first paragraph
+                item.excerpt = item.content_blocks.content.find(content => content.type === "paragraph").content[0].text.split(" ").slice(0, 50).join(" ") + '...';
+            }
+        })
+        return items
+    })
 
     return {
         items: await list,
