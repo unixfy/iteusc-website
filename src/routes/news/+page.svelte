@@ -6,7 +6,6 @@
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
     import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
     import { queryParameters } from "sveltekit-search-params";
-    import { page } from "$app/stores";
 
     const searchParams = queryParameters({ search: true }, { debounceHistory: 5000 });
     export let data;
@@ -21,7 +20,7 @@
         <input
             class="grow"
             placeholder="Search"
-            value={$page.url.searchParams.get("search")}
+            value={searchParams.search ?? ""}
             autocomplete="off"
             type="search"
             spellcheck="true"
