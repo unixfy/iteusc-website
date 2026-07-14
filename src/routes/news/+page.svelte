@@ -7,7 +7,10 @@
     import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
     import { queryParameters } from "sveltekit-search-params";
 
-    const searchParams = queryParameters({ search: true }, { debounceHistory: 5000 });
+    const searchParams = queryParameters(
+        { search: true },
+        { debounceHistory: 500 },
+    );
     export let data;
 </script>
 
@@ -20,7 +23,7 @@
         <input
             class="grow"
             placeholder="Search"
-            value={searchParams.search ?? ""}
+            value={searchParams.search}
             autocomplete="off"
             type="search"
             spellcheck="true"
