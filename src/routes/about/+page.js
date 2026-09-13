@@ -10,6 +10,7 @@ export async function load() {
                 'people',
                 'start_year',
                 'people.position',
+                'people.people_id.id',
                 'people.people_id.first_name',
                 'people.people_id.last_name',
                 'people.people_id.degrees.degrees_id.name',
