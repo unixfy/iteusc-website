@@ -1,4 +1,10 @@
 <script>
+    import { onMount } from "svelte";
+    import {
+        initializeVisualEditor,
+        setAttr,
+    } from "$lib/directus/visualEditor.js";
+
     let navbarItems = [
         {
             name: "Home",
@@ -37,6 +43,12 @@
             url: "/hall-of-fame/",
         },
     ];
+
+    onMount(() => {
+        if (new URLSearchParams(window.location.search).get("visual-editing") === "true") {
+            initializeVisualEditor();
+        }
+    });
 </script>
 
 <div class="bg-base-200">
@@ -72,7 +84,8 @@
                 </ul>
             </div>
             <a class="btn btn-ghost normal-case text-xl font-display" href="/"
-                >USC ITE</a>
+                >USC ITE</a
+            >
         </div>
         <!--        Area to put stuff that should be at the middle of the navbar-->
         <div class="navbar-center hidden" />
