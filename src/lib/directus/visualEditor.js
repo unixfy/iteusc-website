@@ -5,26 +5,33 @@ import { PUBLIC_DIRECTUS_URL } from "$env/static/public";
 let isApplied = false;
 
 export async function initializeVisualEditor() {
-    if (typeof window !== 'undefined' && !isApplied) {
-        try {
-            await apply({
-                directusUrl: PUBLIC_DIRECTUS_URL,
-                onSaved: async (data) => {
-                    console.log('Content saved successfully:', data);
+    if (typeof window === 'undefined') {
+        return;
+    }
 
-                    try {
-                        await invalidateAll();
-                        console.log('Page data refreshed successfully');
-                    } catch (error) {
-                        console.error('Failed to refresh page data:', error);
-                        window.location.reload();
-                    }
+    if (isApplied) {
+        remove();
+        isApplied = false;
+    }
+
+    try {
+        await apply({
+            directusUrl: PUBLIC_DIRECTUS_URL,
+            onSaved: async (data) => {
+                console.log('Content saved successfully:', data);
+
+                try {
+                    await invalidateAll();
+                    console.log('Page data refreshed successfully');
+                } catch (error) {
+                    console.error('Failed to refresh page data:', error);
+                    window.location.reload();
                 }
-            });
-            isApplied = true;
-        } catch (error) {
-            console.error('Failed to initialize visual editor:', error);
-        }
+            }
+        });
+        isApplied = true;
+    } catch (error) {
+        console.error('Failed to initialize visual editor:', error);
     }
 }
 

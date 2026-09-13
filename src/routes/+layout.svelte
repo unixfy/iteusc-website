@@ -6,8 +6,12 @@
     import { fade } from "svelte/transition";
     import { sineOut } from "svelte/easing";
     import { ProgressBar } from "@prgm/sveltekit-progress-bar";
-    import { onMount } from "svelte";
-    import { initializeVisualEditor } from "$lib/directus/visualEditor.js";
+    import { onDestroy } from "svelte";
+    import { afterNavigate } from "$app/navigation";
+    import {
+        initializeVisualEditor,
+        cleanupVisualEditor
+    } from "$lib/directus/visualEditor.js";
 
     // Import fonts
     import "@fontsource/overpass/400.css";
@@ -22,8 +26,12 @@
     let defaultDescription =
         "The Institute of Transportation Engineers (ITE) at the University of Southern California is a chapter of the national ITE. We're devoted to hosting site tours, holding speaker sessions, sharing our passion for transportation, and changing the world of mobility - one Trojan at a time.";
 
-    onMount(() => {
+    afterNavigate(() => {
         initializeVisualEditor();
+    });
+
+    onDestroy(() => {
+        cleanupVisualEditor();
     });
 </script>
 
