@@ -3,9 +3,14 @@
     import Navbar from "$lib/Navbar.svelte";
     import Footer from "$lib/Footer.svelte";
     import { page } from "$app/stores";
-    import { fade } from 'svelte/transition';
+    import { fade } from "svelte/transition";
     import { sineOut } from "svelte/easing";
     import { ProgressBar } from "@prgm/sveltekit-progress-bar";
+    import { onMount } from "svelte";
+    import {
+        initializeVisualEditor,
+        setAttr,
+    } from "$lib/directus/visualEditor.js";
 
     // Import fonts
     import "@fontsource/overpass/400.css";
@@ -19,6 +24,16 @@
     let defaultTitle = "Welcome";
     let defaultDescription =
         "The Institute of Transportation Engineers (ITE) at the University of Southern California is a chapter of the national ITE. We're devoted to hosting site tours, holding speaker sessions, sharing our passion for transportation, and changing the world of mobility - one Trojan at a time.";
+
+    onMount(() => {
+        if (
+            new URLSearchParams(window.location.search).get(
+                "visual-editing",
+            ) === "true"
+        ) {
+            initializeVisualEditor();
+        }
+    });
 </script>
 
 <svelte:head>
@@ -42,11 +57,17 @@
         property="og:description"
         content={$page.data.description || defaultDescription}
     />
-    <meta property="og:image" content="{$page.data.socialImage || '/images/ite-portland.jpg'}" />
+    <meta
+        property="og:image"
+        content={$page.data.socialImage || "/images/ite-portland.jpg"}
+    />
 
     <!-- Twitter meta tags -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://iteusc.com{$page.url.pathname}" />
+    <meta
+        property="twitter:url"
+        content="https://iteusc.com{$page.url.pathname}"
+    />
     <meta
         property="twitter:title"
         content="{$page.data.title || defaultTitle} | USC ITE"
@@ -55,7 +76,10 @@
         property="twitter:description"
         content={$page.data.description || defaultDescription}
     />
-    <meta property="twitter:image" content="{$page.data.socialImage || '/images/ite-portland.jpg'}" />
+    <meta
+        property="twitter:image"
+        content={$page.data.socialImage || "/images/ite-portland.jpg"}
+    />
 
     <!--    Send the meta tag that blocks robots from indexing, if we specify that this tag should be sent in page load() function -->
     {#if $page.data.noIndex}
@@ -64,9 +88,8 @@
 
     <!-- Favicon -->
     <!-- Note that we provide support in both PNG and SVG (since Safari doesn't support SVG favicons) -->
-    <link rel="icon" href="/images/favicon-128x128.png"/>
-    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml"/>
-
+    <link rel="icon" href="/images/favicon-128x128.png" />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
 </svelte:head>
 
 <!-- Insert automatic progress bar component -->
@@ -78,10 +101,8 @@
 <!--Ensure the page container is at least 100vh high (that way the footer will always be below-the-fold)-->
 <div class="min-h-screen pb-8">
     {#key data.url}
-    <!-- Note we don't animate out because it causes a jarring jump to the top of the page (sveltekit behavior) -->
-        <div
-        in:fade={{ duration: 200, delay: 200, easing: sineOut }}
-        >
+        <!-- Note we don't animate out because it causes a jarring jump to the top of the page (sveltekit behavior) -->
+        <div in:fade={{ duration: 200, delay: 200, easing: sineOut }}>
             <slot />
         </div>
     {/key}

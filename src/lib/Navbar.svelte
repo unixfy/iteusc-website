@@ -1,9 +1,4 @@
 <script>
-    import { onMount } from "svelte";
-    import {
-        initializeVisualEditor,
-        setAttr,
-    } from "$lib/directus/visualEditor.js";
 
     let navbarItems = [
         {
@@ -44,11 +39,6 @@
         },
     ];
 
-    onMount(() => {
-        if (new URLSearchParams(window.location.search).get("visual-editing") === "true") {
-            initializeVisualEditor();
-        }
-    });
 </script>
 
 <div class="bg-base-200">
