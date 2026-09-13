@@ -10,6 +10,7 @@
 	},
 	"devDependencies": {
 		"@directus/sdk": "^25.0.1",
+		"@directus/visual-editing": "^2.1.0",
 		"@fontsource/overpass": "^5.3.0",
 		"@fontsource/rubik": "^5.3.0",
 		"@prgm/sveltekit-progress-bar": "^3.0.2",
