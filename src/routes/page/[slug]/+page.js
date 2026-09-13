@@ -10,7 +10,7 @@ export async function load({ params }) {
         readItems('pages', {
             filter: { 'slug': { "_eq": params.slug } },
             fields: [
-                'title', 'date_posted', 'slug', 'image', 'content_blocks', 'content',
+                'id', 'title', 'date_posted', 'slug', 'image', 'content_blocks', 'content', 'people.people_id.id',
                 'people.people_id.first_name', 'people.people_id.last_name', 'people.people_id.bio', 'blocks.*.*.*'
             ]
         })

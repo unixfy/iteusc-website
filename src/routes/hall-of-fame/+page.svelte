@@ -3,6 +3,7 @@
     import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
     import HallofFameCard from "$lib/HallofFameCard.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import { setAttr } from "$lib/directus/visualEditor.js";
 
     export let data;
 </script>
@@ -25,6 +26,12 @@
                 </h2>
                 <div class="flex flex-col gap-12">
                     {#each items as item}
+                    <div             data-directus={setAttr({
+                collection: "hall_of_fame",
+                item: item.id,
+                fields: "",
+                mode: "drawer",
+            })}>
                         <HallofFameCard
                             name="{item.first_name} {item.last_name}"
                             bio={item.bio}
@@ -39,6 +46,8 @@
                             participation_end={item.participation_end}
                             role={item.role}
                         />
+                    </div>
+
                     {/each}
                 </div>
             </div>

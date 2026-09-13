@@ -2,6 +2,7 @@
     import PageHeader from "$lib/PageHeader.svelte";
     import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import { setAttr } from "$lib/directus/visualEditor.js";
 
     export let data;
 </script>
@@ -16,6 +17,12 @@
             <label for="project-modal" class="flex">
                 <div
                     class="card card-compact bg-base-200 border border-base-200 hover:shadow-xl my-4 mx-8 hover:scale-105 transition-all hover:cursor-pointer"
+                    data-directus={setAttr({
+                collection: "projects",
+                item: project.id,
+                fields: "",
+                mode: "drawer",
+            })}
                 >
                     <figure class="aspect-video">
                         <img

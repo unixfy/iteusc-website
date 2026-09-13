@@ -8,6 +8,7 @@
     import Video from "$lib/blocks/Video.svelte";
     import ImageGalleryImage from "$lib/blocks/ImageGalleryImage.svelte";
     import { Image } from "@unpic/svelte";
+    import { setAttr } from "$lib/directus/visualEditor.js";
 
     export let data;
 </script>
@@ -23,33 +24,70 @@
         </div>
 
         <div>
-            <h1 class="section-heading">{data.page.title}</h1>
+            <h1
+                class="section-heading"
+                data-directus={setAttr({
+                    collection: "pages",
+                    item: data.page.id,
+                    fields: "title",
+                    mode: "popover",
+                })}
+            >
+                {data.page.title}
+            </h1>
             <p class="section-subheading">
-                Posted {format(parseISO(data.page.date_posted), "LLLL d, y")} by
+                Posted
+                {format(parseISO(data.page.date_posted), "LLLL d, y")}
+                by
                 <!-- generates a list of names of all authors, including "and" for the last author -->
-                {makeAuthorsNameString(data.page.people)}
+                <span
+                    data-directus={setAttr({
+                        collection: "pages",
+                        item: data.page.id,
+                        fields: "people",
+                        mode: "modal",
+                    })}
+                >
+                    {makeAuthorsNameString(data.page.people)}
+                </span>
             </p>
         </div>
     </div>
 </div>
 
 <div class="narrow-ct">
-    {#if data.page.image}
-        <Image
-            src="{getStorageDirectUrl(data.page.image)}?format=webp"
-            class="page-img"
-            alt="Image for {data.page.title}"
-            width={1920}
-            aspectRatio="16/9"
-            cdn="directus"
-            priority=true
-        />
-        <div class="my-4 border border-base-300"></div>
-    {/if}
+    <div
+        data-directus={setAttr({
+            collection: "pages",
+            item: data.page.id,
+            fields: "image",
+            mode: "modal",
+        })}
+    >
+        {#if data.page.image}
+            <Image
+                src="{getStorageDirectUrl(data.page.image)}?format=webp"
+                class="page-img"
+                alt="Image for {data.page.title}"
+                width={1920}
+                aspectRatio="16/9"
+                cdn="directus"
+                priority="true"
+            />
+        {/if}
+    </div>
+                <div class="my-4 border border-base-300"></div>
+
 
     <!-- Call Tiptap generateHTML if the block builder was used on this page; otherwise just render the page content as html (legacy page handling) -->
     <!-- Note that we use a janky manual generation method if a Svelte block is present (calling generateHTML for everything makes it very hard to render Svelte components correctly) -->
     {#if data.page.content_blocks}
+        <div data-directus={setAttr({
+            collection: "pages",
+            item: data.page.id,
+            fields: "content_blocks",
+            mode: "drawer",
+        })}>
         {#each data.page.content_blocks.content as content}
             {#if content.type === "relation-block"}
                 <!-- Image gallery blocks -->
@@ -80,13 +118,19 @@
                 <div class="directus-html">
                     {@html generateHTML({ type: "doc", content: [content] }, [
                         StarterKit,
-                        Link
+                        Link,
                     ])}
                 </div>
             {/if}
         {/each}
+        </div>
     {:else}
-        <div class="directus-html">
+        <div class="directus-html" data-directus={setAttr({
+            collection: "pages",
+            item: data.page.id,
+            fields: "content",
+            mode: "drawer",
+        })}>
             {@html data.page.content}
         </div>
     {/if}
@@ -99,15 +143,18 @@
     </h2>
     <div class="flex flex-col gap-4">
         {#each data.page.people as person}
-        
-            <p class="p-readable">
+            <p class="p-readable" data-directus={setAttr({
+            collection: "people",
+            item: person.people_id.id,
+            fields: "first_name, last_name, bio",
+            mode: "modal",
+        })}>
                 {#if person.people_id.bio}
-                {person.people_id.bio}
+                    {person.people_id.bio}
                 {:else}
-                No information provided.
+                    No information provided.
                 {/if}
             </p>
-
         {/each}
     </div>
 </div>

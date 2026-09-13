@@ -7,10 +7,7 @@
     import { sineOut } from "svelte/easing";
     import { ProgressBar } from "@prgm/sveltekit-progress-bar";
     import { onMount } from "svelte";
-    import {
-        initializeVisualEditor,
-        setAttr,
-    } from "$lib/directus/visualEditor.js";
+    import { initializeVisualEditor } from "$lib/directus/visualEditor.js";
 
     // Import fonts
     import "@fontsource/overpass/400.css";
@@ -26,13 +23,7 @@
         "The Institute of Transportation Engineers (ITE) at the University of Southern California is a chapter of the national ITE. We're devoted to hosting site tours, holding speaker sessions, sharing our passion for transportation, and changing the world of mobility - one Trojan at a time.";
 
     onMount(() => {
-        if (
-            new URLSearchParams(window.location.search).get(
-                "visual-editing",
-            ) === "true"
-        ) {
-            initializeVisualEditor();
-        }
+        initializeVisualEditor();
     });
 </script>
 

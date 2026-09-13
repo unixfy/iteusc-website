@@ -4,6 +4,7 @@
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
     import { format, parseISO } from "date-fns";
     import PhotosCard from "$lib/PhotosCard.svelte";
+    import { setAttr } from "$lib/directus/visualEditor.js";
 
     let screenSize;
 </script>
@@ -35,16 +36,25 @@
                 <h2 class="section-heading">{year}</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {#each items as item}
-                        <PhotosCard
-                            url={item.url}
-                            image="{getStorageDirectUrl(
-                                item.image.id,
-                            )}?format=webp&width={Math.ceil(
-                                screenSize / 1.5,
-                            )}&quality=50"
-                            name={item.name}
-                            date={format(parseISO(item.date), "LLLL d, y")}
-                        />
+                        <div
+                            data-directus={setAttr({
+                                collection: "photo_archive_items",
+                                item: item.id,
+                                fields: "",
+                                mode: "modal",
+                            })}
+                        >
+                            <PhotosCard
+                                url={item.url}
+                                image="{getStorageDirectUrl(
+                                    item.image.id,
+                                )}?format=webp&width={Math.ceil(
+                                    screenSize / 1.5,
+                                )}&quality=50"
+                                name={item.name}
+                                date={format(parseISO(item.date), "LLLL d, y")}
+                            />
+                        </div>
                     {/each}
                 </div>
             </div>
