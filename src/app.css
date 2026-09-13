@@ -113,3 +113,13 @@ p>a {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     @apply my-8 gap-4;
 }
+
+.directus-visual-editing-rect-hover {
+    /* Apply a slight magenta border for visual editing on hover */
+    @apply border-2 border-[#FF00FF]/75;
+} 
+
+.directus-visual-editing-rect-highlight { 
+    /* Apply light magenta background for visual editing */
+    @apply border-3 border-dashed border-[#FF00FF];
+}
