@@ -4,6 +4,7 @@
     import GridImageCard from "$lib/GridImageCard.svelte";
     import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import { setAttr } from "$lib/directus/visualEditor.js";
 
     export let data;
 </script>
@@ -13,21 +14,48 @@
 
 <!-- What is USC ITE? -->
 <div class="section bg-ite-blue text-white">
-    <div class="ct flex flex-col space-y-4 text-xl">
-        <h1 class="font-display section-subheading font-bold">
+    <div class="ct">
+        <h1
+            class="font-display section-subheading font-bold"
+            data-directus={setAttr({
+                collection: "site_config",
+                item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
+                fields: "homepage_organization_tagline",
+                mode: "popover",
+            })}
+        >
             ▶ {data.siteConfig.homepage_organization_tagline}
         </h1>
-        {@html data.siteConfig.homepage_organization_description}
+
+        <div
+            class="flex flex-col space-y-4 text-xl"
+            data-directus={setAttr({
+                collection: "site_config",
+                item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
+                fields: "homepage_organization_description",
+                mode: "popover",
+            })}
+        >
+            {@html data.siteConfig.homepage_organization_description}
+        </div>
     </div>
 </div>
 
 <!-- Photos of ITE events -->
-<div class="grid md:grid-rows-2 md:grid-cols-3">
+<div
+    class="grid md:grid-rows-2 md:grid-cols-3"
+    data-directus={setAttr({
+        collection: "site_config",
+        item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
+        fields: "notice-xcpkuw,image_grid_items",
+        mode: "modal",
+    })}
+>
     <!-- Note that we need to iterate over the image_grid_items sub-array, as the Directus API is set to just return that single field -->
     {#each data.imageGrid.image_grid_items as grid_item}
         <GridImageCard
             image="{getStorageDirectUrl(
-                grid_item.image.id
+                grid_item.image.id,
             )}?width=600&format=webp&quality=50"
             text={grid_item.name}
             url={grid_item.url}
@@ -51,7 +79,9 @@
                     <div class="flex flex-col md:flex-row h-full">
                         <img
                             class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video"
-                            src="{getStorageDirectUrl(project.image)}?width=700&format=webp"
+                            src="{getStorageDirectUrl(
+                                project.image,
+                            )}?width=700&format=webp"
                             alt="Image for {project.name}"
                         />
                         <div
@@ -79,8 +109,19 @@
         <h1 class="section-heading">Events</h1>
         <h2 class="section-subheading">Check out what's going on.</h2>
         <!--    Google Calendar embed -->
-        <GoogleCalendarEmbed minheight="500px" src={data.siteConfig.calendar_embed_url} />
-
+        <div
+            data-directus={setAttr({
+                collection: "site_config",
+                item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
+                fields: "calendar_embed_url",
+                mode: "popover",
+            })}
+        >
+            <GoogleCalendarEmbed
+                minheight="500px"
+                src={data.siteConfig.calendar_embed_url}
+            />
+        </div>
         <a class="btn btn-block btn-primary btn-lg" href="/calendar/"
             >Full Calendar</a
         >
@@ -98,7 +139,15 @@
                 >
                     What are you waiting for? Join USC ITE now!
                 </h1>
-                <p class="text-2xl font-display">
+                <p
+                    class="text-2xl font-display"
+                    data-directus={setAttr({
+                        collection: "site_config",
+                        item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
+                        fields: "join_statement",
+                        mode: "popover",
+                    })}
+                >
                     {data.siteConfig.join_statement}
                 </p>
             </div>
@@ -121,10 +170,12 @@
             {#each data.sponsors as sponsor}
                 <img
                     class="w-full"
-                    src="{getStorageDirectUrl(sponsor.logo)}?height=150&format=webp"
+                    src="{getStorageDirectUrl(
+                        sponsor.logo,
+                    )}?height=150&format=webp"
                     alt="Logo for {sponsor.name}"
                 />
-                {:else}
+            {:else}
                 <QueryEmptyAlert />
             {/each}
         </div>
