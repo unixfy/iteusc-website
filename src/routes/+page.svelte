@@ -168,13 +168,22 @@
         </h2>
         <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {#each data.sponsors as sponsor}
-                <img
-                    class="w-full"
-                    src="{getStorageDirectUrl(
-                        sponsor.logo,
-                    )}?height=150&format=webp"
-                    alt="Logo for {sponsor.name}"
-                />
+                <div
+                    data-directus={setAttr({
+                        collection: "sponsors",
+                        item: sponsor.id,
+                        fields: "",
+                        mode: "modal",
+                    })}
+                >
+                    <img
+                        class="w-full"
+                        src="{getStorageDirectUrl(
+                            sponsor.logo,
+                        )}?height=150&format=webp"
+                        alt="Logo for {sponsor.name}"
+                    />
+                </div>
             {:else}
                 <QueryEmptyAlert />
             {/each}

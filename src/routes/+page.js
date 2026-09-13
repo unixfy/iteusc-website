@@ -18,7 +18,7 @@ export async function load() {
     const sponsorsList = directus.request(
         readItems('sponsors', {
             sort: ['sort'],
-            fields: ['name', 'logo']
+            fields: ['id', 'name', 'logo']
         }
         ))
 
