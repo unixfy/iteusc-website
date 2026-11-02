@@ -1,5 +1,5 @@
 <script>
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
     import { afterNavigate } from "$app/navigation";
 
     let navbarItems = [
@@ -100,8 +100,8 @@
                             <li>
                                 <a
                                     class="min-h-11 items-center"
-                                    class:menu-active={isCurrent(navbarItem.url, $page.url.pathname)}
-                                    aria-current={isCurrent(navbarItem.url, $page.url.pathname) ? "page" : undefined}
+                                    class:menu-active={isCurrent(navbarItem.url, page.url.pathname)}
+                                    aria-current={isCurrent(navbarItem.url, page.url.pathname) ? "page" : undefined}
                                     href={navbarItem.url}>{navbarItem.name}</a
                                 >
                             </li>
@@ -121,8 +121,8 @@
                     {#each navbarItems as navbarItem}
                         <li>
                             <a
-                                class:menu-active={isCurrent(navbarItem.url, $page.url.pathname)}
-                                aria-current={isCurrent(navbarItem.url, $page.url.pathname) ? "page" : undefined}
+                                class:menu-active={isCurrent(navbarItem.url, page.url.pathname)}
+                                aria-current={isCurrent(navbarItem.url, page.url.pathname) ? "page" : undefined}
                                 href={navbarItem.url}>{navbarItem.name}</a
                             >
                         </li>
