@@ -1,7 +1,6 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
     import OpportunitiesCard from "$lib/OpportunitiesCard.svelte";
-    import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
     import { parseISO } from "date-fns";
     import { formatInTimeZone } from "date-fns-tz";
 
@@ -29,7 +28,13 @@
                 url={opportunity.url}
             />
         {:else}
-            <QueryEmptyAlert />
+            <div class="alert">
+                <span>
+                    We don't have any opportunities listed right now. Check back
+                    soon, or <a class="link" href="/join/">join USC ITE</a> to get
+                    involved in the meantime.
+                </span>
+            </div>
         {/each}
     </div>
 </div>

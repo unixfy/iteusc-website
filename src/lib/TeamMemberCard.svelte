@@ -27,6 +27,7 @@
             <h2 class="card-title font-display">{name}</h2>
             <p class="italic font-light">{role}</p>
         </div>
+        {#if major}
         <div>
             <p>
                 <svg
@@ -44,5 +45,6 @@
                 {major}
             </p>
         </div>
+        {/if}
     </div>
 </div>

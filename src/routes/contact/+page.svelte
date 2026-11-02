@@ -1,9 +1,8 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
 
-    let name = "";
-    let email = "";
-    let message = "";
+    const formUrl =
+        "https://us17.list-manage.com/contact-form?u=0b0f9abcfdce6d20a98515274&form_id=d7d8b612580a749bf7e39b257458da16";
 </script>
 
 <PageHeader
@@ -12,9 +11,13 @@
 ></PageHeader>
 
 <div class="ct">
+    <p>
+        Prefer email? Write to <a class="link" href="mailto:iteusc@gmail.com">iteusc@gmail.com</a>,
+        or <a class="link" href={formUrl} target="_blank" rel="noreferrer">open the form in a new tab</a>.
+    </p>
     <iframe
-        class="w-full min-h-[500px] aspect-square md:aspect-video my-8"
-        title="USC ITE Mailchimp contact form"
-        src="https://us17.list-manage.com/contact-form?u=0b0f9abcfdce6d20a98515274&form_id=d7d8b612580a749bf7e39b257458da16"
+        class="h-[1100px] w-full my-8"
+        title="USC ITE contact form"
+        src={formUrl}
     ></iframe>
 </div>

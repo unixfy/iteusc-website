@@ -1,16 +1,16 @@
 <footer class="footer footer-center footer-horizontal p-10 bg-base-200 text-base-content rounded">
     <div class="grid grid-flow-col gap-4">
         <!--        Footer links -->
-        <a class="link link-hover" href="/about/">About Us</a>
-        <a class="link link-hover" href="/join/">Join USC ITE</a>
-        <a class="link link-hover" href="/contact/">Contact Us</a>
-        <a class="link link-hover" href="/auth/login/">Sign In</a>
+        <a class="link link-hover inline-block py-3" href="/about/">About Us</a>
+        <a class="link link-hover inline-block py-3" href="/join/">Join USC ITE</a>
+        <a class="link link-hover inline-block py-3" href="/contact/">Contact Us</a>
+        <a class="link link-hover inline-block py-3" href="/auth/login/">Sign In</a>
     </div>
     <div>
         <!--        Social link buttons - note that external links should be "noreferrer" and target="_blank" -->
         <div class="grid grid-flow-col gap-4">
             <!--            Facebook -->
-            <a class="btn btn-circle btn-neutral" href="https://www.facebook.com/iteusc/" rel="noreferrer" target="_blank"
+            <a class="btn btn-circle btn-neutral size-11" href="https://www.facebook.com/iteusc/" rel="noreferrer" target="_blank"
                aria-label="Facebook">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-facebook" viewBox="0 0 16 16">
@@ -18,7 +18,7 @@
                 </svg>
             </a>
             <!--            Instagram -->
-            <a class="btn btn-circle btn-neutral" href="https://www.instagram.com/usc.ite/?hl=en" rel="noreferrer" target="_blank"
+            <a class="btn btn-circle btn-neutral size-11" href="https://www.instagram.com/usc.ite/?hl=en" rel="noreferrer" target="_blank"
                aria-label="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-instagram" viewBox="0 0 16 16">
@@ -26,7 +26,7 @@
                 </svg>
             </a>
             <!--            LinkedIn -->
-            <a class="btn btn-circle btn-neutral" href="https://www.linkedin.com/company/uscite/" rel="noreferrer" target="_blank"
+            <a class="btn btn-circle btn-neutral size-11" href="https://www.linkedin.com/company/uscite/" rel="noreferrer" target="_blank"
                aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-linkedin" viewBox="0 0 16 16">
@@ -34,14 +34,14 @@
                 </svg>
             </a>
             <!--            Email -->
-            <a class="btn btn-circle btn-neutral" href="mailto:iteusc@gmail.com" aria-label="Email Us">
+            <a class="btn btn-circle btn-neutral size-11" href="mailto:iteusc@gmail.com" aria-label="Email Us">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-envelope" viewBox="0 0 16 16">
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                 </svg>
             </a>
             <!--            GitHub -->
-            <a class="btn btn-circle btn-neutral" href="https://github.com/unixfy/iteusc-website" aria-label="GitHub Source Code"
+            <a class="btn btn-circle btn-neutral size-11" href="https://github.com/unixfy/iteusc-website" aria-label="GitHub Source Code"
                target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
                      viewBox="0 0 16 16">

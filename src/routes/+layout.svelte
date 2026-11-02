@@ -13,16 +13,15 @@
         cleanupVisualEditor
     } from "$lib/directus/visualEditor.js";
 
-    // Import fonts
-    import "@fontsource/overpass/400.css";
-    import "@fontsource/overpass/700.css";
-    import "@fontsource/rubik/400.css";
-    import "@fontsource/rubik/700.css";
-    import "@fontsource/rubik/300.css";
-
     export let data;
 
     let defaultTitle = "Welcome";
+    // Error pages have no load() data, so they'd otherwise inherit the default title
+    $: pageTitle = $page.error
+        ? $page.status === 404
+            ? "Page not found"
+            : "Something went wrong"
+        : $page.data.title || defaultTitle;
     let defaultDescription =
         "The Institute of Transportation Engineers (ITE) at the University of Southern California is a chapter of the national ITE. We're devoted to hosting site tours, holding speaker sessions, sharing our passion for transportation, and changing the world of mobility - one Trojan at a time.";
 
@@ -38,7 +37,7 @@
 <svelte:head>
     <!--    Interpolate page title if it's returned in each page's load() function, otherwise just show the value of defaultTitle -->
     <!--    This pattern of handling it ensures things will work even when JavaScript is not enabled in the client -->
-    <title>{$page.data.title || defaultTitle} | USC ITE</title>
+    <title>{pageTitle} | USC ITE</title>
     <!--    Interpolate page meta description if it's returned in the page's load() function, otherwise just return defaultMetaDescription. -->
     <meta
         name="description"
@@ -50,7 +49,7 @@
     <meta property="og:url" content="https://iteusc.com{$page.url.pathname}" />
     <meta
         property="og:title"
-        content="{$page.data.title || defaultTitle} | USC ITE"
+        content="{pageTitle} | USC ITE"
     />
     <meta
         property="og:description"
@@ -69,7 +68,7 @@
     />
     <meta
         property="twitter:title"
-        content="{$page.data.title || defaultTitle} | USC ITE"
+        content="{pageTitle} | USC ITE"
     />
     <meta
         property="twitter:description"
@@ -94,18 +93,20 @@
 <!-- Insert automatic progress bar component -->
 <ProgressBar class="text-primary"></ProgressBar>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!--Insert Navbar component-->
 <Navbar />
 
 <!--Ensure the page container is at least 100vh high (that way the footer will always be below-the-fold)-->
-<div class="min-h-screen pb-8">
+<main id="main-content" tabindex="-1" class="min-h-screen pb-8">
     {#key data.url}
         <!-- Note we don't animate out because it causes a jarring jump to the top of the page (sveltekit behavior) -->
         <div in:fade={{ duration: 200, delay: 200, easing: sineOut }}>
             <slot />
         </div>
     {/key}
-</div>
+</main>
 
 <!--Insert footer component-->
 <Footer />

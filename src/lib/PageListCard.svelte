@@ -7,14 +7,14 @@
     export let author_name;
 </script>
 
-<a href={url} aria-label="Link to page {title}">
+<a href={url}>
     <div
         class="lg:grid lg:grid-cols-5 rounded-lg hover:scale-105 transition-all bg-base-200 drop-shadow-xl"
     >
         <figure>
             <img
                 src={image}
-                alt="Image for {title}"
+                alt=""
                 class="object-cover w-full h-full lg:aspect-square lg:rounded-l-lg rounded-t-lg lg:rounded-tr-none"
                 width="auto"
                 height="100%"

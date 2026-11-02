@@ -9,7 +9,7 @@
 
 <!-- Note: Must use style tag to specify the background image because treeshaking means custom Tailwind classes won't be included in prod css -->
 
-<a href={url} target="_blank" rel="noreferrer">
+<a class="block" href={url} target="_blank" rel="noreferrer">
     <div class="homepage-grid-image" style="background-image: url('{image}');">
         <div class="homepage-grid-text">
             <p>{text}</p>

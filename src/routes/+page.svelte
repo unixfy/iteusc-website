@@ -10,13 +10,13 @@
 </script>
 
 <!-- Page jumbotron -->
-<Jumbotron />
+<Jumbotron statement={data.siteConfig.join_statement} />
 
 <!-- What is USC ITE? -->
-<div class="section bg-ite-blue text-white">
+<div id="about" class="section bg-ite-blue text-white scroll-mt-16">
     <div class="ct">
-        <h1
-            class="font-display section-subheading font-bold"
+        <h2
+            class="font-display section-subheading font-bold max-w-4xl"
             data-directus={setAttr({
                 collection: "site_config",
                 item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
@@ -24,11 +24,11 @@
                 mode: "popover",
             })}
         >
-            ▶ {data.siteConfig.homepage_organization_tagline}
-        </h1>
+            {data.siteConfig.homepage_organization_tagline}
+        </h2>
 
         <div
-            class="flex flex-col space-y-4 text-xl"
+            class="flex max-w-3xl flex-col space-y-4 text-lg"
             data-directus={setAttr({
                 collection: "site_config",
                 item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
@@ -66,29 +66,29 @@
 <!-- Project listing -->
 <div class="section bg-usc-cardinal text-white">
     <div class="ct">
-        <h1 class="section-heading">Projects</h1>
-        <h2 class="section-subheading">
+        <h2 class="section-heading">Projects</h2>
+        <p class="section-subheading">
             Take a look at what we're working on.
-        </h2>
+        </p>
         <div class="mt-8 flex flex-col space-y-8">
             {#each data.projects as project}
                 <!--            Tailwind card with title, subtitle, and image -->
                 <div
-                    class="bg-white rounded-md hover:drop-shadow-lg transition-all"
+                    class="bg-base-100 rounded-md hover:drop-shadow-lg transition-all"
                 >
                     <div class="flex flex-col md:flex-row h-full">
                         <img
-                            class="w-full md:w-1/3 rounded-l-md object-cover md:aspect-video"
+                            class="w-full md:w-1/3 rounded-t-md md:rounded-t-none md:rounded-l-md object-cover md:aspect-video"
                             src="{getStorageDirectUrl(
                                 project.image,
                             )}?width=700&format=webp"
                             alt="Image for {project.name}"
                         />
                         <div
-                            class="w-full md:w-2/3 p-8 text-black space-y-4 h-full"
+                            class="w-full md:w-2/3 p-8 text-base-content space-y-4 h-full"
                         >
                             <h3 class="text-xl font-bold">{project.name}</h3>
-                            <p class="text-gray-600">{project.description}</p>
+                            <p class="text-base-content/70">{project.description}</p>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <QueryEmptyAlert />
             {/each}
             <!--    Button that links to a page listing all projects -->
-            <a class="btn btn-block btn-primary btn-lg" href="/projects/"
+            <a class="btn btn-outline btn-lg self-start border-white text-white hover:bg-white hover:text-usc-cardinal" href="/projects/"
                 >View All Projects</a
             >
         </div>
@@ -106,8 +106,8 @@
 <!-- Events schedule -->
 <div class="section">
     <div class="ct">
-        <h1 class="section-heading">Events</h1>
-        <h2 class="section-subheading">Check out what's going on.</h2>
+        <h2 class="section-heading">Events</h2>
+        <p class="section-subheading">Check out what's going on.</p>
         <!--    Google Calendar embed -->
         <div
             data-directus={setAttr({
@@ -122,7 +122,7 @@
                 src={data.siteConfig.calendar_embed_url}
             />
         </div>
-        <a class="btn btn-block btn-primary btn-lg" href="/calendar/"
+        <a class="btn btn-outline btn-lg" href="/calendar/"
             >Full Calendar</a
         >
     </div>
@@ -131,14 +131,14 @@
 <!-- Join us Call to Action -->
 <div class="bg-[url('/images/a-line.jpg')] bg-cover bg-center">
     <!--    Really janky way to get a black overlay over the background image -->
-    <div class="w-full h-full py-[10vh] bg-black/30">
+    <div class="w-full h-full py-[10vh] bg-black/60">
         <div class="flex flex-col md:flex-row ct">
             <div class="text-white text-center md:text-left pb-8 md:pb-0">
-                <h1
+                <h2
                     class="my-auto text-3xl md:text-4xl font-bold text-white pb-4 font-display"
                 >
-                    What are you waiting for? Join USC ITE now!
-                </h1>
+                    Join USC ITE
+                </h2>
                 <p
                     class="text-2xl font-display"
                     data-directus={setAttr({
@@ -152,8 +152,8 @@
                 </p>
             </div>
             <a
-                class="btn btn-neutral glass md:ml-auto my-auto btn-lg"
-                href="/join/">Join Us Now!</a
+                class="btn btn-accent md:ml-auto my-auto btn-lg"
+                href="/join/">Join USC ITE</a
             >
         </div>
     </div>
@@ -162,13 +162,14 @@
 <!-- sponsors section -->
 <div class="section">
     <div class="ct">
-        <h1 class="section-heading">Sponsors</h1>
-        <h2 class="section-subheading">
+        <h2 class="section-heading">Sponsors</h2>
+        <p class="section-subheading">
             We're grateful to be sponsored by these organizations!
-        </h2>
+        </p>
         <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {#each data.sponsors as sponsor}
                 <div
+                    class="flex items-center rounded-md bg-white p-4"
                     data-directus={setAttr({
                         collection: "sponsors",
                         item: sponsor.id,
