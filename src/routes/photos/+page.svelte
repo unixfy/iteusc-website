@@ -31,8 +31,13 @@
             {/each}
         </div>
     {:then items}
+        <nav aria-label="Jump to year" class="flex flex-wrap gap-2">
+            {#each items as [year]}
+                <a class="btn btn-sm h-11" href="#year-{year}">{year}</a>
+            {/each}
+        </nav>
         {#each items as [year, items]}
-            <div class="my-8">
+            <div id="year-{year}" class="my-8 scroll-mt-20">
                 <h2 class="section-heading">{year}</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {#each items as item}

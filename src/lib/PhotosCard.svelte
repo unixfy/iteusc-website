@@ -3,20 +3,38 @@
     export let image;
     export let name;
     export let date;
+
+    // Some originals can't be resized by the CMS, so retry without the transform
+    let failedOnce = false;
+    let failed = false;
+
+    function handleImageError() {
+        if (!failedOnce) {
+            failedOnce = true;
+            image = image.split("?")[0];
+        } else {
+            failed = true;
+        }
+    }
 </script>
 
 <a href={url} target="_blank" rel="noreferrer">
     <div class="relative md:hover:scale-105 transition-all drop-shadow-lg">
-        <img
-            src={image}
-            alt={name}
-            class="w-full h-full object-cover object-center rounded-lg aspect-video sm:aspect-square"
-            loading="lazy"
-            width="auto"
-            height="100%"
-        />
+        {#if failed}
+            <div class="w-full rounded-lg bg-neutral aspect-video sm:aspect-square"></div>
+        {:else}
+            <img
+                src={image}
+                alt={name}
+                class="w-full h-full object-cover object-center rounded-lg aspect-video sm:aspect-square"
+                loading="lazy"
+                width="auto"
+                height="100%"
+                on:error={handleImageError}
+            />
+        {/if}
         <div
-            class="absolute bottom-0 left-0 right-0 p-4 bg-black/50 rounded-b-lg text-white backdrop-blur-sm backdrop-brightness-90"
+            class="absolute bottom-0 left-0 right-0 p-4 bg-black/75 rounded-b-lg text-white backdrop-blur-sm backdrop-brightness-90"
         >
             <p class="font-bold text-lg">{name}</p>
             <p class="text-sm">

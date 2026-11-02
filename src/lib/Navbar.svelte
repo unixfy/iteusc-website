@@ -1,4 +1,6 @@
 <script>
+    import { page } from "$app/stores";
+    import { afterNavigate } from "$app/navigation";
 
     let navbarItems = [
         {
@@ -39,20 +41,50 @@
         },
     ];
 
+    let menuOpen = false;
+    let menu;
+
+    // Match the section as well as the page itself, e.g. /about/leadership-team/x -> About
+    const isCurrent = (url, pathname) =>
+        url === "/" ? pathname === "/" : `${pathname}/`.startsWith(url);
+
+    afterNavigate(() => {
+        menuOpen = false;
+    });
+
+    function handleKeydown(event) {
+        // Read the element, not menuOpen: the binding only updates on the async toggle event
+        if (event.key === "Escape" && menu.open) {
+            menu.open = false;
+            menu.querySelector("summary").focus();
+        }
+    }
+
+    function handleWindowClick(event) {
+        if (menu.open && !menu.contains(event.target)) {
+            menu.open = false;
+        }
+    }
 </script>
 
-<div class="bg-base-200">
+<svelte:window on:keydown={handleKeydown} on:click={handleWindowClick} />
+
+<header class="sticky top-0 z-30 bg-base-200">
     <div class="ct navbar">
         <div class="navbar-start w-auto">
-            <!--            Mobile menu -->
-            <div class="dropdown">
-                <label tabindex="0" class="btn btn-ghost lg:hidden">
+            <!--            Mobile menu. <details> keeps it working before hydration and gives us the expanded state natively -->
+            <details class="dropdown lg:hidden" bind:open={menuOpen} bind:this={menu}>
+                <summary
+                    class="btn btn-ghost h-11 min-w-11 list-none [&::-webkit-details-marker]:hidden"
+                    aria-label="Menu"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
+                        aria-hidden="true"
                     >
                         <path
                             stroke-linecap="round"
@@ -61,35 +93,44 @@
                             d="M4 6h16M4 12h8m-8 6h16"
                         />
                     </svg>
-                </label>
-                <ul
-                    tabindex="0"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10"
-                >
+                </summary>
+                <nav aria-label="Main" class="dropdown-content z-10 mt-3">
+                    <ul class="menu w-56 rounded-box bg-base-100 p-2 shadow">
+                        {#each navbarItems as navbarItem}
+                            <li>
+                                <a
+                                    class="min-h-11 items-center"
+                                    class:menu-active={isCurrent(navbarItem.url, $page.url.pathname)}
+                                    aria-current={isCurrent(navbarItem.url, $page.url.pathname) ? "page" : undefined}
+                                    href={navbarItem.url}>{navbarItem.name}</a
+                                >
+                            </li>
+                        {/each}
+                    </ul>
+                </nav>
+            </details>
+            <a class="btn btn-ghost h-11 gap-2 px-2 text-xl normal-case font-display" href="/">
+                <img src="/images/favicon.svg" alt="" class="h-8 w-8" width="32" height="32" />
+                USC ITE
+            </a>
+        </div>
+        <!--        End of navbar (right side) - we put our navbar links here -->
+        <div class="navbar-end w-full">
+            <nav aria-label="Main" class="hidden lg:block">
+                <ul class="menu menu-horizontal px-1">
                     {#each navbarItems as navbarItem}
                         <li>
-                            <a href={navbarItem.url}>{navbarItem.name}</a>
+                            <a
+                                class:menu-active={isCurrent(navbarItem.url, $page.url.pathname)}
+                                aria-current={isCurrent(navbarItem.url, $page.url.pathname) ? "page" : undefined}
+                                href={navbarItem.url}>{navbarItem.name}</a
+                            >
                         </li>
                     {/each}
                 </ul>
-            </div>
-            <a class="btn btn-ghost normal-case text-xl font-display" href="/"
-                >USC ITE</a
-            >
-        </div>
-        <!--        Area to put stuff that should be at the middle of the navbar-->
-        <div class="navbar-center hidden" />
-        <!--        End of navbar (right side) - we put our navbar links here -->
-        <div class="navbar-end w-full">
-            <ul class="hidden lg:flex menu menu-horizontal px-1">
-                {#each navbarItems as navbarItem}
-                    <li>
-                        <a href={navbarItem.url}>{navbarItem.name}</a>
-                    </li>
-                {/each}
-            </ul>
+            </nav>
             <!--            Special "join us" button -->
-            <a class="btn btn-primary" href="/join/">Join Us</a>
+            <a class="btn btn-primary h-11" href="/join/">Join Us</a>
         </div>
     </div>
-</div>
+</header>

@@ -14,7 +14,7 @@
 <div class="ct">
     <!--    Mission statement box -->
     <div class="bg-ite-blue p-4 md:p-8 flex flex-col text-center text-white">
-        <h1 class="text-2xl md:text-3xl mt-auto pb-4">Our mission statement</h1>
+        <h2 class="text-2xl md:text-3xl mt-auto pb-4">Our mission statement</h2>
         <p             data-directus={setAttr({
                 collection: "site_config",
                 item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
@@ -71,9 +71,9 @@
                 fields: "current_leadership_team",
                 mode: "popover",
             })}>
-        <h1 class="section-heading text-center">
+        <h2 class="section-heading text-center">
             Meet our {data.currentLeadershipTeamYearString} leadership team
-        </h1>
+        </h2>
 
         <div class="grid md:grid-cols-3 lg:grid-cols-4">
             <!--            Display a card for each team member -->
@@ -104,7 +104,7 @@
     <!-- Past leadership teams section  -->
     <div class="section">
         <div class="narrow-ct">
-            <h1 class="section-heading text-center">Past leadership teams</h1>
+            <h2 class="section-heading text-center">Past leadership teams</h2>
 
             <div class="flex flex-col gap-2 w-full">
                 {#each data.otherLeadershipTeams as team}

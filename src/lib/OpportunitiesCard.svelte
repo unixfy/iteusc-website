@@ -9,7 +9,7 @@
     <div class="card-body">
         <h2 class="card-title font-display">{name}</h2>
         <div>
-            <p class="break-all">{description}</p>
+            <p class="break-words">{description}</p>
         </div>
 
         {#if deadline}

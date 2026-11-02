@@ -1,4 +1,6 @@
 <script>
+    import { onMount } from "svelte";
+    import QueryEmptyAlert from "#lib/QueryEmptyAlert.svelte";
     import PageHeader from "#lib/PageHeader.svelte";
     import { format, parseISO } from "date-fns";
     import PageListCard from "#lib/PageListCard.svelte";
@@ -11,6 +13,18 @@
         { debounceHistory: 500 },
     );
     export let data;
+
+    const PAGE_SIZE = 12;
+    let limit = PAGE_SIZE;
+    // Show everything until hydrated, because "Show more" can't work without JS
+    let hydrated = false;
+
+    onMount(() => (hydrated = true));
+
+    // Every new search starts from the top of its results
+    $: data.items, (limit = PAGE_SIZE);
+    $: visibleItems = hydrated ? data.items.slice(0, limit) : data.items;
+    $: resultCount = data.items.length === 1 ? "1 result" : `${data.items.length} results`;
 </script>
 
 <PageHeader title="News" subtitle="Keep up with our events and happenings." />
@@ -21,6 +35,7 @@
         <!-- note that we get the value from searchParams rather than $search to prevent the value from changing as the page is navigating (leads to rubberbanding in the search bar) -->
         <input
             class="grow"
+            aria-label="Search"
             placeholder="Search"
             value={searchParams.search}
             autocomplete="off"
@@ -42,8 +57,10 @@
         </svg>
     </label>
 
+    <p class="sr-only" role="status">{resultCount}</p>
+
     <div class="flex flex-col gap-8">
-        {#each data.items as item}
+        {#each visibleItems as item}
             <PageListCard
                 title={item.title}
                 url="/page/{item.slug}"
@@ -60,4 +77,12 @@
             </div>
         {/each}
     </div>
+
+    {#if visibleItems.length < data.items.length}
+        <div class="mt-8 text-center">
+            <button class="btn btn-outline btn-lg" on:click={() => (limit += PAGE_SIZE)}>
+                Show more ({data.items.length - visibleItems.length} left)
+            </button>
+        </div>
+    {/if}
 </div>

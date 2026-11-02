@@ -29,7 +29,7 @@
     <div class="bg-black/50 w-full h-full flex flex-col">
         <div class="hero-content m-auto flex-col text-center w-full">
             <h1 class="text-2xl md:text-3xl lg:text-4xl font-display">USC Institute of Transportation Engineers</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display">We are <span class="typed"></span></h1>
+            <p class="text-3xl md:text-4xl lg:text-5xl font-bold font-display">We are <span class="typed"></span></p>
             <div class="max-w-md">
                 <p class="pt-8">⬇ Scroll down to learn more</p>
             </div>

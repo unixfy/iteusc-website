@@ -7,7 +7,7 @@
     <div class="ct">
         <h1 class="section-heading">{title}</h1>
         {#if subtitle}
-            <h2 class="section-subheading">{subtitle}</h2>
+            <p class="section-subheading">{subtitle}</p>
         {/if}
     </div>
 </div>
