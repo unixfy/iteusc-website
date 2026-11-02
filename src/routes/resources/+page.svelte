@@ -1,6 +1,6 @@
 <script>
-  import PageHeader from "$lib/PageHeader.svelte";
-  import ResourcesCard from "$lib/ResourcesCard.svelte";
+  import PageHeader from "#lib/PageHeader.svelte";
+  import ResourcesCard from "#lib/ResourcesCard.svelte";
   export let data;
 </script>
 

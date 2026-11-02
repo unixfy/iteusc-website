@@ -1,8 +1,8 @@
 <script>
     import "../app.css";
-    import Navbar from "$lib/Navbar.svelte";
-    import Footer from "$lib/Footer.svelte";
-    import { page } from "$app/stores";
+    import Navbar from "#lib/Navbar.svelte";
+    import Footer from "#lib/Footer.svelte";
+    import { page } from "$app/state";
     import { fade } from "svelte/transition";
     import { sineOut } from "svelte/easing";
     import { ProgressBar } from "@prgm/sveltekit-progress-bar";
@@ -11,7 +11,7 @@
     import {
         initializeVisualEditor,
         cleanupVisualEditor
-    } from "$lib/directus/visualEditor.js";
+    } from "#lib/directus/visualEditor.js";
 
     // Import fonts
     import "@fontsource/overpass/400.css";
@@ -38,50 +38,50 @@
 <svelte:head>
     <!--    Interpolate page title if it's returned in each page's load() function, otherwise just show the value of defaultTitle -->
     <!--    This pattern of handling it ensures things will work even when JavaScript is not enabled in the client -->
-    <title>{$page.data.title || defaultTitle} | USC ITE</title>
+    <title>{page.data.title || defaultTitle} | USC ITE</title>
     <!--    Interpolate page meta description if it's returned in the page's load() function, otherwise just return defaultMetaDescription. -->
     <meta
         name="description"
-        content={$page.data.description || defaultDescription}
+        content={page.data.description || defaultDescription}
     />
 
     <!-- OpenGraph meta tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://iteusc.com{$page.url.pathname}" />
+    <meta property="og:url" content="https://iteusc.com{page.url.pathname}" />
     <meta
         property="og:title"
-        content="{$page.data.title || defaultTitle} | USC ITE"
+        content="{page.data.title || defaultTitle} | USC ITE"
     />
     <meta
         property="og:description"
-        content={$page.data.description || defaultDescription}
+        content={page.data.description || defaultDescription}
     />
     <meta
         property="og:image"
-        content={$page.data.socialImage || "/images/ite-portland.jpg"}
+        content={page.data.socialImage || "/images/ite-portland.jpg"}
     />
 
     <!-- Twitter meta tags -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
         property="twitter:url"
-        content="https://iteusc.com{$page.url.pathname}"
+        content="https://iteusc.com{page.url.pathname}"
     />
     <meta
         property="twitter:title"
-        content="{$page.data.title || defaultTitle} | USC ITE"
+        content="{page.data.title || defaultTitle} | USC ITE"
     />
     <meta
         property="twitter:description"
-        content={$page.data.description || defaultDescription}
+        content={page.data.description || defaultDescription}
     />
     <meta
         property="twitter:image"
-        content={$page.data.socialImage || "/images/ite-portland.jpg"}
+        content={page.data.socialImage || "/images/ite-portland.jpg"}
     />
 
     <!--    Send the meta tag that blocks robots from indexing, if we specify that this tag should be sent in page load() function -->
-    {#if $page.data.noIndex}
+    {#if page.data.noIndex}
         <meta name="robots" content="noindex, nofollow" />
     {/if}
 

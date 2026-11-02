@@ -1,7 +1,7 @@
 <script>
     export let data;
 
-    import { setAttr } from "$lib/directus/visualEditor.js";
+    import { setAttr } from "#lib/directus/visualEditor.js";
 </script>
 
 <div class="bg-[url('/images/a-line.jpg')] bg-cover bg-center h-[50vh]">

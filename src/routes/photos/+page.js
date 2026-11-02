@@ -1,6 +1,6 @@
-import { directus } from "$lib/directus/client.js"
+import { directus } from "#lib/directus/client.js"
 import { readItems } from "@directus/sdk"
-import { groupDataByProperty } from "$lib/directus/groupDataByProperty"
+import { groupDataByProperty } from "#lib/directus/groupDataByProperty.js"
 
 export async function load() {
     // request photo archive items from directus, then parse the year from each date and group by year (all in one promise)

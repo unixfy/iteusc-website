@@ -1,10 +1,10 @@
 <script>
-    import Jumbotron from "$lib/Jumbotron.svelte";
-    import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
-    import GridImageCard from "$lib/GridImageCard.svelte";
-    import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
-    import { setAttr } from "$lib/directus/visualEditor.js";
+    import Jumbotron from "#lib/Jumbotron.svelte";
+    import GoogleCalendarEmbed from "#lib/GoogleCalendarEmbed.svelte";
+    import GridImageCard from "#lib/GridImageCard.svelte";
+    import QueryEmptyAlert from "#lib/QueryEmptyAlert.svelte";
+    import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
+    import { setAttr } from "#lib/directus/visualEditor.js";
 
     export let data;
 </script>
@@ -36,6 +36,7 @@
                 mode: "popover",
             })}
         >
+            <!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS content -->
             {@html data.siteConfig.homepage_organization_description}
         </div>
     </div>

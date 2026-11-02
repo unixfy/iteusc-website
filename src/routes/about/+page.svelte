@@ -1,8 +1,8 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
-    import TeamMemberCard from "$lib/TeamMemberCard.svelte";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
-    import { setAttr } from "$lib/directus/visualEditor.js";
+    import PageHeader from "#lib/PageHeader.svelte";
+    import TeamMemberCard from "#lib/TeamMemberCard.svelte";
+    import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
+    import { setAttr } from "#lib/directus/visualEditor.js";
 
     export let data;
 </script>

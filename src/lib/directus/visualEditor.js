@@ -1,6 +1,6 @@
 import { apply, setAttr, remove } from '@directus/visual-editing';
-import { invalidateAll } from '$app/navigation';
-import { PUBLIC_DIRECTUS_URL } from "$env/static/public";
+import { refreshAll } from '$app/navigation';
+import { PUBLIC_DIRECTUS_URL } from "$app/env/public";
 
 let isApplied = false;
 
@@ -21,7 +21,7 @@ export async function initializeVisualEditor() {
                 console.log('Content saved successfully:', data);
 
                 try {
-                    await invalidateAll();
+                    await refreshAll();
                     console.log('Page data refreshed successfully');
                 } catch (error) {
                     console.error('Failed to refresh page data:', error);

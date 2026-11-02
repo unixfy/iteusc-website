@@ -1,5 +1,5 @@
 import {authentication, createDirectus, rest} from '@directus/sdk';
-import {PUBLIC_DIRECTUS_URL} from "$env/static/public";
+import {PUBLIC_DIRECTUS_URL} from "$app/env/public";
 
 function initApp() {
     return createDirectus(
