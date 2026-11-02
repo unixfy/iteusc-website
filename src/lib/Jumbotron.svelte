@@ -1,19 +1,37 @@
 <script>
-    // One-line statement of who can join, from Directus
-    export let statement;
+    import Typed from "typed.js";
+
+    import {onMount, onDestroy} from "svelte";
+
+    let typedJsObject;
+    // on mount, init typed.js on an element with class 'typed'
+    onMount(() => {
+        typedJsObject = new Typed('.typed', {
+            // define the strings that typedjs will loop through
+            strings: ['transportation engineers.', 'transportation planners.', 'transportation enthusiasts.', 'transportation\'s future.'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1200,
+            loop: true
+        })
+    })
+
+    // don't forget to destroy typedJS object once the page is destroyed
+    onDestroy(() => {
+        if (typedJsObject) {
+            typedJsObject.destroy();
+        }
+    })
 </script>
 
+
 <div class="hero min-h-[50vh] bg-[url('/images/jumbotron.jpg')] text-white bg-cover bg-center">
-    <div class="bg-black/60 w-full h-full flex flex-col">
-        <div class="hero-content m-auto flex-col text-center w-full py-12">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-balance">USC Institute of Transportation Engineers</h1>
-            <p class="text-xl md:text-2xl lg:text-3xl font-display text-balance">We are transportation engineers, planners, and enthusiasts.</p>
-            {#if statement}
-                <p class="text-lg text-balance">{statement}</p>
-            {/if}
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a class="btn btn-accent btn-lg" href="/join/">Join USC ITE</a>
-                <a class="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-black" href="#about">Learn more</a>
+    <div class="bg-black/50 w-full h-full flex flex-col">
+        <div class="hero-content m-auto flex-col text-center w-full">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-display">USC Institute of Transportation Engineers</h1>
+            <p class="text-3xl md:text-4xl lg:text-5xl font-bold font-display">We are <span class="typed"></span></p>
+            <div class="max-w-md">
+                <p class="pt-8">⬇ Scroll down to learn more</p>
             </div>
         </div>
     </div>

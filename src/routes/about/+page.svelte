@@ -71,7 +71,7 @@
                     <a
                         class="btn btn-block btn-lg"
                         href="/about/leadership-team/{team.id}"
-                        >{team.start_year}-{parseInt(team.start_year) + 1} Leadership Team</a
+                        >{team.start_year} Leadership Team</a
                     >
                 {/each}
             </div>

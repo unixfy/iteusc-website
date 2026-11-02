@@ -4,6 +4,10 @@
 
     let navbarItems = [
         {
+            name: "Home",
+            url: "/",
+        },
+        {
             name: "About",
             url: "/about/",
         },
@@ -35,17 +39,14 @@
             name: "Hall of Fame",
             url: "/hall-of-fame/",
         },
-        {
-            name: "Contact",
-            url: "/contact/",
-        },
     ];
 
     let menuOpen = false;
     let menu;
 
     // Match the section as well as the page itself, e.g. /about/leadership-team/x -> About
-    const isCurrent = (url, pathname) => `${pathname}/`.startsWith(url);
+    const isCurrent = (url, pathname) =>
+        url === "/" ? pathname === "/" : `${pathname}/`.startsWith(url);
 
     afterNavigate(() => {
         menuOpen = false;

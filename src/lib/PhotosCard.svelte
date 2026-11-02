@@ -25,7 +25,7 @@
         {:else}
             <img
                 src={image}
-                alt=""
+                alt={name}
                 class="w-full h-full object-cover object-center rounded-lg aspect-video sm:aspect-square"
                 loading="lazy"
                 width="auto"

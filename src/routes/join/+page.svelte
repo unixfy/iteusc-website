@@ -2,9 +2,6 @@
     export let data;
 
     import { setAttr } from "$lib/directus/visualEditor.js";
-
-    // The embed URL shows Google's framed view, so drop that flag for the full-page link
-    $: formPageUrl = data.siteConfig.join_form_url?.replace(/[?&]embedded=true/, "");
 </script>
 
 <div class="bg-[url('/images/a-line.jpg')] bg-cover bg-center min-h-[50vh] flex">
@@ -12,7 +9,7 @@
         class="bg-black/60 w-full px-4 py-12 text-white flex flex-col place-content-center text-center"
     >
         <h1 class="section-heading">Join USC ITE 👋</h1>
-        <p
+        <h2
             class="section-subheading"
             data-directus={setAttr({
                 collection: "site_config",
@@ -22,26 +19,20 @@
             })}
         >
             {data.siteConfig.join_statement}
-        </p>
+        </h2>
     </div>
 </div>
 
 <!--Show steps for joining using DaisyUI components-->
 <div class="ct text-center flex flex-col space-y-8 py-8">
-    <h2 class="section-heading">How to join</h2>
+    <h2 class="section-heading">It's so easy to join</h2>
     <ul class="steps w-full">
         <li class="step step-primary">
-            <p>Fill out the application form</p>
+            <p>Join our mailing list</p>
         </li>
         <li class="step">We'll reach out with more info</li>
-        <li class="step">Welcome to USC ITE!</li>
+        <li class="step">Success!</li>
     </ul>
-
-    <p class="mx-auto max-w-2xl text-balance">
-        The form lists this semester's deadline and dues. If the deadline has
-        passed, <a class="link" href="/contact/">contact us</a> to ask about the
-        next application round.
-    </p>
 
     <!--    Google Form iframe -->
     <div
@@ -53,20 +44,13 @@
         })}
     >
         {#if data.siteConfig.join_form_url}
-            <a class="link mb-4 inline-block py-3" href={formPageUrl} target="_blank" rel="noreferrer">
-                Open the form in a new tab
-            </a>
             <iframe
                 class="h-[1150px] md:h-[950px] w-full"
                 src={data.siteConfig.join_form_url}
-                title="USC ITE application form"
+                title="Google Form to subscribe to ITE newsletter"
             ></iframe>
         {:else}
-            <p>
-                The application form isn't available right now. Please
-                <a class="link" href="/contact/">contact us</a> and we'll help you
-                get started.
-            </p>
+            <p>No form URL defined in API!</p>
         {/if}
     </div>
 </div>

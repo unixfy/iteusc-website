@@ -10,10 +10,10 @@
 </script>
 
 <!-- Page jumbotron -->
-<Jumbotron statement={data.siteConfig.join_statement} />
+<Jumbotron />
 
 <!-- What is USC ITE? -->
-<div id="about" class="section bg-ite-blue text-white scroll-mt-16">
+<div class="section bg-ite-blue text-white">
     <div class="ct">
         <h2
             class="font-display section-subheading font-bold max-w-4xl"
@@ -24,7 +24,7 @@
                 mode: "popover",
             })}
         >
-            {data.siteConfig.homepage_organization_tagline}
+            ▶ {data.siteConfig.homepage_organization_tagline}
         </h2>
 
         <div
@@ -137,7 +137,7 @@
                 <h2
                     class="my-auto text-3xl md:text-4xl font-bold text-white pb-4 font-display"
                 >
-                    Join USC ITE
+                    What are you waiting for? Join USC ITE now!
                 </h2>
                 <p
                     class="text-2xl font-display"
@@ -153,7 +153,7 @@
             </div>
             <a
                 class="btn btn-accent md:ml-auto my-auto btn-lg"
-                href="/join/">Join USC ITE</a
+                href="/join/">Join Us Now!</a
             >
         </div>
     </div>

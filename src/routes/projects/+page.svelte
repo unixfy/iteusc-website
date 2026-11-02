@@ -7,9 +7,6 @@
     export let data;
 
     let dialogs = [];
-
-    const truncate = (text, length = 250) =>
-        text.length > length ? `${text.substring(0, length).trimEnd()}...` : text;
 </script>
 
 <PageHeader
@@ -37,29 +34,29 @@
                         src="{getStorageDirectUrl(
                             project.image,
                         )}?quality=50&width=400&format=webp"
-                        alt=""
+                        alt={project.name}
                     />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">{project.name}</h2>
                     <p>
                         <!--                            this description in the card is truncated to 250 characters -->
-                        {truncate(project.description)}
+                        {project.description.substring(0, 250)}...
                     </p>
                 </div>
             </button>
 
             <dialog class="modal" bind:this={dialogs[i]} aria-labelledby="project-title-{i}">
-                <div class="modal-box">
-                    <h2 id="project-title-{i}" class="text-lg font-bold">{project.name}</h2>
+                <div class="modal-box relative">
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle absolute right-2 top-2" aria-label="Close">✕</button>
+                    </form>
+                    <h3 id="project-title-{i}" class="text-lg font-bold pr-8">{project.name}</h3>
                     <p class="py-4">
                         {project.description}
                     </p>
-                    <form method="dialog" class="modal-action">
-                        <button class="btn">Close</button>
-                    </form>
                 </div>
-                <!-- Clicking outside closes too; the Close button above is the keyboard path, so skip this in tab order -->
+                <!-- Clicking outside closes too; the ✕ button above is the keyboard path, so skip this in tab order -->
                 <form method="dialog" class="modal-backdrop">
                     <button tabindex="-1" aria-hidden="true">Close</button>
                 </form>

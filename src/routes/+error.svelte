@@ -14,11 +14,7 @@
                 - {$page.error.message}
             {/if}
         </div>
-        {#if $page.status === 404}
-            <p class="mt-8">We couldn't find that page. Head back <a href="/" class="link">home</a>.</p>
-        {:else}
-            <p class="mt-8">You can try refreshing the page or going back <a href="/" class="link">home</a>.</p>
-        {/if}
+        <p class="mt-8">You can try refreshing the page or going back <a href="/" class="link">home</a>.</p>
         <p class="text-sm italic font-light">Props if you recognize what this image is ;)</p>
     </div>
 </div>
