@@ -24,6 +24,46 @@
             {data.missionStatement}
         </p>
     </div>
+    <!--   Highlighted awards album section -->
+    {#if data.highlightedAlbum?.image}
+        <a
+            class="group mt-4 flex min-h-24 md:min-h-32 overflow-hidden bg-base-200"
+            href={data.highlightedAlbum.url}
+            target="_blank"
+            rel="noreferrer"
+            data-directus={setAttr({
+                collection: "site_config",
+                item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
+                fields: "about_highlighted_photo_album",
+                mode: "popover",
+            })}
+        >
+            <div class="relative w-2/5 md:w-48 shrink-0">
+                <img
+                    src="{getStorageDirectUrl(
+                        data.highlightedAlbum.image,
+                    )}?format=webp&width=640&quality=70"
+                    alt=""
+                    class="absolute inset-0 h-full w-full object-cover object-center"
+                    loading="lazy"
+                />
+            </div>
+            <div class="flex flex-1 min-w-0 flex-col justify-center gap-2 px-4 py-4 md:flex-row md:items-center md:justify-between md:gap-8 md:px-8">
+                <div class="min-w-0">
+                    <h2 class="font-display font-bold text-xl md:text-3xl mb-1">
+                        Our awards
+                    </h2>
+                    <p class="text-sm md:text-base text-base-content/80">
+                        Our chapter has consistently been recognized for our excellence. Learn more here.
+                    </p>
+                </div>
+                <p class="md:shrink-0 text-sm md:text-base underline decoration-usc-cardinal underline-offset-4 group-hover:text-usc-cardinal">
+                    {data.highlightedAlbum.name.trim()}
+                </p>
+            </div>
+        </a>
+    {/if}
+
     <!--   Current team section -->
     <div class="section"             data-directus={setAttr({
                 collection: "site_config",
