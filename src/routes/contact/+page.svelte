@@ -1,9 +1,6 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
 
-    let name = "";
-    let email = "";
-    let message = "";
 </script>
 
 <PageHeader

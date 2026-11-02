@@ -1,5 +1,4 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
     import TeamMemberCard from "$lib/TeamMemberCard.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
 

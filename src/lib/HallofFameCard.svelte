@@ -58,6 +58,7 @@
             Degrees earned: {degrees}
         </p>
 
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS content -->
         <p class="directus-html">{@html bio}</p>
 
         <a

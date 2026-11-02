@@ -36,6 +36,7 @@
                 mode: "popover",
             })}
         >
+            <!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS content -->
             {@html data.siteConfig.homepage_organization_description}
         </div>
     </div>

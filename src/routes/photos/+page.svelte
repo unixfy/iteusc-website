@@ -26,7 +26,7 @@
     {#await data.streamed.items}
         <div class="section-heading-skeleton"></div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {#each new Array(16) as item}
+            {#each new Array(16)}
                 <div class="w-full h-64 rounded-lg skeleton" />
             {/each}
         </div>

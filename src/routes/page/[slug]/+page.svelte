@@ -116,6 +116,7 @@
                 {/if}
             {:else}
                 <div class="directus-html">
+                    <!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS content -->
                     {@html generateHTML({ type: "doc", content: [content] }, [
                         StarterKit,
                         Link,
@@ -131,6 +132,7 @@
             fields: "content",
             mode: "drawer",
         })}>
+            <!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS content -->
             {@html data.page.content}
         </div>
     {/if}

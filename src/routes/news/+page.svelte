@@ -1,6 +1,5 @@
 <script>
     import PageHeader from "$lib/PageHeader.svelte";
-    import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
     import { format, parseISO } from "date-fns";
     import PageListCard from "$lib/PageListCard.svelte";
     import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
