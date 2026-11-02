@@ -18,9 +18,23 @@ export async function load() {
             ]
         })),
         directus.request(readItems('site_config', {
-            fields: ['current_leadership_team','mission_statement']
+            fields: ['current_leadership_team','mission_statement','about_highlighted_photo_album']
         }))
     ]);
+
+    // about_highlighted_photo_album is a JSON field ({ key, collection }), not a relation, so the album needs its own request.
+    // Filtering (rather than reading by key) gives an empty list instead of an error if the album is unpublished or deleted.
+    const highlightedAlbumId = siteConfig.about_highlighted_photo_album?.key;
+    const [highlightedAlbum = null] = highlightedAlbumId
+        ? await directus.request(readItems('photo_archive_items', {
+            filter: {
+                'id': { "_eq": highlightedAlbumId },
+                'status': { "_eq": "published" }
+            },
+            fields: ['id', 'name', 'url', 'image'],
+            limit: 1
+        }))
+        : [];
 
     const currentLeadershipTeamId = siteConfig.current_leadership_team;
     const missionStatement = siteConfig.mission_statement;
@@ -46,6 +60,7 @@ export async function load() {
         otherLeadershipTeams: otherLeadershipTeams,
         currentLeadershipTeamYearString: currentLeadershipTeamYearString,
         missionStatement: missionStatement,
+        highlightedAlbum: highlightedAlbum,
         // Return the title for this page, which will be handled in the layout svelte file for SEO
         title: "About"
     }

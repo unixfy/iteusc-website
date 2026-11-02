@@ -4,5 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import adapter from '@sveltejs/adapter-cloudflare';
 
 export default defineConfig({
-	plugins: [sveltekit({ adapter: adapter() }), tailwindcss()]
+	plugins: [sveltekit({ adapter: adapter() }), tailwindcss()],
+	server: {
+		allowedHosts: true
+	}
 });
