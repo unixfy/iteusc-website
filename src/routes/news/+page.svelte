@@ -1,9 +1,9 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
+    import PageHeader from "#lib/PageHeader.svelte";
     import { format, parseISO } from "date-fns";
-    import PageListCard from "$lib/PageListCard.svelte";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
-    import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
+    import PageListCard from "#lib/PageListCard.svelte";
+    import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
+    import makeAuthorsNameString from "#lib/directus/makeAuthorsNameString.js";
     import { queryParameters } from "sveltekit-search-params";
 
     const searchParams = queryParameters(

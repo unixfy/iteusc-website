@@ -1,7 +1,7 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
-    import GoogleCalendarEmbed from "$lib/GoogleCalendarEmbed.svelte";
-    import {setAttr} from "$lib/directus/visualEditor.js";
+    import PageHeader from "#lib/PageHeader.svelte";
+    import GoogleCalendarEmbed from "#lib/GoogleCalendarEmbed.svelte";
+    import {setAttr} from "#lib/directus/visualEditor.js";
     export let data;
 </script>
 

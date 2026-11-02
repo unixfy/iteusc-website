@@ -1,10 +1,10 @@
 <script>
     export let data;
-    import PageHeader from "$lib/PageHeader.svelte";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import PageHeader from "#lib/PageHeader.svelte";
+    import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
     import { format, parseISO } from "date-fns";
-    import PhotosCard from "$lib/PhotosCard.svelte";
-    import { setAttr } from "$lib/directus/visualEditor.js";
+    import PhotosCard from "#lib/PhotosCard.svelte";
+    import { setAttr } from "#lib/directus/visualEditor.js";
 
     let screenSize;
 </script>

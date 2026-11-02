@@ -1,7 +1,7 @@
 import { error } from "@sveltejs/kit";
-import { directus } from "$lib/directus/client.js";
+import { directus } from "#lib/directus/client.js";
 import { readItems } from "@directus/sdk";
-import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
 import { decodeHTML } from "entities";
 
 export async function load({ params }) {

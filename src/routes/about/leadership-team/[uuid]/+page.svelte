@@ -1,6 +1,6 @@
 <script>
-    import TeamMemberCard from "$lib/TeamMemberCard.svelte";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
+    import TeamMemberCard from "#lib/TeamMemberCard.svelte";
+    import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
 
     export let data;
 </script>

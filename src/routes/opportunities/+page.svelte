@@ -1,7 +1,7 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
-    import OpportunitiesCard from "$lib/OpportunitiesCard.svelte";
-    import QueryEmptyAlert from "$lib/QueryEmptyAlert.svelte";
+    import PageHeader from "#lib/PageHeader.svelte";
+    import OpportunitiesCard from "#lib/OpportunitiesCard.svelte";
+    import QueryEmptyAlert from "#lib/QueryEmptyAlert.svelte";
     import { parseISO } from "date-fns";
     import { formatInTimeZone } from "date-fns-tz";
 

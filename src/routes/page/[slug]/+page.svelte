@@ -1,14 +1,14 @@
 <script>
     import { format, parseISO } from "date-fns";
-    import { getStorageDirectUrl } from "$lib/directus/getStorageDirectUrl.js";
-    import makeAuthorsNameString from "$lib/directus/makeAuthorsNameString.js";
+    import { getStorageDirectUrl } from "#lib/directus/getStorageDirectUrl.js";
+    import makeAuthorsNameString from "#lib/directus/makeAuthorsNameString.js";
     import { generateHTML } from "@tiptap/html";
     import StarterKit from "@tiptap/starter-kit";
     import Link from "@tiptap/extension-link";
-    import Video from "$lib/blocks/Video.svelte";
-    import ImageGalleryImage from "$lib/blocks/ImageGalleryImage.svelte";
+    import Video from "#lib/blocks/Video.svelte";
+    import ImageGalleryImage from "#lib/blocks/ImageGalleryImage.svelte";
     import { Image } from "@unpic/svelte";
-    import { setAttr } from "$lib/directus/visualEditor.js";
+    import { setAttr } from "#lib/directus/visualEditor.js";
 
     export let data;
 </script>

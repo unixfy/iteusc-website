@@ -1,6 +1,6 @@
-import { directus } from "$lib/directus/client.js";
+import { directus } from "#lib/directus/client.js";
 import { readItems } from "@directus/sdk";
-import { groupDataByProperty } from "$lib/directus/groupDataByProperty";
+import { groupDataByProperty } from "#lib/directus/groupDataByProperty.js";
 
 export async function load() {
     // Pull hall of fame items from Directus, then group them by their year_inducted attribute
