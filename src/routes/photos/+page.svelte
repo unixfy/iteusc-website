@@ -14,7 +14,7 @@
 <PageHeader title="Photos" subtitle="See what we do at USC ITE." />
 
 <div class="ct">
-    <p class="font-display p-readable mb-8 max-w-3xl">
+    <p class="font-display p-readable mb-8">
         Each year, USC ITE members visit local transportation projects and
         programs, engage in direct conversations with industry experts, and
         participate in friendly competitions with other ITE student chapters.

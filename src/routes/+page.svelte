@@ -16,7 +16,7 @@
 <div class="section bg-ite-blue text-white">
     <div class="ct">
         <h2
-            class="font-display section-subheading font-bold max-w-4xl"
+            class="font-display section-subheading font-bold"
             data-directus={setAttr({
                 collection: "site_config",
                 item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
@@ -28,7 +28,7 @@
         </h2>
 
         <div
-            class="flex max-w-3xl flex-col space-y-4 text-lg"
+            class="flex flex-col space-y-4 text-xl"
             data-directus={setAttr({
                 collection: "site_config",
                 item: "797fe000-9c1f-4ed1-afaf-1c6610ed1941",
