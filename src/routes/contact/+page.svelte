@@ -1,5 +1,5 @@
 <script>
-    import PageHeader from "$lib/PageHeader.svelte";
+    import PageHeader from "#lib/PageHeader.svelte";
 
     const formUrl =
         "https://us17.list-manage.com/contact-form?u=0b0f9abcfdce6d20a98515274&form_id=d7d8b612580a749bf7e39b257458da16";

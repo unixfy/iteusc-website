@@ -1,7 +1,7 @@
 <script>
     export let data;
 
-    import { setAttr } from "$lib/directus/visualEditor.js";
+    import { setAttr } from "#lib/directus/visualEditor.js";
 
     // The embed URL shows Google's framed view, so drop that flag for the full-page link
     $: formPageUrl = data.siteConfig.join_form_url?.replace(/[?&]embedded=true/, "");

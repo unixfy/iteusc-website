@@ -1,4 +1,4 @@
-import { directus } from "$lib/directus/client.js";
+import { directus } from "#lib/directus/client.js";
 import { readItems } from "@directus/sdk";
 
 export async function load() {

@@ -1,5 +1,5 @@
 <script>
-    import {page} from "$app/stores";
+    import { page } from "$app/state";
 </script>
 <div class="min-h-screen flex text-center">
     <div class="mt-8 mx-auto space-y-4 p-8">
@@ -9,9 +9,9 @@
 
         <!--        Display error message from SvelteKit -->
         <div class="text-xl sm:text-2xl">
-            {$page.status}
-            {#if $page.error.message}
-                - {$page.error.message}
+            {page.status}
+            {#if page.error.message}
+                - {page.error.message}
             {/if}
         </div>
         <p class="mt-8">You can try refreshing the page or going back <a href="/" class="link">home</a>.</p>
